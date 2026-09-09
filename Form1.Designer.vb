@@ -24,7 +24,7 @@ Partial Class login
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(login))
         Me.MaterialCard1 = New ReaLTaiizor.Controls.MaterialCard()
-        Me.FoxButton1 = New ReaLTaiizor.Controls.FoxButton()
+        Me.loginbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.passtxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.usertxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
@@ -40,7 +40,7 @@ Partial Class login
         'MaterialCard1
         '
         Me.MaterialCard1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MaterialCard1.Controls.Add(Me.FoxButton1)
+        Me.MaterialCard1.Controls.Add(Me.loginbtn)
         Me.MaterialCard1.Controls.Add(Me.passtxtbox)
         Me.MaterialCard1.Controls.Add(Me.Label3)
         Me.MaterialCard1.Controls.Add(Me.usertxtbox)
@@ -57,25 +57,25 @@ Partial Class login
         Me.MaterialCard1.Size = New System.Drawing.Size(361, 417)
         Me.MaterialCard1.TabIndex = 0
         '
-        'FoxButton1
+        'loginbtn
         '
-        Me.FoxButton1.BackColor = System.Drawing.Color.Transparent
-        Me.FoxButton1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.FoxButton1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
-        Me.FoxButton1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.FoxButton1.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.FoxButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.FoxButton1.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.FoxButton1.DownColor = System.Drawing.Color.Silver
-        Me.FoxButton1.EnabledCalc = True
-        Me.FoxButton1.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FoxButton1.ForeColor = System.Drawing.Color.White
-        Me.FoxButton1.Location = New System.Drawing.Point(23, 327)
-        Me.FoxButton1.Name = "FoxButton1"
-        Me.FoxButton1.OverColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.FoxButton1.Size = New System.Drawing.Size(310, 63)
-        Me.FoxButton1.TabIndex = 5
-        Me.FoxButton1.Text = "Login"
+        Me.loginbtn.BackColor = System.Drawing.Color.Transparent
+        Me.loginbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.loginbtn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
+        Me.loginbtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.loginbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.loginbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.loginbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.loginbtn.DownColor = System.Drawing.Color.Silver
+        Me.loginbtn.EnabledCalc = True
+        Me.loginbtn.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.loginbtn.ForeColor = System.Drawing.Color.White
+        Me.loginbtn.Location = New System.Drawing.Point(23, 327)
+        Me.loginbtn.Name = "loginbtn"
+        Me.loginbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.loginbtn.Size = New System.Drawing.Size(310, 63)
+        Me.loginbtn.TabIndex = 5
+        Me.loginbtn.Text = "Login"
         '
         'passtxtbox
         '
@@ -92,7 +92,7 @@ Partial Class login
         Me.passtxtbox.Size = New System.Drawing.Size(310, 42)
         Me.passtxtbox.TabIndex = 4
         Me.passtxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.passtxtbox.UseSystemPasswordChar = False
+        Me.passtxtbox.UseSystemPasswordChar = True
         '
         'Label3
         '
@@ -167,6 +167,7 @@ Partial Class login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(842, 463)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.MaterialCard1)
@@ -191,5 +192,5 @@ Partial Class login
     Friend WithEvents passtxtbox As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents usertxtbox As ReaLTaiizor.Controls.DungeonTextBox
-    Friend WithEvents FoxButton1 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents loginbtn As ReaLTaiizor.Controls.FoxButton
 End Class

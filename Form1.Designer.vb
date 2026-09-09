@@ -24,14 +24,14 @@ Partial Class login
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(login))
         Me.MaterialCard1 = New ReaLTaiizor.Controls.MaterialCard()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.usertxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.passtxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
         Me.FoxButton1 = New ReaLTaiizor.Controls.FoxButton()
+        Me.passtxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.usertxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MaterialCard1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,92 +57,6 @@ Partial Class login
         Me.MaterialCard1.Size = New System.Drawing.Size(361, 417)
         Me.MaterialCard1.TabIndex = 0
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(361, 55)
-        Me.Panel1.TabIndex = 0
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(-1, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(442, 464)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Nirmala UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(109, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(144, 40)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Welcome"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(17, 92)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(121, 32)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Username"
-        '
-        'usertxtbox
-        '
-        Me.usertxtbox.BackColor = System.Drawing.Color.Transparent
-        Me.usertxtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.usertxtbox.EdgeColor = System.Drawing.Color.White
-        Me.usertxtbox.Font = New System.Drawing.Font("Nirmala UI", 18.0!)
-        Me.usertxtbox.ForeColor = System.Drawing.Color.Black
-        Me.usertxtbox.Location = New System.Drawing.Point(23, 127)
-        Me.usertxtbox.MaxLength = 32767
-        Me.usertxtbox.Multiline = False
-        Me.usertxtbox.Name = "usertxtbox"
-        Me.usertxtbox.ReadOnly = False
-        Me.usertxtbox.Size = New System.Drawing.Size(310, 42)
-        Me.usertxtbox.TabIndex = 2
-        Me.usertxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.usertxtbox.UseSystemPasswordChar = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(17, 191)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(111, 32)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Password"
-        '
-        'passtxtbox
-        '
-        Me.passtxtbox.BackColor = System.Drawing.Color.Transparent
-        Me.passtxtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.passtxtbox.EdgeColor = System.Drawing.Color.White
-        Me.passtxtbox.Font = New System.Drawing.Font("Nirmala UI", 18.0!)
-        Me.passtxtbox.ForeColor = System.Drawing.Color.Black
-        Me.passtxtbox.Location = New System.Drawing.Point(23, 226)
-        Me.passtxtbox.MaxLength = 32767
-        Me.passtxtbox.Multiline = False
-        Me.passtxtbox.Name = "passtxtbox"
-        Me.passtxtbox.ReadOnly = False
-        Me.passtxtbox.Size = New System.Drawing.Size(310, 42)
-        Me.passtxtbox.TabIndex = 4
-        Me.passtxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.passtxtbox.UseSystemPasswordChar = False
-        '
         'FoxButton1
         '
         Me.FoxButton1.BackColor = System.Drawing.Color.Transparent
@@ -162,6 +76,92 @@ Partial Class login
         Me.FoxButton1.Size = New System.Drawing.Size(310, 63)
         Me.FoxButton1.TabIndex = 5
         Me.FoxButton1.Text = "Login"
+        '
+        'passtxtbox
+        '
+        Me.passtxtbox.BackColor = System.Drawing.Color.Transparent
+        Me.passtxtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.passtxtbox.EdgeColor = System.Drawing.Color.White
+        Me.passtxtbox.Font = New System.Drawing.Font("Nirmala UI", 18.0!)
+        Me.passtxtbox.ForeColor = System.Drawing.Color.Black
+        Me.passtxtbox.Location = New System.Drawing.Point(23, 226)
+        Me.passtxtbox.MaxLength = 32767
+        Me.passtxtbox.Multiline = False
+        Me.passtxtbox.Name = "passtxtbox"
+        Me.passtxtbox.ReadOnly = False
+        Me.passtxtbox.Size = New System.Drawing.Size(310, 42)
+        Me.passtxtbox.TabIndex = 4
+        Me.passtxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.passtxtbox.UseSystemPasswordChar = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Location = New System.Drawing.Point(17, 191)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(111, 32)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Password"
+        '
+        'usertxtbox
+        '
+        Me.usertxtbox.BackColor = System.Drawing.Color.Transparent
+        Me.usertxtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.usertxtbox.EdgeColor = System.Drawing.Color.White
+        Me.usertxtbox.Font = New System.Drawing.Font("Nirmala UI", 18.0!)
+        Me.usertxtbox.ForeColor = System.Drawing.Color.Black
+        Me.usertxtbox.Location = New System.Drawing.Point(23, 127)
+        Me.usertxtbox.MaxLength = 32767
+        Me.usertxtbox.Multiline = False
+        Me.usertxtbox.Name = "usertxtbox"
+        Me.usertxtbox.ReadOnly = False
+        Me.usertxtbox.Size = New System.Drawing.Size(310, 42)
+        Me.usertxtbox.TabIndex = 2
+        Me.usertxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.usertxtbox.UseSystemPasswordChar = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Black
+        Me.Label2.Location = New System.Drawing.Point(17, 92)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(121, 32)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Username"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(361, 55)
+        Me.Panel1.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Nirmala UI", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(109, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(144, 40)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Welcome"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(39, 48)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(366, 365)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'login
         '

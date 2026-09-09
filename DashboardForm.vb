@@ -7,6 +7,8 @@
 
         CurrentUserRole = role
         CurrentFullName = name
+
+        rolelabel.Text = role
     End Sub
 
 

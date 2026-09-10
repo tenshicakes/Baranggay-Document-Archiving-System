@@ -112,10 +112,13 @@ Partial Class DashboardForm
         Me.request_searchbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.request_searchbar = New ReaLTaiizor.Controls.DungeonTextBox()
         Me.request_filterbtn = New ReaLTaiizor.Controls.FoxButton()
-        Me.DungeonComboBox1 = New ReaLTaiizor.Controls.DungeonComboBox()
+        Me.request_filtercombo = New ReaLTaiizor.Controls.DungeonComboBox()
         Me.MaterialCard3 = New ReaLTaiizor.Controls.MaterialCard()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.requestrecorddgv = New System.Windows.Forms.DataGridView()
+        Me.approvebtn = New ReaLTaiizor.Controls.FoxButton()
+        Me.denybtn = New ReaLTaiizor.Controls.FoxButton()
+        Me.approvedenytlp = New System.Windows.Forms.TableLayoutPanel()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -155,6 +158,7 @@ Partial Class DashboardForm
         Me.requestpanel.SuspendLayout()
         Me.MaterialCard3.SuspendLayout()
         CType(Me.requestrecorddgv, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.approvedenytlp.SuspendLayout()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -958,8 +962,8 @@ Partial Class DashboardForm
         'contentpanel
         '
         Me.contentpanel.Controls.Add(Me.requestpanel)
-        Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
+        Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.contentpanel.Location = New System.Drawing.Point(0, 0)
         Me.contentpanel.Name = "contentpanel"
@@ -1432,9 +1436,10 @@ Partial Class DashboardForm
         Me.requestpanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.requestpanel.Controls.Add(Me.approvedenytlp)
         Me.requestpanel.Controls.Add(Me.Label20)
         Me.requestpanel.Controls.Add(Me.MaterialCard3)
-        Me.requestpanel.Controls.Add(Me.DungeonComboBox1)
+        Me.requestpanel.Controls.Add(Me.request_filtercombo)
         Me.requestpanel.Controls.Add(Me.request_filterbtn)
         Me.requestpanel.Controls.Add(Me.request_searchbtn)
         Me.requestpanel.Controls.Add(Me.request_searchbar)
@@ -1504,35 +1509,35 @@ Partial Class DashboardForm
         Me.request_filterbtn.TabIndex = 4
         Me.request_filterbtn.Text = "Search"
         '
-        'DungeonComboBox1
+        'request_filtercombo
         '
-        Me.DungeonComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DungeonComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.DungeonComboBox1.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.DungeonComboBox1.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
-        Me.DungeonComboBox1.ColorC = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.DungeonComboBox1.ColorD = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
-        Me.DungeonComboBox1.ColorE = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.DungeonComboBox1.ColorF = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.DungeonComboBox1.ColorG = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.DungeonComboBox1.ColorH = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.DungeonComboBox1.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.DungeonComboBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DungeonComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DungeonComboBox1.DropDownHeight = 400
-        Me.DungeonComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DungeonComboBox1.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold)
-        Me.DungeonComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.DungeonComboBox1.FormattingEnabled = True
-        Me.DungeonComboBox1.HoverSelectionColor = System.Drawing.Color.Empty
-        Me.DungeonComboBox1.IntegralHeight = False
-        Me.DungeonComboBox1.ItemHeight = 40
-        Me.DungeonComboBox1.Items.AddRange(New Object() {"test", "test", "test", "test"})
-        Me.DungeonComboBox1.Location = New System.Drawing.Point(393, 93)
-        Me.DungeonComboBox1.Name = "DungeonComboBox1"
-        Me.DungeonComboBox1.Size = New System.Drawing.Size(259, 46)
-        Me.DungeonComboBox1.StartIndex = 0
-        Me.DungeonComboBox1.TabIndex = 5
+        Me.request_filtercombo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.request_filtercombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.request_filtercombo.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
+        Me.request_filtercombo.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.request_filtercombo.ColorC = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.request_filtercombo.ColorD = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.request_filtercombo.ColorE = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.request_filtercombo.ColorF = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.request_filtercombo.ColorG = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.request_filtercombo.ColorH = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.request_filtercombo.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.request_filtercombo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.request_filtercombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.request_filtercombo.DropDownHeight = 400
+        Me.request_filtercombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.request_filtercombo.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold)
+        Me.request_filtercombo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.request_filtercombo.FormattingEnabled = True
+        Me.request_filtercombo.HoverSelectionColor = System.Drawing.Color.Empty
+        Me.request_filtercombo.IntegralHeight = False
+        Me.request_filtercombo.ItemHeight = 40
+        Me.request_filtercombo.Items.AddRange(New Object() {"test", "test", "test", "test"})
+        Me.request_filtercombo.Location = New System.Drawing.Point(393, 93)
+        Me.request_filtercombo.Name = "request_filtercombo"
+        Me.request_filtercombo.Size = New System.Drawing.Size(259, 46)
+        Me.request_filtercombo.StartIndex = 0
+        Me.request_filtercombo.TabIndex = 5
         '
         'MaterialCard3
         '
@@ -1548,7 +1553,7 @@ Partial Class DashboardForm
         Me.MaterialCard3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard3.Name = "MaterialCard3"
         Me.MaterialCard3.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard3.Size = New System.Drawing.Size(771, 253)
+        Me.MaterialCard3.Size = New System.Drawing.Size(771, 202)
         Me.MaterialCard3.TabIndex = 6
         '
         'Label20
@@ -1556,7 +1561,7 @@ Partial Class DashboardForm
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.White
-        Me.Label20.Location = New System.Drawing.Point(21, 153)
+        Me.Label20.Location = New System.Drawing.Point(15, 153)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(203, 32)
         Me.Label20.TabIndex = 7
@@ -1580,8 +1585,66 @@ Partial Class DashboardForm
         Me.requestrecorddgv.ShowCellToolTips = False
         Me.requestrecorddgv.ShowEditingIcon = False
         Me.requestrecorddgv.ShowRowErrors = False
-        Me.requestrecorddgv.Size = New System.Drawing.Size(743, 225)
+        Me.requestrecorddgv.Size = New System.Drawing.Size(743, 174)
         Me.requestrecorddgv.TabIndex = 0
+        '
+        'approvebtn
+        '
+        Me.approvebtn.BackColor = System.Drawing.Color.Transparent
+        Me.approvebtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.approvebtn.BorderColor = System.Drawing.Color.Transparent
+        Me.approvebtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.approvebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.approvebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.approvebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.approvebtn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.approvebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.approvebtn.EnabledCalc = True
+        Me.approvebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.approvebtn.ForeColor = System.Drawing.Color.White
+        Me.approvebtn.Location = New System.Drawing.Point(3, 3)
+        Me.approvebtn.Name = "approvebtn"
+        Me.approvebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.approvebtn.Size = New System.Drawing.Size(379, 40)
+        Me.approvebtn.TabIndex = 8
+        Me.approvebtn.Text = "Approve"
+        '
+        'denybtn
+        '
+        Me.denybtn.BackColor = System.Drawing.Color.Transparent
+        Me.denybtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.denybtn.BorderColor = System.Drawing.Color.Transparent
+        Me.denybtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.denybtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.denybtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.denybtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.denybtn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.denybtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.denybtn.EnabledCalc = True
+        Me.denybtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.denybtn.ForeColor = System.Drawing.Color.White
+        Me.denybtn.Location = New System.Drawing.Point(388, 3)
+        Me.denybtn.Name = "denybtn"
+        Me.denybtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.denybtn.Size = New System.Drawing.Size(380, 40)
+        Me.denybtn.TabIndex = 9
+        Me.denybtn.Text = "Deny"
+        '
+        'approvedenytlp
+        '
+        Me.approvedenytlp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.approvedenytlp.ColumnCount = 2
+        Me.approvedenytlp.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.approvedenytlp.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.approvedenytlp.Controls.Add(Me.approvebtn, 0, 0)
+        Me.approvedenytlp.Controls.Add(Me.denybtn, 1, 0)
+        Me.approvedenytlp.Location = New System.Drawing.Point(22, 399)
+        Me.approvedenytlp.Name = "approvedenytlp"
+        Me.approvedenytlp.RowCount = 1
+        Me.approvedenytlp.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.approvedenytlp.Size = New System.Drawing.Size(771, 46)
+        Me.approvedenytlp.TabIndex = 10
         '
         'DashboardForm
         '
@@ -1651,6 +1714,7 @@ Partial Class DashboardForm
         Me.requestpanel.PerformLayout()
         Me.MaterialCard3.ResumeLayout(False)
         CType(Me.requestrecorddgv, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.approvedenytlp.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1741,11 +1805,14 @@ Partial Class DashboardForm
     Friend WithEvents mmtxtbox As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents registerbtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents requestpanel As Panel
-    Friend WithEvents DungeonComboBox1 As ReaLTaiizor.Controls.DungeonComboBox
+    Friend WithEvents request_filtercombo As ReaLTaiizor.Controls.DungeonComboBox
     Friend WithEvents request_filterbtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents request_searchbtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents request_searchbar As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents MaterialCard3 As ReaLTaiizor.Controls.MaterialCard
     Friend WithEvents Label20 As Label
     Friend WithEvents requestrecorddgv As DataGridView
+    Friend WithEvents denybtn As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents approvebtn As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents approvedenytlp As TableLayoutPanel
 End Class

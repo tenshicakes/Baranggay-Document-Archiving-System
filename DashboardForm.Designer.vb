@@ -92,22 +92,22 @@ Partial Class DashboardForm
         Me.registerformpanel = New System.Windows.Forms.Panel()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.formcard = New ReaLTaiizor.Controls.MaterialCard()
-        Me.birthdatetlp = New System.Windows.Forms.TableLayoutPanel()
-        Me.DungeonTextBox7 = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.DungeonTextBox8 = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.DungeonTextBox9 = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.numbertxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.addresstxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.middletxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.surnametxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.firstnametxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.registerformflp = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.DungeonTextBox2 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.DungeonTextBox3 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.DungeonTextBox4 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.DungeonTextBox5 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.DungeonTextBox6 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.DungeonTextBox7 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.DungeonTextBox8 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.FoxButton10 = New ReaLTaiizor.Controls.FoxButton()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -143,8 +143,7 @@ Partial Class DashboardForm
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.registerformpanel.SuspendLayout()
         Me.formcard.SuspendLayout()
-        Me.birthdatetlp.SuspendLayout()
-        Me.registerformflp.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -1003,7 +1002,7 @@ Partial Class DashboardForm
         Me.DungeonTextBox1.Multiline = False
         Me.DungeonTextBox1.Name = "DungeonTextBox1"
         Me.DungeonTextBox1.ReadOnly = False
-        Me.DungeonTextBox1.Size = New System.Drawing.Size(362, 42)
+        Me.DungeonTextBox1.Size = New System.Drawing.Size(419, 42)
         Me.DungeonTextBox1.TabIndex = 0
         Me.DungeonTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.DungeonTextBox1.UseSystemPasswordChar = False
@@ -1021,7 +1020,7 @@ Partial Class DashboardForm
         Me.FoxButton5.EnabledCalc = True
         Me.FoxButton5.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FoxButton5.ForeColor = System.Drawing.Color.Black
-        Me.FoxButton5.Location = New System.Drawing.Point(394, 17)
+        Me.FoxButton5.Location = New System.Drawing.Point(462, 17)
         Me.FoxButton5.Name = "FoxButton5"
         Me.FoxButton5.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.FoxButton5.Size = New System.Drawing.Size(120, 42)
@@ -1033,7 +1032,7 @@ Partial Class DashboardForm
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
         Me.Label12.ForeColor = System.Drawing.Color.White
-        Me.Label12.Location = New System.Drawing.Point(16, 87)
+        Me.Label12.Location = New System.Drawing.Point(206, 90)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(210, 32)
         Me.Label12.TabIndex = 2
@@ -1052,7 +1051,7 @@ Partial Class DashboardForm
         Me.MaterialCard2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard2.Name = "MaterialCard2"
         Me.MaterialCard2.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard2.Size = New System.Drawing.Size(492, 265)
+        Me.MaterialCard2.Size = New System.Drawing.Size(560, 265)
         Me.MaterialCard2.TabIndex = 3
         '
         'DataGridView1
@@ -1070,7 +1069,7 @@ Partial Class DashboardForm
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(464, 237)
+        Me.DataGridView1.Size = New System.Drawing.Size(532, 237)
         Me.DataGridView1.TabIndex = 0
         '
         'FoxButton9
@@ -1090,31 +1089,32 @@ Partial Class DashboardForm
         Me.FoxButton9.Location = New System.Drawing.Point(22, 404)
         Me.FoxButton9.Name = "FoxButton9"
         Me.FoxButton9.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.FoxButton9.Size = New System.Drawing.Size(492, 42)
+        Me.FoxButton9.Size = New System.Drawing.Size(560, 42)
         Me.FoxButton9.TabIndex = 4
         Me.FoxButton9.Text = "New Request"
         '
         'registerformpanel
         '
-        Me.registerformpanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.registerformpanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.registerformpanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.registerformpanel.Controls.Add(Me.formcard)
         Me.registerformpanel.Controls.Add(Me.Label13)
-        Me.registerformpanel.Location = New System.Drawing.Point(531, 3)
+        Me.registerformpanel.Location = New System.Drawing.Point(592, 3)
         Me.registerformpanel.Name = "registerformpanel"
-        Me.registerformpanel.Size = New System.Drawing.Size(274, 455)
+        Me.registerformpanel.Size = New System.Drawing.Size(213, 455)
         Me.registerformpanel.TabIndex = 5
         '
         'Label13
         '
         Me.Label13.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Label13.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.Location = New System.Drawing.Point(24, 12)
+        Me.Label13.Location = New System.Drawing.Point(8, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(227, 32)
+        Me.Label13.Size = New System.Drawing.Size(194, 30)
         Me.Label13.TabIndex = 6
         Me.Label13.Text = "Register a resident"
         '
@@ -1124,223 +1124,28 @@ Partial Class DashboardForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.formcard.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.formcard.Controls.Add(Me.registerformflp)
+        Me.formcard.Controls.Add(Me.FoxButton10)
+        Me.formcard.Controls.Add(Me.TableLayoutPanel1)
+        Me.formcard.Controls.Add(Me.Label19)
+        Me.formcard.Controls.Add(Me.DungeonTextBox5)
+        Me.formcard.Controls.Add(Me.Label18)
+        Me.formcard.Controls.Add(Me.DungeonTextBox4)
+        Me.formcard.Controls.Add(Me.Label17)
+        Me.formcard.Controls.Add(Me.DungeonTextBox3)
+        Me.formcard.Controls.Add(Me.Label16)
+        Me.formcard.Controls.Add(Me.DungeonTextBox2)
+        Me.formcard.Controls.Add(Me.Label15)
+        Me.formcard.Controls.Add(Me.firstnametxtbox)
+        Me.formcard.Controls.Add(Me.Label14)
         Me.formcard.Depth = 0
         Me.formcard.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.formcard.Location = New System.Drawing.Point(9, 64)
+        Me.formcard.Location = New System.Drawing.Point(9, 37)
         Me.formcard.Margin = New System.Windows.Forms.Padding(14)
         Me.formcard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.formcard.Name = "formcard"
         Me.formcard.Padding = New System.Windows.Forms.Padding(14)
-        Me.formcard.Size = New System.Drawing.Size(255, 380)
+        Me.formcard.Size = New System.Drawing.Size(194, 407)
         Me.formcard.TabIndex = 7
-        '
-        'birthdatetlp
-        '
-        Me.birthdatetlp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.birthdatetlp.ColumnCount = 3
-        Me.birthdatetlp.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.birthdatetlp.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.birthdatetlp.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.birthdatetlp.Controls.Add(Me.DungeonTextBox9, 2, 0)
-        Me.birthdatetlp.Controls.Add(Me.DungeonTextBox8, 1, 0)
-        Me.birthdatetlp.Controls.Add(Me.DungeonTextBox7, 0, 0)
-        Me.birthdatetlp.Location = New System.Drawing.Point(3, 309)
-        Me.birthdatetlp.Name = "birthdatetlp"
-        Me.birthdatetlp.RowCount = 1
-        Me.birthdatetlp.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.birthdatetlp.Size = New System.Drawing.Size(201, 40)
-        Me.birthdatetlp.TabIndex = 18
-        '
-        'DungeonTextBox7
-        '
-        Me.DungeonTextBox7.BackColor = System.Drawing.Color.Transparent
-        Me.DungeonTextBox7.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.DungeonTextBox7.EdgeColor = System.Drawing.Color.White
-        Me.DungeonTextBox7.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DungeonTextBox7.ForeColor = System.Drawing.Color.DimGray
-        Me.DungeonTextBox7.Location = New System.Drawing.Point(3, 3)
-        Me.DungeonTextBox7.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
-        Me.DungeonTextBox7.MaxLength = 32767
-        Me.DungeonTextBox7.Multiline = False
-        Me.DungeonTextBox7.Name = "DungeonTextBox7"
-        Me.DungeonTextBox7.ReadOnly = False
-        Me.DungeonTextBox7.Size = New System.Drawing.Size(60, 32)
-        Me.DungeonTextBox7.TabIndex = 19
-        Me.DungeonTextBox7.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.DungeonTextBox7.UseSystemPasswordChar = False
-        '
-        'DungeonTextBox8
-        '
-        Me.DungeonTextBox8.BackColor = System.Drawing.Color.Transparent
-        Me.DungeonTextBox8.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.DungeonTextBox8.EdgeColor = System.Drawing.Color.White
-        Me.DungeonTextBox8.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DungeonTextBox8.ForeColor = System.Drawing.Color.DimGray
-        Me.DungeonTextBox8.Location = New System.Drawing.Point(69, 3)
-        Me.DungeonTextBox8.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
-        Me.DungeonTextBox8.MaxLength = 32767
-        Me.DungeonTextBox8.Multiline = False
-        Me.DungeonTextBox8.Name = "DungeonTextBox8"
-        Me.DungeonTextBox8.ReadOnly = False
-        Me.DungeonTextBox8.Size = New System.Drawing.Size(60, 32)
-        Me.DungeonTextBox8.TabIndex = 20
-        Me.DungeonTextBox8.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.DungeonTextBox8.UseSystemPasswordChar = False
-        '
-        'DungeonTextBox9
-        '
-        Me.DungeonTextBox9.BackColor = System.Drawing.Color.Transparent
-        Me.DungeonTextBox9.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.DungeonTextBox9.EdgeColor = System.Drawing.Color.White
-        Me.DungeonTextBox9.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DungeonTextBox9.ForeColor = System.Drawing.Color.DimGray
-        Me.DungeonTextBox9.Location = New System.Drawing.Point(135, 3)
-        Me.DungeonTextBox9.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
-        Me.DungeonTextBox9.MaxLength = 32767
-        Me.DungeonTextBox9.Multiline = False
-        Me.DungeonTextBox9.Name = "DungeonTextBox9"
-        Me.DungeonTextBox9.ReadOnly = False
-        Me.DungeonTextBox9.Size = New System.Drawing.Size(63, 32)
-        Me.DungeonTextBox9.TabIndex = 21
-        Me.DungeonTextBox9.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.DungeonTextBox9.UseSystemPasswordChar = False
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.Black
-        Me.Label19.Location = New System.Drawing.Point(3, 285)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(79, 21)
-        Me.Label19.TabIndex = 17
-        Me.Label19.Text = "Birth Date"
-        '
-        'numbertxtbox
-        '
-        Me.numbertxtbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.numbertxtbox.BackColor = System.Drawing.Color.Transparent
-        Me.numbertxtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.numbertxtbox.EdgeColor = System.Drawing.Color.White
-        Me.numbertxtbox.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.numbertxtbox.ForeColor = System.Drawing.Color.DimGray
-        Me.numbertxtbox.Location = New System.Drawing.Point(3, 252)
-        Me.numbertxtbox.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
-        Me.numbertxtbox.MaxLength = 32767
-        Me.numbertxtbox.Multiline = False
-        Me.numbertxtbox.Name = "numbertxtbox"
-        Me.numbertxtbox.ReadOnly = False
-        Me.numbertxtbox.Size = New System.Drawing.Size(191, 32)
-        Me.numbertxtbox.TabIndex = 16
-        Me.numbertxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.numbertxtbox.UseSystemPasswordChar = False
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.ForeColor = System.Drawing.Color.Black
-        Me.Label18.Location = New System.Drawing.Point(3, 228)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(125, 21)
-        Me.Label18.TabIndex = 15
-        Me.Label18.Text = "Contact Number"
-        '
-        'addresstxtbox
-        '
-        Me.addresstxtbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.addresstxtbox.BackColor = System.Drawing.Color.Transparent
-        Me.addresstxtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.addresstxtbox.EdgeColor = System.Drawing.Color.White
-        Me.addresstxtbox.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addresstxtbox.ForeColor = System.Drawing.Color.DimGray
-        Me.addresstxtbox.Location = New System.Drawing.Point(3, 195)
-        Me.addresstxtbox.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
-        Me.addresstxtbox.MaxLength = 32767
-        Me.addresstxtbox.Multiline = False
-        Me.addresstxtbox.Name = "addresstxtbox"
-        Me.addresstxtbox.ReadOnly = False
-        Me.addresstxtbox.Size = New System.Drawing.Size(221, 32)
-        Me.addresstxtbox.TabIndex = 14
-        Me.addresstxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.addresstxtbox.UseSystemPasswordChar = False
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.ForeColor = System.Drawing.Color.Black
-        Me.Label17.Location = New System.Drawing.Point(3, 171)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(66, 21)
-        Me.Label17.TabIndex = 13
-        Me.Label17.Text = "Address"
-        '
-        'middletxtbox
-        '
-        Me.middletxtbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.middletxtbox.BackColor = System.Drawing.Color.Transparent
-        Me.middletxtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.middletxtbox.EdgeColor = System.Drawing.Color.White
-        Me.middletxtbox.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.middletxtbox.ForeColor = System.Drawing.Color.DimGray
-        Me.middletxtbox.Location = New System.Drawing.Point(3, 138)
-        Me.middletxtbox.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
-        Me.middletxtbox.MaxLength = 32767
-        Me.middletxtbox.Multiline = False
-        Me.middletxtbox.Name = "middletxtbox"
-        Me.middletxtbox.ReadOnly = False
-        Me.middletxtbox.Size = New System.Drawing.Size(221, 32)
-        Me.middletxtbox.TabIndex = 12
-        Me.middletxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.middletxtbox.UseSystemPasswordChar = False
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.Color.Black
-        Me.Label16.Location = New System.Drawing.Point(3, 114)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(104, 21)
-        Me.Label16.TabIndex = 11
-        Me.Label16.Text = "Middle Name"
-        '
-        'surnametxtbox
-        '
-        Me.surnametxtbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.surnametxtbox.BackColor = System.Drawing.Color.Transparent
-        Me.surnametxtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.surnametxtbox.EdgeColor = System.Drawing.Color.White
-        Me.surnametxtbox.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.surnametxtbox.ForeColor = System.Drawing.Color.DimGray
-        Me.surnametxtbox.Location = New System.Drawing.Point(3, 81)
-        Me.surnametxtbox.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
-        Me.surnametxtbox.MaxLength = 32767
-        Me.surnametxtbox.Multiline = False
-        Me.surnametxtbox.Name = "surnametxtbox"
-        Me.surnametxtbox.ReadOnly = False
-        Me.surnametxtbox.Size = New System.Drawing.Size(221, 32)
-        Me.surnametxtbox.TabIndex = 10
-        Me.surnametxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.surnametxtbox.UseSystemPasswordChar = False
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.Black
-        Me.Label15.Location = New System.Drawing.Point(3, 57)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(84, 21)
-        Me.Label15.TabIndex = 9
-        Me.Label15.Text = "Last Name"
         '
         'firstnametxtbox
         '
@@ -1351,13 +1156,13 @@ Partial Class DashboardForm
         Me.firstnametxtbox.EdgeColor = System.Drawing.Color.White
         Me.firstnametxtbox.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.firstnametxtbox.ForeColor = System.Drawing.Color.DimGray
-        Me.firstnametxtbox.Location = New System.Drawing.Point(3, 24)
+        Me.firstnametxtbox.Location = New System.Drawing.Point(15, 38)
         Me.firstnametxtbox.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
         Me.firstnametxtbox.MaxLength = 32767
         Me.firstnametxtbox.Multiline = False
         Me.firstnametxtbox.Name = "firstnametxtbox"
         Me.firstnametxtbox.ReadOnly = False
-        Me.firstnametxtbox.Size = New System.Drawing.Size(175, 32)
+        Me.firstnametxtbox.Size = New System.Drawing.Size(160, 32)
         Me.firstnametxtbox.TabIndex = 0
         Me.firstnametxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.firstnametxtbox.UseSystemPasswordChar = False
@@ -1367,33 +1172,249 @@ Partial Class DashboardForm
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.Black
-        Me.Label14.Location = New System.Drawing.Point(3, 0)
+        Me.Label14.Location = New System.Drawing.Point(11, 14)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(86, 21)
         Me.Label14.TabIndex = 8
         Me.Label14.Text = "First Name"
         '
-        'registerformflp
+        'Label15
         '
-        Me.registerformflp.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.Black
+        Me.Label15.Location = New System.Drawing.Point(11, 78)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(84, 21)
+        Me.Label15.TabIndex = 9
+        Me.Label15.Text = "Last Name"
+        '
+        'DungeonTextBox2
+        '
+        Me.DungeonTextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonTextBox2.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox2.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox2.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DungeonTextBox2.ForeColor = System.Drawing.Color.DimGray
+        Me.DungeonTextBox2.Location = New System.Drawing.Point(15, 103)
+        Me.DungeonTextBox2.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
+        Me.DungeonTextBox2.MaxLength = 32767
+        Me.DungeonTextBox2.Multiline = False
+        Me.DungeonTextBox2.Name = "DungeonTextBox2"
+        Me.DungeonTextBox2.ReadOnly = False
+        Me.DungeonTextBox2.Size = New System.Drawing.Size(160, 32)
+        Me.DungeonTextBox2.TabIndex = 10
+        Me.DungeonTextBox2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox2.UseSystemPasswordChar = False
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.Black
+        Me.Label16.Location = New System.Drawing.Point(11, 141)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(104, 21)
+        Me.Label16.TabIndex = 11
+        Me.Label16.Text = "Middle Name"
+        '
+        'DungeonTextBox3
+        '
+        Me.DungeonTextBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonTextBox3.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox3.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox3.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DungeonTextBox3.ForeColor = System.Drawing.Color.DimGray
+        Me.DungeonTextBox3.Location = New System.Drawing.Point(15, 165)
+        Me.DungeonTextBox3.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
+        Me.DungeonTextBox3.MaxLength = 32767
+        Me.DungeonTextBox3.Multiline = False
+        Me.DungeonTextBox3.Name = "DungeonTextBox3"
+        Me.DungeonTextBox3.ReadOnly = False
+        Me.DungeonTextBox3.Size = New System.Drawing.Size(160, 32)
+        Me.DungeonTextBox3.TabIndex = 12
+        Me.DungeonTextBox3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox3.UseSystemPasswordChar = False
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.Black
+        Me.Label17.Location = New System.Drawing.Point(11, 203)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(66, 21)
+        Me.Label17.TabIndex = 13
+        Me.Label17.Text = "Address"
+        '
+        'DungeonTextBox4
+        '
+        Me.DungeonTextBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonTextBox4.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox4.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox4.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox4.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DungeonTextBox4.ForeColor = System.Drawing.Color.DimGray
+        Me.DungeonTextBox4.Location = New System.Drawing.Point(15, 227)
+        Me.DungeonTextBox4.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
+        Me.DungeonTextBox4.MaxLength = 32767
+        Me.DungeonTextBox4.Multiline = False
+        Me.DungeonTextBox4.Name = "DungeonTextBox4"
+        Me.DungeonTextBox4.ReadOnly = False
+        Me.DungeonTextBox4.Size = New System.Drawing.Size(160, 32)
+        Me.DungeonTextBox4.TabIndex = 14
+        Me.DungeonTextBox4.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox4.UseSystemPasswordChar = False
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.Black
+        Me.Label18.Location = New System.Drawing.Point(11, 264)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(125, 21)
+        Me.Label18.TabIndex = 15
+        Me.Label18.Text = "Contact Number"
+        '
+        'DungeonTextBox5
+        '
+        Me.DungeonTextBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonTextBox5.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox5.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox5.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DungeonTextBox5.ForeColor = System.Drawing.Color.DimGray
+        Me.DungeonTextBox5.Location = New System.Drawing.Point(15, 288)
+        Me.DungeonTextBox5.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
+        Me.DungeonTextBox5.MaxLength = 32767
+        Me.DungeonTextBox5.Multiline = False
+        Me.DungeonTextBox5.Name = "DungeonTextBox5"
+        Me.DungeonTextBox5.ReadOnly = False
+        Me.DungeonTextBox5.Size = New System.Drawing.Size(160, 32)
+        Me.DungeonTextBox5.TabIndex = 16
+        Me.DungeonTextBox5.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox5.UseSystemPasswordChar = False
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.Black
+        Me.Label19.Location = New System.Drawing.Point(11, 325)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(79, 21)
+        Me.Label19.TabIndex = 17
+        Me.Label19.Text = "Birth Date"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel1.Controls.Add(Me.DungeonTextBox8, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DungeonTextBox7, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DungeonTextBox6, 0, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(11, 349)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(169, 38)
+        Me.TableLayoutPanel1.TabIndex = 18
+        '
+        'DungeonTextBox6
+        '
+        Me.DungeonTextBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonTextBox6.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox6.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox6.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox6.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DungeonTextBox6.ForeColor = System.Drawing.Color.DimGray
+        Me.DungeonTextBox6.Location = New System.Drawing.Point(5, 3)
+        Me.DungeonTextBox6.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
+        Me.DungeonTextBox6.MaxLength = 32767
+        Me.DungeonTextBox6.Multiline = False
+        Me.DungeonTextBox6.Name = "DungeonTextBox6"
+        Me.DungeonTextBox6.ReadOnly = False
+        Me.DungeonTextBox6.Size = New System.Drawing.Size(49, 32)
+        Me.DungeonTextBox6.TabIndex = 19
+        Me.DungeonTextBox6.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox6.UseSystemPasswordChar = False
+        '
+        'DungeonTextBox7
+        '
+        Me.DungeonTextBox7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonTextBox7.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox7.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox7.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox7.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DungeonTextBox7.ForeColor = System.Drawing.Color.DimGray
+        Me.DungeonTextBox7.Location = New System.Drawing.Point(60, 3)
+        Me.DungeonTextBox7.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
+        Me.DungeonTextBox7.MaxLength = 32767
+        Me.DungeonTextBox7.Multiline = False
+        Me.DungeonTextBox7.Name = "DungeonTextBox7"
+        Me.DungeonTextBox7.ReadOnly = False
+        Me.DungeonTextBox7.Size = New System.Drawing.Size(49, 32)
+        Me.DungeonTextBox7.TabIndex = 20
+        Me.DungeonTextBox7.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox7.UseSystemPasswordChar = False
+        '
+        'DungeonTextBox8
+        '
+        Me.DungeonTextBox8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonTextBox8.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox8.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox8.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox8.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DungeonTextBox8.ForeColor = System.Drawing.Color.DimGray
+        Me.DungeonTextBox8.Location = New System.Drawing.Point(115, 3)
+        Me.DungeonTextBox8.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
+        Me.DungeonTextBox8.MaxLength = 32767
+        Me.DungeonTextBox8.Multiline = False
+        Me.DungeonTextBox8.Name = "DungeonTextBox8"
+        Me.DungeonTextBox8.ReadOnly = False
+        Me.DungeonTextBox8.Size = New System.Drawing.Size(49, 32)
+        Me.DungeonTextBox8.TabIndex = 21
+        Me.DungeonTextBox8.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox8.UseSystemPasswordChar = False
+        '
+        'FoxButton10
+        '
+        Me.FoxButton10.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.registerformflp.Controls.Add(Me.Label14)
-        Me.registerformflp.Controls.Add(Me.firstnametxtbox)
-        Me.registerformflp.Controls.Add(Me.Label15)
-        Me.registerformflp.Controls.Add(Me.surnametxtbox)
-        Me.registerformflp.Controls.Add(Me.Label16)
-        Me.registerformflp.Controls.Add(Me.middletxtbox)
-        Me.registerformflp.Controls.Add(Me.Label17)
-        Me.registerformflp.Controls.Add(Me.addresstxtbox)
-        Me.registerformflp.Controls.Add(Me.Label18)
-        Me.registerformflp.Controls.Add(Me.numbertxtbox)
-        Me.registerformflp.Controls.Add(Me.Label19)
-        Me.registerformflp.Controls.Add(Me.birthdatetlp)
-        Me.registerformflp.Location = New System.Drawing.Point(12, 14)
-        Me.registerformflp.Name = "registerformflp"
-        Me.registerformflp.Size = New System.Drawing.Size(229, 360)
-        Me.registerformflp.TabIndex = 1
+        Me.FoxButton10.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton10.BaseColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.FoxButton10.BorderColor = System.Drawing.Color.Transparent
+        Me.FoxButton10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton10.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton10.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton10.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton10.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FoxButton10.EnabledCalc = True
+        Me.FoxButton10.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton10.ForeColor = System.Drawing.Color.White
+        Me.FoxButton10.Location = New System.Drawing.Point(15, 393)
+        Me.FoxButton10.MaximumSize = New System.Drawing.Size(560, 42)
+        Me.FoxButton10.Name = "FoxButton10"
+        Me.FoxButton10.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.FoxButton10.Size = New System.Drawing.Size(162, 10)
+        Me.FoxButton10.TabIndex = 6
+        Me.FoxButton10.Text = "Register"
         '
         'DashboardForm
         '
@@ -1457,9 +1478,8 @@ Partial Class DashboardForm
         Me.registerformpanel.ResumeLayout(False)
         Me.registerformpanel.PerformLayout()
         Me.formcard.ResumeLayout(False)
-        Me.birthdatetlp.ResumeLayout(False)
-        Me.registerformflp.ResumeLayout(False)
-        Me.registerformflp.PerformLayout()
+        Me.formcard.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1533,20 +1553,20 @@ Partial Class DashboardForm
     Friend WithEvents formcard As ReaLTaiizor.Controls.MaterialCard
     Friend WithEvents Label13 As Label
     Friend WithEvents FoxButton9 As ReaLTaiizor.Controls.FoxButton
-    Friend WithEvents registerformflp As FlowLayoutPanel
     Friend WithEvents Label14 As Label
     Friend WithEvents firstnametxtbox As ReaLTaiizor.Controls.DungeonTextBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents surnametxtbox As ReaLTaiizor.Controls.DungeonTextBox
-    Friend WithEvents Label16 As Label
-    Friend WithEvents middletxtbox As ReaLTaiizor.Controls.DungeonTextBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents addresstxtbox As ReaLTaiizor.Controls.DungeonTextBox
-    Friend WithEvents Label18 As Label
-    Friend WithEvents numbertxtbox As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents Label19 As Label
-    Friend WithEvents birthdatetlp As TableLayoutPanel
-    Friend WithEvents DungeonTextBox9 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents DungeonTextBox5 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents DungeonTextBox4 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents DungeonTextBox3 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents DungeonTextBox2 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DungeonTextBox8 As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents DungeonTextBox7 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents DungeonTextBox6 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents FoxButton10 As ReaLTaiizor.Controls.FoxButton
 End Class

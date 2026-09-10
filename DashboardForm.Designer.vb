@@ -133,6 +133,13 @@ Partial Class DashboardForm
         Me.derogatoryrrecordcard = New ReaLTaiizor.Controls.MaterialCard()
         Me.derogatorygrid = New System.Windows.Forms.DataGridView()
         Me.closeadminformbtn = New ReaLTaiizor.Controls.FoxButton()
+        Me.DungeonTextBox1 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.FoxButton5 = New ReaLTaiizor.Controls.FoxButton()
+        Me.MaterialCard10 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.FoxButton9 = New ReaLTaiizor.Controls.FoxButton()
+        Me.MaterialCard11 = New ReaLTaiizor.Controls.MaterialCard()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -173,9 +180,12 @@ Partial Class DashboardForm
         Me.MaterialCard3.SuspendLayout()
         CType(Me.requestrecorddgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.approvedenytlp.SuspendLayout()
+        Me.archivepanel.SuspendLayout()
         Me.adminformpanel.SuspendLayout()
         Me.derogatoryrrecordcard.SuspendLayout()
         CType(Me.derogatorygrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MaterialCard10.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -978,8 +988,8 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
-        Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.archivepanel)
+        Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1667,6 +1677,12 @@ Partial Class DashboardForm
         '
         'archivepanel
         '
+        Me.archivepanel.Controls.Add(Me.MaterialCard11)
+        Me.archivepanel.Controls.Add(Me.FoxButton9)
+        Me.archivepanel.Controls.Add(Me.Label22)
+        Me.archivepanel.Controls.Add(Me.MaterialCard10)
+        Me.archivepanel.Controls.Add(Me.FoxButton5)
+        Me.archivepanel.Controls.Add(Me.DungeonTextBox1)
         Me.archivepanel.Location = New System.Drawing.Point(195, 59)
         Me.archivepanel.Name = "archivepanel"
         Me.archivepanel.Size = New System.Drawing.Size(805, 461)
@@ -1850,6 +1866,129 @@ Partial Class DashboardForm
         Me.closeadminformbtn.TabIndex = 28
         Me.closeadminformbtn.Text = "X"
         '
+        'DungeonTextBox1
+        '
+        Me.DungeonTextBox1.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox1.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox1.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.DungeonTextBox1.ForeColor = System.Drawing.Color.Black
+        Me.DungeonTextBox1.Location = New System.Drawing.Point(21, 17)
+        Me.DungeonTextBox1.MaxLength = 32767
+        Me.DungeonTextBox1.Multiline = False
+        Me.DungeonTextBox1.Name = "DungeonTextBox1"
+        Me.DungeonTextBox1.ReadOnly = False
+        Me.DungeonTextBox1.Size = New System.Drawing.Size(247, 42)
+        Me.DungeonTextBox1.TabIndex = 3
+        Me.DungeonTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox1.UseSystemPasswordChar = False
+        '
+        'FoxButton5
+        '
+        Me.FoxButton5.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton5.BaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
+        Me.FoxButton5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton5.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton5.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton5.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton5.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FoxButton5.EnabledCalc = True
+        Me.FoxButton5.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton5.ForeColor = System.Drawing.Color.Black
+        Me.FoxButton5.Location = New System.Drawing.Point(278, 17)
+        Me.FoxButton5.Name = "FoxButton5"
+        Me.FoxButton5.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.FoxButton5.Size = New System.Drawing.Size(120, 42)
+        Me.FoxButton5.TabIndex = 4
+        Me.FoxButton5.Text = "Search"
+        '
+        'MaterialCard10
+        '
+        Me.MaterialCard10.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MaterialCard10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard10.Controls.Add(Me.DataGridView1)
+        Me.MaterialCard10.Depth = 0
+        Me.MaterialCard10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialCard10.Location = New System.Drawing.Point(17, 129)
+        Me.MaterialCard10.Margin = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
+        Me.MaterialCard10.Name = "MaterialCard10"
+        Me.MaterialCard10.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard10.Size = New System.Drawing.Size(381, 271)
+        Me.MaterialCard10.TabIndex = 7
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.Location = New System.Drawing.Point(14, 14)
+        Me.DataGridView1.MultiSelect = False
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.ShowCellToolTips = False
+        Me.DataGridView1.ShowEditingIcon = False
+        Me.DataGridView1.ShowRowErrors = False
+        Me.DataGridView1.Size = New System.Drawing.Size(353, 243)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(16, 90)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(236, 32)
+        Me.Label22.TabIndex = 8
+        Me.Label22.Text = "Approved Requests"
+        '
+        'FoxButton9
+        '
+        Me.FoxButton9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FoxButton9.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton9.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.FoxButton9.BorderColor = System.Drawing.Color.Transparent
+        Me.FoxButton9.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton9.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton9.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton9.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton9.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FoxButton9.EnabledCalc = True
+        Me.FoxButton9.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton9.ForeColor = System.Drawing.Color.White
+        Me.FoxButton9.Location = New System.Drawing.Point(15, 409)
+        Me.FoxButton9.Name = "FoxButton9"
+        Me.FoxButton9.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.FoxButton9.Size = New System.Drawing.Size(383, 40)
+        Me.FoxButton9.TabIndex = 9
+        Me.FoxButton9.Text = "New Archive"
+        '
+        'MaterialCard11
+        '
+        Me.MaterialCard11.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MaterialCard11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard11.Depth = 0
+        Me.MaterialCard11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialCard11.Location = New System.Drawing.Point(410, 3)
+        Me.MaterialCard11.Margin = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
+        Me.MaterialCard11.Name = "MaterialCard11"
+        Me.MaterialCard11.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard11.Size = New System.Drawing.Size(395, 454)
+        Me.MaterialCard11.TabIndex = 10
+        '
         'DashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1919,10 +2058,14 @@ Partial Class DashboardForm
         Me.MaterialCard3.ResumeLayout(False)
         CType(Me.requestrecorddgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.approvedenytlp.ResumeLayout(False)
+        Me.archivepanel.ResumeLayout(False)
+        Me.archivepanel.PerformLayout()
         Me.adminformpanel.ResumeLayout(False)
         Me.adminformpanel.PerformLayout()
         Me.derogatoryrrecordcard.ResumeLayout(False)
         CType(Me.derogatorygrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MaterialCard10.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2037,4 +2180,11 @@ Partial Class DashboardForm
     Friend WithEvents residentnamelbl As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents closeadminformbtn As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents FoxButton9 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents Label22 As Label
+    Friend WithEvents MaterialCard10 As ReaLTaiizor.Controls.MaterialCard
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents FoxButton5 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents DungeonTextBox1 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents MaterialCard11 As ReaLTaiizor.Controls.MaterialCard
 End Class

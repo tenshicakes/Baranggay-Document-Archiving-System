@@ -114,6 +114,8 @@ Partial Class DashboardForm
         Me.request_filterbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.DungeonComboBox1 = New ReaLTaiizor.Controls.DungeonComboBox()
         Me.MaterialCard3 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.requestrecorddgv = New System.Windows.Forms.DataGridView()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -151,6 +153,8 @@ Partial Class DashboardForm
         Me.formcard.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.requestpanel.SuspendLayout()
+        Me.MaterialCard3.SuspendLayout()
+        CType(Me.requestrecorddgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -1425,6 +1429,10 @@ Partial Class DashboardForm
         '
         'requestpanel
         '
+        Me.requestpanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.requestpanel.Controls.Add(Me.Label20)
         Me.requestpanel.Controls.Add(Me.MaterialCard3)
         Me.requestpanel.Controls.Add(Me.DungeonComboBox1)
         Me.requestpanel.Controls.Add(Me.request_filterbtn)
@@ -1437,6 +1445,7 @@ Partial Class DashboardForm
         '
         'request_searchbtn
         '
+        Me.request_searchbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.request_searchbtn.BackColor = System.Drawing.Color.Transparent
         Me.request_searchbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.request_searchbtn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
@@ -1457,6 +1466,8 @@ Partial Class DashboardForm
         '
         'request_searchbar
         '
+        Me.request_searchbar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.request_searchbar.BackColor = System.Drawing.Color.Transparent
         Me.request_searchbar.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
         Me.request_searchbar.EdgeColor = System.Drawing.Color.White
@@ -1474,6 +1485,7 @@ Partial Class DashboardForm
         '
         'request_filterbtn
         '
+        Me.request_filterbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.request_filterbtn.BackColor = System.Drawing.Color.Transparent
         Me.request_filterbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.request_filterbtn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
@@ -1494,6 +1506,7 @@ Partial Class DashboardForm
         '
         'DungeonComboBox1
         '
+        Me.DungeonComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DungeonComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
         Me.DungeonComboBox1.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
         Me.DungeonComboBox1.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
@@ -1506,7 +1519,7 @@ Partial Class DashboardForm
         Me.DungeonComboBox1.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.DungeonComboBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DungeonComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DungeonComboBox1.DropDownHeight = 100
+        Me.DungeonComboBox1.DropDownHeight = 400
         Me.DungeonComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.DungeonComboBox1.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold)
         Me.DungeonComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(97, Byte), Integer))
@@ -1515,24 +1528,60 @@ Partial Class DashboardForm
         Me.DungeonComboBox1.IntegralHeight = False
         Me.DungeonComboBox1.ItemHeight = 40
         Me.DungeonComboBox1.Items.AddRange(New Object() {"test", "test", "test", "test"})
-        Me.DungeonComboBox1.Location = New System.Drawing.Point(503, 93)
+        Me.DungeonComboBox1.Location = New System.Drawing.Point(393, 93)
         Me.DungeonComboBox1.Name = "DungeonComboBox1"
-        Me.DungeonComboBox1.Size = New System.Drawing.Size(149, 46)
+        Me.DungeonComboBox1.Size = New System.Drawing.Size(259, 46)
         Me.DungeonComboBox1.StartIndex = 0
         Me.DungeonComboBox1.TabIndex = 5
         '
         'MaterialCard3
         '
+        Me.MaterialCard3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MaterialCard3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard3.Controls.Add(Me.requestrecorddgv)
         Me.MaterialCard3.Depth = 0
         Me.MaterialCard3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialCard3.Location = New System.Drawing.Point(321, 233)
+        Me.MaterialCard3.Location = New System.Drawing.Point(22, 190)
         Me.MaterialCard3.Margin = New System.Windows.Forms.Padding(14)
         Me.MaterialCard3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard3.Name = "MaterialCard3"
         Me.MaterialCard3.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard3.Size = New System.Drawing.Size(200, 100)
+        Me.MaterialCard3.Size = New System.Drawing.Size(771, 253)
         Me.MaterialCard3.TabIndex = 6
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.White
+        Me.Label20.Location = New System.Drawing.Point(21, 153)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(203, 32)
+        Me.Label20.TabIndex = 7
+        Me.Label20.Text = "Request Records"
+        '
+        'requestrecorddgv
+        '
+        Me.requestrecorddgv.AllowUserToAddRows = False
+        Me.requestrecorddgv.AllowUserToDeleteRows = False
+        Me.requestrecorddgv.AllowUserToResizeColumns = False
+        Me.requestrecorddgv.AllowUserToResizeRows = False
+        Me.requestrecorddgv.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.requestrecorddgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.requestrecorddgv.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.requestrecorddgv.Location = New System.Drawing.Point(14, 14)
+        Me.requestrecorddgv.MultiSelect = False
+        Me.requestrecorddgv.Name = "requestrecorddgv"
+        Me.requestrecorddgv.ReadOnly = True
+        Me.requestrecorddgv.RowHeadersVisible = False
+        Me.requestrecorddgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.requestrecorddgv.ShowCellToolTips = False
+        Me.requestrecorddgv.ShowEditingIcon = False
+        Me.requestrecorddgv.ShowRowErrors = False
+        Me.requestrecorddgv.Size = New System.Drawing.Size(743, 225)
+        Me.requestrecorddgv.TabIndex = 0
         '
         'DashboardForm
         '
@@ -1599,6 +1648,9 @@ Partial Class DashboardForm
         Me.formcard.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.requestpanel.ResumeLayout(False)
+        Me.requestpanel.PerformLayout()
+        Me.MaterialCard3.ResumeLayout(False)
+        CType(Me.requestrecorddgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1694,4 +1746,6 @@ Partial Class DashboardForm
     Friend WithEvents request_searchbtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents request_searchbar As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents MaterialCard3 As ReaLTaiizor.Controls.MaterialCard
+    Friend WithEvents Label20 As Label
+    Friend WithEvents requestrecorddgv As DataGridView
 End Class

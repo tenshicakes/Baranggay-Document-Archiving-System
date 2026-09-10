@@ -119,6 +119,20 @@ Partial Class DashboardForm
         Me.approvebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.denybtn = New ReaLTaiizor.Controls.FoxButton()
         Me.approvedenytlp = New System.Windows.Forms.TableLayoutPanel()
+        Me.archivepanel = New System.Windows.Forms.Panel()
+        Me.adminformpanel = New System.Windows.Forms.Panel()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.residentnamelbl = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.addresslbl = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.birthdatelbl = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.phonenumlbl = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.derogatoryrrecordcard = New ReaLTaiizor.Controls.MaterialCard()
+        Me.derogatorygrid = New System.Windows.Forms.DataGridView()
+        Me.closeadminformbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -159,6 +173,9 @@ Partial Class DashboardForm
         Me.MaterialCard3.SuspendLayout()
         CType(Me.requestrecorddgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.approvedenytlp.SuspendLayout()
+        Me.adminformpanel.SuspendLayout()
+        Me.derogatoryrrecordcard.SuspendLayout()
+        CType(Me.derogatorygrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -962,6 +979,7 @@ Partial Class DashboardForm
         'contentpanel
         '
         Me.contentpanel.Controls.Add(Me.requestpanel)
+        Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1436,6 +1454,7 @@ Partial Class DashboardForm
         Me.requestpanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.requestpanel.Controls.Add(Me.adminformpanel)
         Me.requestpanel.Controls.Add(Me.approvedenytlp)
         Me.requestpanel.Controls.Add(Me.Label20)
         Me.requestpanel.Controls.Add(Me.MaterialCard3)
@@ -1646,6 +1665,191 @@ Partial Class DashboardForm
         Me.approvedenytlp.Size = New System.Drawing.Size(771, 46)
         Me.approvedenytlp.TabIndex = 10
         '
+        'archivepanel
+        '
+        Me.archivepanel.Location = New System.Drawing.Point(195, 59)
+        Me.archivepanel.Name = "archivepanel"
+        Me.archivepanel.Size = New System.Drawing.Size(805, 461)
+        Me.archivepanel.TabIndex = 11
+        '
+        'adminformpanel
+        '
+        Me.adminformpanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.adminformpanel.BackColor = System.Drawing.Color.White
+        Me.adminformpanel.Controls.Add(Me.closeadminformbtn)
+        Me.adminformpanel.Controls.Add(Me.derogatoryrrecordcard)
+        Me.adminformpanel.Controls.Add(Me.Label29)
+        Me.adminformpanel.Controls.Add(Me.phonenumlbl)
+        Me.adminformpanel.Controls.Add(Me.Label27)
+        Me.adminformpanel.Controls.Add(Me.birthdatelbl)
+        Me.adminformpanel.Controls.Add(Me.Label25)
+        Me.adminformpanel.Controls.Add(Me.addresslbl)
+        Me.adminformpanel.Controls.Add(Me.Label23)
+        Me.adminformpanel.Controls.Add(Me.residentnamelbl)
+        Me.adminformpanel.Controls.Add(Me.Label21)
+        Me.adminformpanel.Location = New System.Drawing.Point(422, 3)
+        Me.adminformpanel.Name = "adminformpanel"
+        Me.adminformpanel.Size = New System.Drawing.Size(383, 455)
+        Me.adminformpanel.TabIndex = 11
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.Color.Black
+        Me.Label21.Location = New System.Drawing.Point(6, 14)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(116, 21)
+        Me.Label21.TabIndex = 18
+        Me.Label21.Text = "Resident Name"
+        '
+        'residentnamelbl
+        '
+        Me.residentnamelbl.AutoSize = True
+        Me.residentnamelbl.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.residentnamelbl.ForeColor = System.Drawing.Color.Black
+        Me.residentnamelbl.Location = New System.Drawing.Point(6, 35)
+        Me.residentnamelbl.Margin = New System.Windows.Forms.Padding(3, 0, 0, 10)
+        Me.residentnamelbl.Name = "residentnamelbl"
+        Me.residentnamelbl.Size = New System.Drawing.Size(157, 21)
+        Me.residentnamelbl.TabIndex = 19
+        Me.residentnamelbl.Text = "Louie Jelaine Recto"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.Black
+        Me.Label23.Location = New System.Drawing.Point(6, 66)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(66, 21)
+        Me.Label23.TabIndex = 20
+        Me.Label23.Text = "Address"
+        '
+        'addresslbl
+        '
+        Me.addresslbl.AutoSize = True
+        Me.addresslbl.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addresslbl.ForeColor = System.Drawing.Color.Black
+        Me.addresslbl.Location = New System.Drawing.Point(6, 87)
+        Me.addresslbl.Margin = New System.Windows.Forms.Padding(3, 0, 0, 10)
+        Me.addresslbl.Name = "addresslbl"
+        Me.addresslbl.Size = New System.Drawing.Size(233, 21)
+        Me.addresslbl.TabIndex = 21
+        Me.addresslbl.Text = "123 Biringan City, Philippines"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.Black
+        Me.Label25.Location = New System.Drawing.Point(6, 116)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(79, 21)
+        Me.Label25.TabIndex = 22
+        Me.Label25.Text = "Birth Date"
+        '
+        'birthdatelbl
+        '
+        Me.birthdatelbl.AutoSize = True
+        Me.birthdatelbl.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.birthdatelbl.ForeColor = System.Drawing.Color.Black
+        Me.birthdatelbl.Location = New System.Drawing.Point(6, 137)
+        Me.birthdatelbl.Margin = New System.Windows.Forms.Padding(3, 0, 0, 10)
+        Me.birthdatelbl.Name = "birthdatelbl"
+        Me.birthdatelbl.Size = New System.Drawing.Size(94, 21)
+        Me.birthdatelbl.TabIndex = 23
+        Me.birthdatelbl.Text = "01-24-2004"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.Black
+        Me.Label27.Location = New System.Drawing.Point(6, 168)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(116, 21)
+        Me.Label27.TabIndex = 24
+        Me.Label27.Text = "Phone Number"
+        '
+        'phonenumlbl
+        '
+        Me.phonenumlbl.AutoSize = True
+        Me.phonenumlbl.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.phonenumlbl.ForeColor = System.Drawing.Color.Black
+        Me.phonenumlbl.Location = New System.Drawing.Point(6, 189)
+        Me.phonenumlbl.Margin = New System.Windows.Forms.Padding(3, 0, 0, 10)
+        Me.phonenumlbl.Name = "phonenumlbl"
+        Me.phonenumlbl.Size = New System.Drawing.Size(100, 21)
+        Me.phonenumlbl.TabIndex = 25
+        Me.phonenumlbl.Text = "0993123129"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.Black
+        Me.Label29.Location = New System.Drawing.Point(6, 220)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(150, 21)
+        Me.Label29.TabIndex = 26
+        Me.Label29.Text = "Derogatory Records"
+        '
+        'derogatoryrrecordcard
+        '
+        Me.derogatoryrrecordcard.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.derogatoryrrecordcard.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.derogatoryrrecordcard.Controls.Add(Me.derogatorygrid)
+        Me.derogatoryrrecordcard.Depth = 0
+        Me.derogatoryrrecordcard.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.derogatoryrrecordcard.Location = New System.Drawing.Point(10, 249)
+        Me.derogatoryrrecordcard.Margin = New System.Windows.Forms.Padding(14)
+        Me.derogatoryrrecordcard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
+        Me.derogatoryrrecordcard.Name = "derogatoryrrecordcard"
+        Me.derogatoryrrecordcard.Padding = New System.Windows.Forms.Padding(1)
+        Me.derogatoryrrecordcard.Size = New System.Drawing.Size(365, 195)
+        Me.derogatoryrrecordcard.TabIndex = 27
+        '
+        'derogatorygrid
+        '
+        Me.derogatorygrid.AllowUserToAddRows = False
+        Me.derogatorygrid.AllowUserToDeleteRows = False
+        Me.derogatorygrid.AllowUserToResizeColumns = False
+        Me.derogatorygrid.AllowUserToResizeRows = False
+        Me.derogatorygrid.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.derogatorygrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.derogatorygrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.derogatorygrid.Location = New System.Drawing.Point(1, 1)
+        Me.derogatorygrid.MultiSelect = False
+        Me.derogatorygrid.Name = "derogatorygrid"
+        Me.derogatorygrid.RowHeadersVisible = False
+        Me.derogatorygrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.derogatorygrid.Size = New System.Drawing.Size(363, 193)
+        Me.derogatorygrid.TabIndex = 0
+        '
+        'closeadminformbtn
+        '
+        Me.closeadminformbtn.BackColor = System.Drawing.Color.Transparent
+        Me.closeadminformbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.closeadminformbtn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
+        Me.closeadminformbtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.closeadminformbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.closeadminformbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.closeadminformbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.closeadminformbtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.closeadminformbtn.EnabledCalc = True
+        Me.closeadminformbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.closeadminformbtn.ForeColor = System.Drawing.Color.Black
+        Me.closeadminformbtn.Location = New System.Drawing.Point(343, 8)
+        Me.closeadminformbtn.Name = "closeadminformbtn"
+        Me.closeadminformbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.closeadminformbtn.Size = New System.Drawing.Size(32, 27)
+        Me.closeadminformbtn.TabIndex = 28
+        Me.closeadminformbtn.Text = "X"
+        '
         'DashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1715,6 +1919,10 @@ Partial Class DashboardForm
         Me.MaterialCard3.ResumeLayout(False)
         CType(Me.requestrecorddgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.approvedenytlp.ResumeLayout(False)
+        Me.adminformpanel.ResumeLayout(False)
+        Me.adminformpanel.PerformLayout()
+        Me.derogatoryrrecordcard.ResumeLayout(False)
+        CType(Me.derogatorygrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1815,4 +2023,18 @@ Partial Class DashboardForm
     Friend WithEvents denybtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents approvebtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents approvedenytlp As TableLayoutPanel
+    Friend WithEvents adminformpanel As Panel
+    Friend WithEvents archivepanel As Panel
+    Friend WithEvents derogatoryrrecordcard As ReaLTaiizor.Controls.MaterialCard
+    Friend WithEvents derogatorygrid As DataGridView
+    Friend WithEvents Label29 As Label
+    Friend WithEvents phonenumlbl As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents birthdatelbl As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents addresslbl As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents residentnamelbl As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents closeadminformbtn As ReaLTaiizor.Controls.FoxButton
 End Class

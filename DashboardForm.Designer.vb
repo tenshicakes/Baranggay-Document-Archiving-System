@@ -99,7 +99,7 @@ Partial Class DashboardForm
         Me.Label19 = New System.Windows.Forms.Label()
         Me.numbertxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.addresstxbox = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.addresstxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.midnametxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -1219,7 +1219,7 @@ Partial Class DashboardForm
         Me.formcard.Controls.Add(Me.Label19)
         Me.formcard.Controls.Add(Me.numbertxtbox)
         Me.formcard.Controls.Add(Me.Label18)
-        Me.formcard.Controls.Add(Me.addresstxbox)
+        Me.formcard.Controls.Add(Me.addresstxtbox)
         Me.formcard.Controls.Add(Me.Label17)
         Me.formcard.Controls.Add(Me.midnametxtbox)
         Me.formcard.Controls.Add(Me.Label16)
@@ -1382,25 +1382,25 @@ Partial Class DashboardForm
         Me.Label18.TabIndex = 15
         Me.Label18.Text = "Contact Number"
         '
-        'addresstxbox
+        'addresstxtbox
         '
-        Me.addresstxbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.addresstxtbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.addresstxbox.BackColor = System.Drawing.Color.Transparent
-        Me.addresstxbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.addresstxbox.EdgeColor = System.Drawing.Color.White
-        Me.addresstxbox.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addresstxbox.ForeColor = System.Drawing.Color.DimGray
-        Me.addresstxbox.Location = New System.Drawing.Point(15, 227)
-        Me.addresstxbox.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
-        Me.addresstxbox.MaxLength = 32767
-        Me.addresstxbox.Multiline = False
-        Me.addresstxbox.Name = "addresstxbox"
-        Me.addresstxbox.ReadOnly = False
-        Me.addresstxbox.Size = New System.Drawing.Size(347, 32)
-        Me.addresstxbox.TabIndex = 14
-        Me.addresstxbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.addresstxbox.UseSystemPasswordChar = False
+        Me.addresstxtbox.BackColor = System.Drawing.Color.Transparent
+        Me.addresstxtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.addresstxtbox.EdgeColor = System.Drawing.Color.White
+        Me.addresstxtbox.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addresstxtbox.ForeColor = System.Drawing.Color.DimGray
+        Me.addresstxtbox.Location = New System.Drawing.Point(15, 227)
+        Me.addresstxtbox.Margin = New System.Windows.Forms.Padding(3, 3, 3, 1)
+        Me.addresstxtbox.MaxLength = 32767
+        Me.addresstxtbox.Multiline = False
+        Me.addresstxtbox.Name = "addresstxtbox"
+        Me.addresstxtbox.ReadOnly = False
+        Me.addresstxtbox.Size = New System.Drawing.Size(347, 32)
+        Me.addresstxtbox.TabIndex = 14
+        Me.addresstxtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.addresstxtbox.UseSystemPasswordChar = False
         '
         'Label17
         '
@@ -2748,7 +2748,7 @@ Partial Class DashboardForm
     Friend WithEvents Label19 As Label
     Friend WithEvents numbertxtbox As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents Label18 As Label
-    Friend WithEvents addresstxbox As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents addresstxtbox As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents Label17 As Label
     Friend WithEvents midnametxtbox As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents Label16 As Label

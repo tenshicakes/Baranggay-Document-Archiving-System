@@ -1,5 +1,6 @@
-﻿Imports System.Drawing
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
+Imports System.Drawing
+Imports System.Text.RegularExpressions
 
 Public Class DashboardForm
     Private CurrentUserRole As String
@@ -86,6 +87,7 @@ Public Class DashboardForm
         ResetAllPanels()
         ResetAllButtons()
         RefreshEveryGrid()
+        RegisterFormCharLimit()
         residentspanel.Visible = True
         residentsbtn.BaseColor = Color.FromArgb(100, 151, 177)
         residentsbtn.ForeColor = Color.White
@@ -178,6 +180,130 @@ Public Class DashboardForm
         residents_searchbtn.BaseColor = Color.Gray
         residents_searchbtn.ForeColor = Color.White
     End Sub
+
+    Private Sub registerbtn_Click(sender As Object, e As EventArgs) Handles registerbtn.Click
+        ' 1. Cleaning text inputs
+        Dim firstName As String = firstnametxtbox.Text.Trim()
+        Dim lastName As String = lastnametxtbox.Text.Trim()
+        Dim midName As String = midnametxtbox.Text.Trim()
+        Dim address As String = addresstxtbox.Text.Trim()
+        Dim contactNo As String = numbertxtbox.Text.Trim()
+        Dim mmStr As String = mmtxtbox.Text.Trim()
+        Dim ddStr As String = ddtxtbox.Text.Trim()
+        Dim yyyyStr As String = yyyytxtbox.Text.Trim()
+
+        ' 2. Mandatory fields
+        If String.IsNullOrEmpty(firstName) OrElse String.IsNullOrEmpty(lastName) OrElse String.IsNullOrEmpty(address) Then
+            MessageBox.Show("Please fill in all mandatory fields (First Name, Last Name, and Address).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' 3. Birthdate textboxes check
+        If String.IsNullOrEmpty(mmStr) OrElse String.IsNullOrEmpty(ddStr) OrElse String.IsNullOrEmpty(yyyyStr) Then
+            MessageBox.Show("Please complete all Birth Date fields (MM, DD, YYYY).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' YYYY-MM-DD date string and calendar logic
+        Dim dateString As String = $"{yyyyStr.PadLeft(4, "0"c)}-{mmStr.PadLeft(2, "0"c)}-{ddStr.PadLeft(2, "0"c)}"
+        Dim parsedBirthDate As Date
+
+        If Not Date.TryParseExact(dateString, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, parsedBirthDate) Then
+            MessageBox.Show("Please enter a valid calendar date (MM: 01-12, DD: 01-31, YYYY: 4 digits).", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Prevent impossible/future birth dates
+        If parsedBirthDate > Date.Today OrElse parsedBirthDate.Year < 1900 Then
+            MessageBox.Show("Please enter a valid historical Birth Date.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Try
+            ' 4. Check for duplicate records before inserting
+            Dim checkQuery As String = "SELECT COUNT(*) FROM Resident_Master_tbl WHERE FirstName = @FirstName AND LastName = @LastName AND BirthDate = @BirthDate"
+            Dim checkParams As SqlParameter() = {
+            New SqlParameter("@FirstName", firstName),
+            New SqlParameter("@LastName", lastName),
+            New SqlParameter("@BirthDate", parsedBirthDate)
+        }
+
+            Dim duplicateCount As Integer = Convert.ToInt32(GlobalDatabase.ExecuteScalar(checkQuery, checkParams))
+            If duplicateCount > 0 Then
+                Dim confirmDuplicate As DialogResult = MessageBox.Show("A resident with the exact same Name and Birth Date is already registered. Proceed anyway?", "Duplicate Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If confirmDuplicate = DialogResult.No Then Return
+            End If
+
+            ' 5. Execute INSERT query into Resident_Master_tbl
+            Dim insertQuery As String = "INSERT INTO Resident_Master_tbl (FirstName, LastName, MiddleName, Address, ContactNumber, BirthDate) " &
+                                    "VALUES (@FirstName, @LastName, @MiddleName, @Address, @ContactNumber, @BirthDate)"
+
+            Dim insertParams As SqlParameter() = {
+            New SqlParameter("@FirstName", firstName),
+            New SqlParameter("@LastName", lastName),
+            New SqlParameter("@MiddleName", If(String.IsNullOrEmpty(midName), DBNull.Value, CObj(midName))),
+            New SqlParameter("@Address", address),
+            New SqlParameter("@ContactNumber", If(String.IsNullOrEmpty(contactNo), DBNull.Value, CObj(contactNo))),
+            New SqlParameter("@BirthDate", parsedBirthDate)
+        }
+
+            Dim rowsAffected As Integer = GlobalDatabase.ExecuteQuery(insertQuery, insertParams)
+
+            If rowsAffected > 0 Then
+                MessageBox.Show("Resident successfully registered!", "Registration Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                ' Clear the textboxes and refresh the dgv
+                ClearRegistrationForm()
+                DisplayResidentsData()
+            Else
+                MessageBox.Show("Failed to register resident. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Database error during registration: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub RegisterFormCharLimit() Handles MyBase.Load
+        mmtxtbox.MaxLength = 2
+        ddtxtbox.MaxLength = 2
+        yyyytxtbox.MaxLength = 4
+    End Sub
+
+    Private Sub RegistrationInputs_TextChanged(sender As Object, e As EventArgs) Handles _
+    firstnametxtbox.TextChanged, lastnametxtbox.TextChanged, midnametxtbox.TextChanged,
+    numbertxtbox.TextChanged, mmtxtbox.TextChanged, ddtxtbox.TextChanged, yyyytxtbox.TextChanged
+
+        Dim txtBox = TryCast(sender, Control)
+        If txtBox Is Nothing OrElse String.IsNullOrEmpty(txtBox.Text) Then Return
+
+        '  Numbers-only for numbers/dates; Unicode letters, Ñ/ñ, spaces, hyphens, and apostrophes for names
+        Dim isNumeric As Boolean = (txtBox Is numbertxtbox OrElse txtBox Is mmtxtbox OrElse txtBox Is ddtxtbox OrElse txtBox Is yyyytxtbox)
+        Dim pattern As String = If(isNumeric, "[^0-9]", "[^\p{L} \-']")
+
+        ' Dont allow copy pasting into the textbox, only type
+        Dim cleanText As String = Regex.Replace(txtBox.Text, pattern, "")
+
+        If txtBox.Text <> cleanText Then
+            txtBox.Text = cleanText
+            Try
+                ' Always putting cursor at the end of the text 
+                CType(txtBox, Object).SelectionStart = cleanText.Length
+            Catch
+
+            End Try
+        End If
+    End Sub
+    Private Sub ClearRegistrationForm()
+        firstnametxtbox.Text = ""
+        lastnametxtbox.Text = ""
+        midnametxtbox.Text = ""
+        addresstxtbox.Text = ""
+        numbertxtbox.Text = ""
+        mmtxtbox.Text = ""
+        ddtxtbox.Text = ""
+        yyyytxtbox.Text = ""
+    End Sub
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
     'REQUEST PAGE REQUEST PAGE REQUEST PAGE REQUEST PAGE REQUEST PAGE REQUEST PAGE REQUEST PAGE
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
@@ -239,4 +365,6 @@ Public Class DashboardForm
         accountsbtn.BaseColor = Color.FromArgb(100, 151, 177)
         accountsbtn.ForeColor = Color.White
     End Sub
+
+
 End Class

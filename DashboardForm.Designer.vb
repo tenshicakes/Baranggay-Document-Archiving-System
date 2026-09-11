@@ -149,6 +149,8 @@ Partial Class DashboardForm
         Me.FoxButton9 = New ReaLTaiizor.Controls.FoxButton()
         Me.FoxButton11 = New ReaLTaiizor.Controls.FoxButton()
         Me.FoxButton12 = New ReaLTaiizor.Controls.FoxButton()
+        Me.contentsplitcontainer = New System.Windows.Forms.SplitContainer()
+        Me.buttonsplitcontainer = New System.Windows.Forms.SplitContainer()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -196,6 +198,14 @@ Partial Class DashboardForm
         Me.TableLayoutPanel1.SuspendLayout()
         Me.MaterialCard2.SuspendLayout()
         CType(Me.residentsdgv, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.contentsplitcontainer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.contentsplitcontainer.Panel1.SuspendLayout()
+        Me.contentsplitcontainer.Panel2.SuspendLayout()
+        Me.contentsplitcontainer.SuspendLayout()
+        CType(Me.buttonsplitcontainer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.buttonsplitcontainer.Panel1.SuspendLayout()
+        Me.buttonsplitcontainer.Panel2.SuspendLayout()
+        Me.buttonsplitcontainer.SuspendLayout()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -1013,12 +1023,7 @@ Partial Class DashboardForm
         Me.archivepanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.archivepanel.Controls.Add(Me.MaterialCard11)
-        Me.archivepanel.Controls.Add(Me.FoxButton9)
-        Me.archivepanel.Controls.Add(Me.Label22)
-        Me.archivepanel.Controls.Add(Me.MaterialCard10)
-        Me.archivepanel.Controls.Add(Me.FoxButton5)
-        Me.archivepanel.Controls.Add(Me.DungeonTextBox1)
+        Me.archivepanel.Controls.Add(Me.contentsplitcontainer)
         Me.archivepanel.Location = New System.Drawing.Point(195, 59)
         Me.archivepanel.Name = "archivepanel"
         Me.archivepanel.Size = New System.Drawing.Size(805, 461)
@@ -1030,8 +1035,7 @@ Partial Class DashboardForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MaterialCard11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MaterialCard11.Controls.Add(Me.FoxButton12)
-        Me.MaterialCard11.Controls.Add(Me.FoxButton11)
+        Me.MaterialCard11.Controls.Add(Me.buttonsplitcontainer)
         Me.MaterialCard11.Controls.Add(Me.MaterialCard12)
         Me.MaterialCard11.Controls.Add(Me.Label30)
         Me.MaterialCard11.Controls.Add(Me.FoxButton10)
@@ -1041,12 +1045,12 @@ Partial Class DashboardForm
         Me.MaterialCard11.Controls.Add(Me.Label24)
         Me.MaterialCard11.Depth = 0
         Me.MaterialCard11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialCard11.Location = New System.Drawing.Point(462, 3)
+        Me.MaterialCard11.Location = New System.Drawing.Point(11, 14)
         Me.MaterialCard11.Margin = New System.Windows.Forms.Padding(14)
         Me.MaterialCard11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard11.Name = "MaterialCard11"
         Me.MaterialCard11.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard11.Size = New System.Drawing.Size(343, 454)
+        Me.MaterialCard11.Size = New System.Drawing.Size(417, 430)
         Me.MaterialCard11.TabIndex = 10
         '
         'Label22
@@ -1054,7 +1058,7 @@ Partial Class DashboardForm
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(16, 90)
+        Me.Label22.Location = New System.Drawing.Point(9, 61)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(236, 32)
         Me.Label22.TabIndex = 8
@@ -1062,18 +1066,19 @@ Partial Class DashboardForm
         '
         'MaterialCard10
         '
-        Me.MaterialCard10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.MaterialCard10.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MaterialCard10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MaterialCard10.Controls.Add(Me.DataGridView1)
         Me.MaterialCard10.Depth = 0
         Me.MaterialCard10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialCard10.Location = New System.Drawing.Point(17, 129)
+        Me.MaterialCard10.Location = New System.Drawing.Point(14, 97)
         Me.MaterialCard10.Margin = New System.Windows.Forms.Padding(14)
         Me.MaterialCard10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard10.Name = "MaterialCard10"
         Me.MaterialCard10.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard10.Size = New System.Drawing.Size(436, 271)
+        Me.MaterialCard10.Size = New System.Drawing.Size(329, 294)
         Me.MaterialCard10.TabIndex = 7
         '
         'DataGridView1
@@ -1094,11 +1099,12 @@ Partial Class DashboardForm
         Me.DataGridView1.ShowCellToolTips = False
         Me.DataGridView1.ShowEditingIcon = False
         Me.DataGridView1.ShowRowErrors = False
-        Me.DataGridView1.Size = New System.Drawing.Size(408, 243)
+        Me.DataGridView1.Size = New System.Drawing.Size(301, 266)
         Me.DataGridView1.TabIndex = 0
         '
         'FoxButton5
         '
+        Me.FoxButton5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FoxButton5.BackColor = System.Drawing.Color.Transparent
         Me.FoxButton5.BaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.FoxButton5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
@@ -1110,7 +1116,7 @@ Partial Class DashboardForm
         Me.FoxButton5.EnabledCalc = True
         Me.FoxButton5.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FoxButton5.ForeColor = System.Drawing.Color.Black
-        Me.FoxButton5.Location = New System.Drawing.Point(333, 17)
+        Me.FoxButton5.Location = New System.Drawing.Point(223, 10)
         Me.FoxButton5.Name = "FoxButton5"
         Me.FoxButton5.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.FoxButton5.Size = New System.Drawing.Size(120, 42)
@@ -1119,17 +1125,19 @@ Partial Class DashboardForm
         '
         'DungeonTextBox1
         '
+        Me.DungeonTextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DungeonTextBox1.BackColor = System.Drawing.Color.Transparent
         Me.DungeonTextBox1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
         Me.DungeonTextBox1.EdgeColor = System.Drawing.Color.White
         Me.DungeonTextBox1.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
         Me.DungeonTextBox1.ForeColor = System.Drawing.Color.Black
-        Me.DungeonTextBox1.Location = New System.Drawing.Point(21, 17)
+        Me.DungeonTextBox1.Location = New System.Drawing.Point(14, 10)
         Me.DungeonTextBox1.MaxLength = 32767
         Me.DungeonTextBox1.Multiline = False
         Me.DungeonTextBox1.Name = "DungeonTextBox1"
         Me.DungeonTextBox1.ReadOnly = False
-        Me.DungeonTextBox1.Size = New System.Drawing.Size(296, 42)
+        Me.DungeonTextBox1.Size = New System.Drawing.Size(203, 42)
         Me.DungeonTextBox1.TabIndex = 3
         Me.DungeonTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.DungeonTextBox1.UseSystemPasswordChar = False
@@ -2036,7 +2044,7 @@ Partial Class DashboardForm
         Me.DungeonTextBox2.Multiline = False
         Me.DungeonTextBox2.Name = "DungeonTextBox2"
         Me.DungeonTextBox2.ReadOnly = False
-        Me.DungeonTextBox2.Size = New System.Drawing.Size(297, 42)
+        Me.DungeonTextBox2.Size = New System.Drawing.Size(371, 42)
         Me.DungeonTextBox2.TabIndex = 30
         Me.DungeonTextBox2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.DungeonTextBox2.UseSystemPasswordChar = False
@@ -2059,7 +2067,7 @@ Partial Class DashboardForm
         Me.FoxButton10.Location = New System.Drawing.Point(23, 144)
         Me.FoxButton10.Name = "FoxButton10"
         Me.FoxButton10.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.FoxButton10.Size = New System.Drawing.Size(297, 42)
+        Me.FoxButton10.Size = New System.Drawing.Size(371, 42)
         Me.FoxButton10.TabIndex = 31
         Me.FoxButton10.Text = "Attach a File"
         '
@@ -2087,12 +2095,13 @@ Partial Class DashboardForm
         Me.MaterialCard12.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard12.Name = "MaterialCard12"
         Me.MaterialCard12.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard12.Size = New System.Drawing.Size(295, 166)
+        Me.MaterialCard12.Size = New System.Drawing.Size(369, 142)
         Me.MaterialCard12.TabIndex = 33
         '
         'FoxButton9
         '
-        Me.FoxButton9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.FoxButton9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FoxButton9.BackColor = System.Drawing.Color.Transparent
         Me.FoxButton9.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
         Me.FoxButton9.BorderColor = System.Drawing.Color.Transparent
@@ -2104,16 +2113,15 @@ Partial Class DashboardForm
         Me.FoxButton9.EnabledCalc = True
         Me.FoxButton9.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FoxButton9.ForeColor = System.Drawing.Color.White
-        Me.FoxButton9.Location = New System.Drawing.Point(15, 409)
+        Me.FoxButton9.Location = New System.Drawing.Point(14, 402)
         Me.FoxButton9.Name = "FoxButton9"
         Me.FoxButton9.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.FoxButton9.Size = New System.Drawing.Size(438, 40)
+        Me.FoxButton9.Size = New System.Drawing.Size(329, 40)
         Me.FoxButton9.TabIndex = 9
         Me.FoxButton9.Text = "New Archive"
         '
         'FoxButton11
         '
-        Me.FoxButton11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.FoxButton11.BackColor = System.Drawing.Color.Transparent
         Me.FoxButton11.BaseColor = System.Drawing.Color.White
         Me.FoxButton11.BorderColor = System.Drawing.Color.Silver
@@ -2121,21 +2129,21 @@ Partial Class DashboardForm
         Me.FoxButton11.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.FoxButton11.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.FoxButton11.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FoxButton11.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
         Me.FoxButton11.EnabledCalc = True
         Me.FoxButton11.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FoxButton11.ForeColor = System.Drawing.Color.Black
-        Me.FoxButton11.Location = New System.Drawing.Point(22, 406)
+        Me.FoxButton11.Location = New System.Drawing.Point(0, 0)
         Me.FoxButton11.MaximumSize = New System.Drawing.Size(383, 40)
         Me.FoxButton11.Name = "FoxButton11"
         Me.FoxButton11.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.FoxButton11.Size = New System.Drawing.Size(138, 40)
+        Me.FoxButton11.Size = New System.Drawing.Size(176, 40)
         Me.FoxButton11.TabIndex = 34
         Me.FoxButton11.Text = "Remove"
         '
         'FoxButton12
         '
-        Me.FoxButton12.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.FoxButton12.BackColor = System.Drawing.Color.Transparent
         Me.FoxButton12.BaseColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
         Me.FoxButton12.BorderColor = System.Drawing.Color.Transparent
@@ -2143,17 +2151,63 @@ Partial Class DashboardForm
         Me.FoxButton12.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.FoxButton12.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.FoxButton12.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FoxButton12.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
         Me.FoxButton12.EnabledCalc = True
         Me.FoxButton12.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FoxButton12.ForeColor = System.Drawing.Color.White
-        Me.FoxButton12.Location = New System.Drawing.Point(172, 406)
+        Me.FoxButton12.Location = New System.Drawing.Point(0, 0)
         Me.FoxButton12.MaximumSize = New System.Drawing.Size(383, 40)
         Me.FoxButton12.Name = "FoxButton12"
         Me.FoxButton12.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.FoxButton12.Size = New System.Drawing.Size(139, 40)
+        Me.FoxButton12.Size = New System.Drawing.Size(188, 40)
         Me.FoxButton12.TabIndex = 35
         Me.FoxButton12.Text = "Archive"
+        '
+        'contentsplitcontainer
+        '
+        Me.contentsplitcontainer.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.contentsplitcontainer.Location = New System.Drawing.Point(6, 1)
+        Me.contentsplitcontainer.Name = "contentsplitcontainer"
+        '
+        'contentsplitcontainer.Panel1
+        '
+        Me.contentsplitcontainer.Panel1.Controls.Add(Me.DungeonTextBox1)
+        Me.contentsplitcontainer.Panel1.Controls.Add(Me.FoxButton5)
+        Me.contentsplitcontainer.Panel1.Controls.Add(Me.FoxButton9)
+        Me.contentsplitcontainer.Panel1.Controls.Add(Me.MaterialCard10)
+        Me.contentsplitcontainer.Panel1.Controls.Add(Me.Label22)
+        Me.contentsplitcontainer.Panel1MinSize = 200
+        '
+        'contentsplitcontainer.Panel2
+        '
+        Me.contentsplitcontainer.Panel2.Controls.Add(Me.MaterialCard11)
+        Me.contentsplitcontainer.Panel2MinSize = 100
+        Me.contentsplitcontainer.Size = New System.Drawing.Size(805, 461)
+        Me.contentsplitcontainer.SplitterDistance = 353
+        Me.contentsplitcontainer.TabIndex = 11
+        '
+        'buttonsplitcontainer
+        '
+        Me.buttonsplitcontainer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonsplitcontainer.Location = New System.Drawing.Point(23, 378)
+        Me.buttonsplitcontainer.Name = "buttonsplitcontainer"
+        '
+        'buttonsplitcontainer.Panel1
+        '
+        Me.buttonsplitcontainer.Panel1.Controls.Add(Me.FoxButton11)
+        Me.buttonsplitcontainer.Panel1MinSize = 40
+        '
+        'buttonsplitcontainer.Panel2
+        '
+        Me.buttonsplitcontainer.Panel2.Controls.Add(Me.FoxButton12)
+        Me.buttonsplitcontainer.Panel2MinSize = 40
+        Me.buttonsplitcontainer.Size = New System.Drawing.Size(368, 48)
+        Me.buttonsplitcontainer.SplitterDistance = 176
+        Me.buttonsplitcontainer.TabIndex = 36
         '
         'DashboardForm
         '
@@ -2209,7 +2263,6 @@ Partial Class DashboardForm
         CType(Me.approvedreqdgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.contentpanel.ResumeLayout(False)
         Me.archivepanel.ResumeLayout(False)
-        Me.archivepanel.PerformLayout()
         Me.MaterialCard11.ResumeLayout(False)
         Me.MaterialCard11.PerformLayout()
         Me.MaterialCard10.ResumeLayout(False)
@@ -2234,6 +2287,15 @@ Partial Class DashboardForm
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.MaterialCard2.ResumeLayout(False)
         CType(Me.residentsdgv, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.contentsplitcontainer.Panel1.ResumeLayout(False)
+        Me.contentsplitcontainer.Panel1.PerformLayout()
+        Me.contentsplitcontainer.Panel2.ResumeLayout(False)
+        CType(Me.contentsplitcontainer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.contentsplitcontainer.ResumeLayout(False)
+        Me.buttonsplitcontainer.Panel1.ResumeLayout(False)
+        Me.buttonsplitcontainer.Panel2.ResumeLayout(False)
+        CType(Me.buttonsplitcontainer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.buttonsplitcontainer.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2364,4 +2426,6 @@ Partial Class DashboardForm
     Friend WithEvents FoxButton12 As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents FoxButton11 As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents FoxButton9 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents contentsplitcontainer As SplitContainer
+    Friend WithEvents buttonsplitcontainer As SplitContainer
 End Class

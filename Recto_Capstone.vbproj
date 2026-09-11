@@ -216,7 +216,9 @@
     <Compile Include="DashboardForm.Designer.vb">
       <DependentUpon>DashboardForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="DashboardForm.vb" />
+    <Compile Include="DashboardForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>

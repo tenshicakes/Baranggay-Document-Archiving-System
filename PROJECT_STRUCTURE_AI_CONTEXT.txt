@@ -1,0 +1,240 @@
+RECTO CAPSTONE - AI PROJECT CONTEXT
+====================================
+
+Purpose
+-------
+This file is a compact map of the project for AI assistants that cannot directly inspect the project folder. Use the exact file names, class names, control names, and hierarchy below when generating code. Do not invent placeholder names when an existing name is listed here.
+
+Project Overview
+----------------
+Project type: VB.NET Windows Forms desktop application
+Target framework: .NET Framework 4.8.1
+Project file: Recto_Capstone.vbproj
+Solution file: Recto_Capstone.slnx
+Root namespace: Recto_Capstone
+Assembly name: Recto_Capstone
+Startup object: Recto_Capstone.My.MyApplication
+Configured startup form: Recto_Capstone.login
+
+Project Folder Structure
+------------------------
+Recto_Capstone/
+|
+|-- Recto_Capstone.slnx
+|-- Recto_Capstone.vbproj
+|-- App.config
+|-- packages.config
+|-- Form1.vb
+|-- Form1.Designer.vb
+|-- Form1.resx
+|-- DashboardForm.vb
+|-- DashboardForm.Designer.vb
+|-- DashboardForm.resx
+|-- GlobalDatabase.vb
+|-- rectodb.mdf
+|-- rectodb_log.ldf
+|
+|-- My Project/
+|   |-- Application.myapp
+|   |-- Application.Designer.vb
+|   |-- AssemblyInfo.vb
+|   |-- Resources.resx
+|   |-- Resources.Designer.vb
+|   |-- Settings.settings
+|   |-- Settings.Designer.vb
+|
+|-- packages/
+|   |-- ReaLTaiizor.3.8.2.1/
+|   |-- System.Data.SqlClient.4.9.1/
+|   |-- itext.9.7.0/
+|   |-- Newtonsoft.Json.13.0.4/
+|   |-- Microsoft.Web.WebView2.1.0.4191.47/
+|   |-- BouncyCastle.Cryptography.2.7.0/
+|   |-- and other NuGet dependency folders
+|
+|-- bin/                         Build output
+|-- obj/                         Intermediate build files
+|-- .vs/                         Visual Studio workspace data
+
+Main Form: login
+----------------
+Source files:
+- Form1.vb: behavior and event handlers
+- Form1.Designer.vb: generated control declarations and layout
+- Form1.resx: form resources, including PictureBox1 image data
+
+Class declaration:
+- Partial Class login
+- Inherits System.Windows.Forms.Form
+
+Form properties:
+- Name: login
+- ClientSize: 842 x 463
+- BackColor: SystemColors.ControlLightLight
+- MaximizeBox: False
+- ShowIcon: False
+- Text: three spaces ("   ")
+
+Control Hierarchy
+-----------------
+login (System.Windows.Forms.Form)
+|
+|-- PictureBox1 (System.Windows.Forms.PictureBox)
+|   |-- Location: (39, 48)
+|   |-- Size: 366 x 365
+|   |-- SizeMode: StretchImage
+|   |-- Image: loaded from Form1.resx through ComponentResourceManager
+|
+|-- MaterialCard1 (ReaLTaiizor.Controls.MaterialCard)
+	|-- Location: (458, 23)
+	|-- Size: 361 x 417
+	|-- BackColor: White
+	|-- Padding: 14
+	|
+	|-- Panel1 (System.Windows.Forms.Panel)
+	|   |-- Location: (0, 0) relative to MaterialCard1
+	|   |-- Size: 361 x 55
+	|   |-- BackColor: RGB(1, 31, 75)
+	|   |
+	|   |-- Label1 (System.Windows.Forms.Label)
+	|       |-- Text: Welcome
+	|       |-- Font: Nirmala UI, 21.75pt, Bold
+	|       |-- ForeColor: White
+	|       |-- Location: (109, 9) relative to Panel1
+	|
+	|-- Label2 (System.Windows.Forms.Label)
+	|   |-- Text: Username
+	|   |-- Font: Nirmala UI, 18pt, Regular
+	|   |-- ForeColor: Black
+	|   |-- Location: (17, 92) relative to MaterialCard1
+	|
+	|-- usertxtbox (ReaLTaiizor.Controls.DungeonTextBox)
+	|   |-- Username input field
+	|   |-- Location: (23, 127) relative to MaterialCard1
+	|   |-- Size: 310 x 42
+	|   |-- Multiline: False
+	|   |-- ReadOnly: False
+	|   |-- UseSystemPasswordChar: False
+	|   |-- TextAlignment: HorizontalAlignment.Left
+	|
+	|-- Label3 (System.Windows.Forms.Label)
+	|   |-- Text: Password
+	|   |-- Font: Nirmala UI, 18pt, Regular
+	|   |-- ForeColor: Black
+	|   |-- Location: (17, 191) relative to MaterialCard1
+	|
+	|-- passtxtbox (ReaLTaiizor.Controls.DungeonTextBox)
+	|   |-- Password input field
+	|   |-- Location: (23, 226) relative to MaterialCard1
+	|   |-- Size: 310 x 42
+	|   |-- Multiline: False
+	|   |-- ReadOnly: False
+	|   |-- UseSystemPasswordChar: True
+	|   |-- TextAlignment: HorizontalAlignment.Left
+	|
+	|-- loginbtn (ReaLTaiizor.Controls.FoxButton)
+		|-- Text: Login
+		|-- Location: (23, 327) relative to MaterialCard1
+		|-- Size: 310 x 63
+		|-- Font: Nirmala UI, 18pt, Bold
+		|-- ForeColor: White
+		|-- BaseColor: RGB(1, 31, 75)
+		|-- Cursor: Cursors.Hand
+
+Exact Control Names
+-------------------
+Form:
+- login
+
+ReaLTaiizor controls:
+- MaterialCard1: ReaLTaiizor.Controls.MaterialCard
+- usertxtbox: ReaLTaiizor.Controls.DungeonTextBox
+- passtxtbox: ReaLTaiizor.Controls.DungeonTextBox
+- loginbtn: ReaLTaiizor.Controls.FoxButton
+
+Standard Windows Forms controls:
+- Panel1: System.Windows.Forms.Panel
+- PictureBox1: System.Windows.Forms.PictureBox
+- Label1: System.Windows.Forms.Label
+- Label2: System.Windows.Forms.Label
+- Label3: System.Windows.Forms.Label
+
+Login Behavior
+--------------
+File: Form1.vb
+Event handler:
+- loginbtn_Click(sender, e) Handles loginbtn.Click
+
+Flow:
+1. Reads usertxtbox.Text and trims it into inputUsername.
+2. Reads passtxtbox.Text and trims it into inputPassword.
+3. Rejects empty values with a warning MessageBox.
+4. Queries the Users_tbl database table using GlobalDatabase.GetTable.
+5. Query columns: UserID, FullName, Role, IsActive.
+6. Query parameters: @Username and @Password.
+7. Rejects inactive accounts.
+8. On success, reads Role and FullName.
+9. Creates DashboardForm(role, fullName).
+10. Shows DashboardForm and hides the login form.
+11. Shows an error MessageBox for invalid credentials or database exceptions.
+
+Database Contract Used By Login
+-------------------------------
+Database helper referenced:
+- GlobalDatabase.GetTable(query, parameters)
+
+Database file:
+- rectodb.mdf
+- rectodb_log.ldf
+
+Table referenced:
+- Users_tbl
+
+Columns referenced:
+- UserID
+- FullName
+- Role
+- IsActive
+- Username
+- PasswordHash
+
+Important: The current login query compares the input password to PasswordHash using @Password. Preserve the existing database/authentication design unless explicitly asked to change it.
+
+Other Known Symbols Referenced
+------------------------------
+- DashboardForm(role As String, fullName As String)
+- GlobalDatabase.GetTable(query As String, parameters As SqlParameter())
+- System.Data.SqlClient.SqlParameter
+- System.Data.DataTable
+
+Application Startup
+-------------------
+File: My Project/Application.Designer.vb
+- Partial Friend Class MyApplication
+- Inherits the generated VB ApplicationBase implementation
+- OnCreateMainForm sets:
+  Me.MainForm = Global.Recto_Capstone.login
+
+Dependencies Relevant To UI
+---------------------------
+- ReaLTaiizor version 3.8.2.1
+- Target framework: net481
+- Assembly reference path: packages\\ReaLTaiizor.3.8.2.1\\lib\\net481\\ReaLTaiizor.dll
+
+Editing Guidance For AI Assistants
+-----------------------------------
+- Use VB.NET syntax, not C# syntax.
+- The login form class is named login, not Form1.
+- The source file is named Form1.vb even though the class is login.
+- Use the exact existing control names listed above.
+- Do not create duplicate controls such as txtUsername, txtPassword, or btnLogin unless explicitly requested.
+- Put behavior/event logic in Form1.vb.
+- Treat Form1.Designer.vb as generated layout code and avoid changing it unless UI layout changes are required.
+- ReaLTaiizor is already installed; prefer its existing controls where appropriate.
+- Check existing symbols such as DashboardForm and GlobalDatabase before inventing replacements.
+- Preserve the existing control hierarchy when adding child controls.
+- Build the project after code changes.
+
+Last updated
+------------
+Generated from the current workspace structure and current login form implementation.

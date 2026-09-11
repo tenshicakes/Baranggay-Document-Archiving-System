@@ -271,6 +271,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PROJECT_STRUCTURE_AI_CONTEXT.txt" />
     <Content Include="rectodb.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

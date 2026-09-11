@@ -81,13 +81,26 @@ Partial Class DashboardForm
         Me.ApprovedRequestDgvContainer = New ReaLTaiizor.Controls.MaterialCard()
         Me.approvedreqdgv = New System.Windows.Forms.DataGridView()
         Me.contentpanel = New System.Windows.Forms.Panel()
+        Me.searchpanel = New System.Windows.Forms.Panel()
         Me.archivepanel = New System.Windows.Forms.Panel()
-        Me.MaterialCard11 = New ReaLTaiizor.Controls.MaterialCard()
-        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Archive_ContentSplit = New System.Windows.Forms.SplitContainer()
+        Me.archive_searchbar = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.archive_searchbtn = New ReaLTaiizor.Controls.FoxButton()
+        Me.newarchivebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.MaterialCard10 = New ReaLTaiizor.Controls.MaterialCard()
         Me.approvedreqgrid = New System.Windows.Forms.DataGridView()
-        Me.archive_searchbtn = New ReaLTaiizor.Controls.FoxButton()
-        Me.archive_searchbar = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.MaterialCard11 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.Archive_ButtonSplit = New System.Windows.Forms.SplitContainer()
+        Me.archive_removebtn = New ReaLTaiizor.Controls.FoxButton()
+        Me.archivebtn = New ReaLTaiizor.Controls.FoxButton()
+        Me.MaterialCard12 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.attachfilebtn = New ReaLTaiizor.Controls.FoxButton()
+        Me.ornumber_txtbox = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.archive_residentnamelbl = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.requestpanel = New System.Windows.Forms.Panel()
         Me.adminformpanel = New System.Windows.Forms.Panel()
         Me.closeadminformbtn = New ReaLTaiizor.Controls.FoxButton()
@@ -139,19 +152,21 @@ Partial Class DashboardForm
         Me.Label12 = New System.Windows.Forms.Label()
         Me.residents_searchbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.residents_searchbar = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.archive_residentnamelbl = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.ornumber_txtbox = New ReaLTaiizor.Controls.DungeonTextBox()
-        Me.attachfilebtn = New ReaLTaiizor.Controls.FoxButton()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.MaterialCard12 = New ReaLTaiizor.Controls.MaterialCard()
-        Me.newarchivebtn = New ReaLTaiizor.Controls.FoxButton()
-        Me.archive_removebtn = New ReaLTaiizor.Controls.FoxButton()
-        Me.archivebtn = New ReaLTaiizor.Controls.FoxButton()
-        Me.contentsplitcontainer = New System.Windows.Forms.SplitContainer()
-        Me.buttonsplitcontainer = New System.Windows.Forms.SplitContainer()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Search_ContentSplit = New System.Windows.Forms.SplitContainer()
+        Me.DungeonTextBox1 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.FoxButton5 = New ReaLTaiizor.Controls.FoxButton()
+        Me.MaterialCard13 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DungeonComboBox1 = New ReaLTaiizor.Controls.DungeonComboBox()
+        Me.FoxButton9 = New ReaLTaiizor.Controls.FoxButton()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.FoxButton10 = New ReaLTaiizor.Controls.FoxButton()
+        Me.MaterialCard14 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.MaterialCard15 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.FoxButton11 = New ReaLTaiizor.Controls.FoxButton()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -181,10 +196,19 @@ Partial Class DashboardForm
         Me.ApprovedRequestDgvContainer.SuspendLayout()
         CType(Me.approvedreqdgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.contentpanel.SuspendLayout()
+        Me.searchpanel.SuspendLayout()
         Me.archivepanel.SuspendLayout()
-        Me.MaterialCard11.SuspendLayout()
+        CType(Me.Archive_ContentSplit, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Archive_ContentSplit.Panel1.SuspendLayout()
+        Me.Archive_ContentSplit.Panel2.SuspendLayout()
+        Me.Archive_ContentSplit.SuspendLayout()
         Me.MaterialCard10.SuspendLayout()
         CType(Me.approvedreqgrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MaterialCard11.SuspendLayout()
+        CType(Me.Archive_ButtonSplit, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Archive_ButtonSplit.Panel1.SuspendLayout()
+        Me.Archive_ButtonSplit.Panel2.SuspendLayout()
+        Me.Archive_ButtonSplit.SuspendLayout()
         Me.requestpanel.SuspendLayout()
         Me.adminformpanel.SuspendLayout()
         Me.derogatoryrrecordcard.SuspendLayout()
@@ -199,14 +223,13 @@ Partial Class DashboardForm
         Me.TableLayoutPanel1.SuspendLayout()
         Me.MaterialCard2.SuspendLayout()
         CType(Me.residentsdgv, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.contentsplitcontainer, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.contentsplitcontainer.Panel1.SuspendLayout()
-        Me.contentsplitcontainer.Panel2.SuspendLayout()
-        Me.contentsplitcontainer.SuspendLayout()
-        CType(Me.buttonsplitcontainer, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.buttonsplitcontainer.Panel1.SuspendLayout()
-        Me.buttonsplitcontainer.Panel2.SuspendLayout()
-        Me.buttonsplitcontainer.SuspendLayout()
+        CType(Me.Search_ContentSplit, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Search_ContentSplit.Panel1.SuspendLayout()
+        Me.Search_ContentSplit.Panel2.SuspendLayout()
+        Me.Search_ContentSplit.SuspendLayout()
+        Me.MaterialCard13.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MaterialCard14.SuspendLayout()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -1009,7 +1032,7 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
-        Me.contentpanel.Controls.Add(Me.Panel1)
+        Me.contentpanel.Controls.Add(Me.searchpanel)
         Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
@@ -1020,51 +1043,114 @@ Partial Class DashboardForm
         Me.contentpanel.Size = New System.Drawing.Size(1000, 516)
         Me.contentpanel.TabIndex = 5
         '
+        'searchpanel
+        '
+        Me.searchpanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.searchpanel.Controls.Add(Me.Search_ContentSplit)
+        Me.searchpanel.Location = New System.Drawing.Point(195, 59)
+        Me.searchpanel.Name = "searchpanel"
+        Me.searchpanel.Size = New System.Drawing.Size(805, 461)
+        Me.searchpanel.TabIndex = 10
+        '
         'archivepanel
         '
         Me.archivepanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.archivepanel.Controls.Add(Me.contentsplitcontainer)
+        Me.archivepanel.Controls.Add(Me.Archive_ContentSplit)
         Me.archivepanel.Location = New System.Drawing.Point(195, 59)
         Me.archivepanel.Name = "archivepanel"
         Me.archivepanel.Size = New System.Drawing.Size(805, 461)
         Me.archivepanel.TabIndex = 11
         '
-        'MaterialCard11
+        'Archive_ContentSplit
         '
-        Me.MaterialCard11.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.Archive_ContentSplit.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MaterialCard11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MaterialCard11.Controls.Add(Me.buttonsplitcontainer)
-        Me.MaterialCard11.Controls.Add(Me.MaterialCard12)
-        Me.MaterialCard11.Controls.Add(Me.Label30)
-        Me.MaterialCard11.Controls.Add(Me.attachfilebtn)
-        Me.MaterialCard11.Controls.Add(Me.ornumber_txtbox)
-        Me.MaterialCard11.Controls.Add(Me.Label28)
-        Me.MaterialCard11.Controls.Add(Me.archive_residentnamelbl)
-        Me.MaterialCard11.Controls.Add(Me.Label24)
-        Me.MaterialCard11.Depth = 0
-        Me.MaterialCard11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialCard11.Location = New System.Drawing.Point(11, 14)
-        Me.MaterialCard11.Margin = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
-        Me.MaterialCard11.Name = "MaterialCard11"
-        Me.MaterialCard11.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard11.Size = New System.Drawing.Size(417, 430)
-        Me.MaterialCard11.TabIndex = 10
+        Me.Archive_ContentSplit.Location = New System.Drawing.Point(6, 1)
+        Me.Archive_ContentSplit.Name = "Archive_ContentSplit"
         '
-        'Label22
+        'Archive_ContentSplit.Panel1
         '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(10, 80)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(236, 32)
-        Me.Label22.TabIndex = 8
-        Me.Label22.Text = "Approved Requests"
+        Me.Archive_ContentSplit.Panel1.Controls.Add(Me.archive_searchbar)
+        Me.Archive_ContentSplit.Panel1.Controls.Add(Me.archive_searchbtn)
+        Me.Archive_ContentSplit.Panel1.Controls.Add(Me.newarchivebtn)
+        Me.Archive_ContentSplit.Panel1.Controls.Add(Me.MaterialCard10)
+        Me.Archive_ContentSplit.Panel1.Controls.Add(Me.Label22)
+        Me.Archive_ContentSplit.Panel1MinSize = 200
+        '
+        'Archive_ContentSplit.Panel2
+        '
+        Me.Archive_ContentSplit.Panel2.Controls.Add(Me.MaterialCard11)
+        Me.Archive_ContentSplit.Panel2MinSize = 100
+        Me.Archive_ContentSplit.Size = New System.Drawing.Size(805, 461)
+        Me.Archive_ContentSplit.SplitterDistance = 353
+        Me.Archive_ContentSplit.TabIndex = 11
+        '
+        'archive_searchbar
+        '
+        Me.archive_searchbar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.archive_searchbar.BackColor = System.Drawing.Color.Transparent
+        Me.archive_searchbar.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.archive_searchbar.EdgeColor = System.Drawing.Color.White
+        Me.archive_searchbar.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.archive_searchbar.ForeColor = System.Drawing.Color.Black
+        Me.archive_searchbar.Location = New System.Drawing.Point(14, 10)
+        Me.archive_searchbar.MaxLength = 32767
+        Me.archive_searchbar.Multiline = False
+        Me.archive_searchbar.Name = "archive_searchbar"
+        Me.archive_searchbar.ReadOnly = False
+        Me.archive_searchbar.Size = New System.Drawing.Size(203, 42)
+        Me.archive_searchbar.TabIndex = 3
+        Me.archive_searchbar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.archive_searchbar.UseSystemPasswordChar = False
+        '
+        'archive_searchbtn
+        '
+        Me.archive_searchbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.archive_searchbtn.BackColor = System.Drawing.Color.Transparent
+        Me.archive_searchbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.archive_searchbtn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
+        Me.archive_searchbtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.archive_searchbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.archive_searchbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.archive_searchbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.archive_searchbtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.archive_searchbtn.EnabledCalc = True
+        Me.archive_searchbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.archive_searchbtn.ForeColor = System.Drawing.Color.Black
+        Me.archive_searchbtn.Location = New System.Drawing.Point(223, 10)
+        Me.archive_searchbtn.Name = "archive_searchbtn"
+        Me.archive_searchbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.archive_searchbtn.Size = New System.Drawing.Size(120, 42)
+        Me.archive_searchbtn.TabIndex = 4
+        Me.archive_searchbtn.Text = "Search"
+        '
+        'newarchivebtn
+        '
+        Me.newarchivebtn.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.newarchivebtn.BackColor = System.Drawing.Color.Transparent
+        Me.newarchivebtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.newarchivebtn.BorderColor = System.Drawing.Color.Transparent
+        Me.newarchivebtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.newarchivebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.newarchivebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.newarchivebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.newarchivebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.newarchivebtn.EnabledCalc = True
+        Me.newarchivebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.newarchivebtn.ForeColor = System.Drawing.Color.White
+        Me.newarchivebtn.Location = New System.Drawing.Point(14, 402)
+        Me.newarchivebtn.Name = "newarchivebtn"
+        Me.newarchivebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.newarchivebtn.Size = New System.Drawing.Size(329, 40)
+        Me.newarchivebtn.TabIndex = 9
+        Me.newarchivebtn.Text = "New Archive"
         '
         'MaterialCard10
         '
@@ -1104,45 +1190,205 @@ Partial Class DashboardForm
         Me.approvedreqgrid.Size = New System.Drawing.Size(301, 247)
         Me.approvedreqgrid.TabIndex = 0
         '
-        'archive_searchbtn
+        'Label22
         '
-        Me.archive_searchbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.archive_searchbtn.BackColor = System.Drawing.Color.Transparent
-        Me.archive_searchbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.archive_searchbtn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
-        Me.archive_searchbtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.archive_searchbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.archive_searchbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.archive_searchbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.archive_searchbtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.archive_searchbtn.EnabledCalc = True
-        Me.archive_searchbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.archive_searchbtn.ForeColor = System.Drawing.Color.Black
-        Me.archive_searchbtn.Location = New System.Drawing.Point(223, 10)
-        Me.archive_searchbtn.Name = "archive_searchbtn"
-        Me.archive_searchbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.archive_searchbtn.Size = New System.Drawing.Size(120, 42)
-        Me.archive_searchbtn.TabIndex = 4
-        Me.archive_searchbtn.Text = "Search"
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(10, 80)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(236, 32)
+        Me.Label22.TabIndex = 8
+        Me.Label22.Text = "Approved Requests"
         '
-        'archive_searchbar
+        'MaterialCard11
         '
-        Me.archive_searchbar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.MaterialCard11.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.archive_searchbar.BackColor = System.Drawing.Color.Transparent
-        Me.archive_searchbar.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.archive_searchbar.EdgeColor = System.Drawing.Color.White
-        Me.archive_searchbar.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.archive_searchbar.ForeColor = System.Drawing.Color.Black
-        Me.archive_searchbar.Location = New System.Drawing.Point(14, 10)
-        Me.archive_searchbar.MaxLength = 32767
-        Me.archive_searchbar.Multiline = False
-        Me.archive_searchbar.Name = "archive_searchbar"
-        Me.archive_searchbar.ReadOnly = False
-        Me.archive_searchbar.Size = New System.Drawing.Size(203, 42)
-        Me.archive_searchbar.TabIndex = 3
-        Me.archive_searchbar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.archive_searchbar.UseSystemPasswordChar = False
+        Me.MaterialCard11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard11.Controls.Add(Me.Archive_ButtonSplit)
+        Me.MaterialCard11.Controls.Add(Me.MaterialCard12)
+        Me.MaterialCard11.Controls.Add(Me.Label30)
+        Me.MaterialCard11.Controls.Add(Me.attachfilebtn)
+        Me.MaterialCard11.Controls.Add(Me.ornumber_txtbox)
+        Me.MaterialCard11.Controls.Add(Me.Label28)
+        Me.MaterialCard11.Controls.Add(Me.archive_residentnamelbl)
+        Me.MaterialCard11.Controls.Add(Me.Label24)
+        Me.MaterialCard11.Depth = 0
+        Me.MaterialCard11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialCard11.Location = New System.Drawing.Point(11, 14)
+        Me.MaterialCard11.Margin = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
+        Me.MaterialCard11.Name = "MaterialCard11"
+        Me.MaterialCard11.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard11.Size = New System.Drawing.Size(417, 430)
+        Me.MaterialCard11.TabIndex = 10
+        '
+        'Archive_ButtonSplit
+        '
+        Me.Archive_ButtonSplit.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Archive_ButtonSplit.Location = New System.Drawing.Point(23, 378)
+        Me.Archive_ButtonSplit.Name = "Archive_ButtonSplit"
+        '
+        'Archive_ButtonSplit.Panel1
+        '
+        Me.Archive_ButtonSplit.Panel1.Controls.Add(Me.archive_removebtn)
+        Me.Archive_ButtonSplit.Panel1MinSize = 40
+        '
+        'Archive_ButtonSplit.Panel2
+        '
+        Me.Archive_ButtonSplit.Panel2.Controls.Add(Me.archivebtn)
+        Me.Archive_ButtonSplit.Panel2MinSize = 40
+        Me.Archive_ButtonSplit.Size = New System.Drawing.Size(368, 48)
+        Me.Archive_ButtonSplit.SplitterDistance = 176
+        Me.Archive_ButtonSplit.TabIndex = 36
+        '
+        'archive_removebtn
+        '
+        Me.archive_removebtn.BackColor = System.Drawing.Color.Transparent
+        Me.archive_removebtn.BaseColor = System.Drawing.Color.White
+        Me.archive_removebtn.BorderColor = System.Drawing.Color.Silver
+        Me.archive_removebtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.archive_removebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.archive_removebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.archive_removebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.archive_removebtn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.archive_removebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.archive_removebtn.EnabledCalc = True
+        Me.archive_removebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.archive_removebtn.ForeColor = System.Drawing.Color.Black
+        Me.archive_removebtn.Location = New System.Drawing.Point(0, 0)
+        Me.archive_removebtn.MaximumSize = New System.Drawing.Size(383, 40)
+        Me.archive_removebtn.Name = "archive_removebtn"
+        Me.archive_removebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.archive_removebtn.Size = New System.Drawing.Size(176, 40)
+        Me.archive_removebtn.TabIndex = 34
+        Me.archive_removebtn.Text = "Remove"
+        '
+        'archivebtn
+        '
+        Me.archivebtn.BackColor = System.Drawing.Color.Transparent
+        Me.archivebtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.archivebtn.BorderColor = System.Drawing.Color.Transparent
+        Me.archivebtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.archivebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.archivebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.archivebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.archivebtn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.archivebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.archivebtn.EnabledCalc = True
+        Me.archivebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.archivebtn.ForeColor = System.Drawing.Color.White
+        Me.archivebtn.Location = New System.Drawing.Point(0, 0)
+        Me.archivebtn.MaximumSize = New System.Drawing.Size(383, 40)
+        Me.archivebtn.Name = "archivebtn"
+        Me.archivebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.archivebtn.Size = New System.Drawing.Size(188, 40)
+        Me.archivebtn.TabIndex = 35
+        Me.archivebtn.Text = "Archive"
+        '
+        'MaterialCard12
+        '
+        Me.MaterialCard12.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MaterialCard12.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard12.Depth = 0
+        Me.MaterialCard12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialCard12.Location = New System.Drawing.Point(22, 231)
+        Me.MaterialCard12.Margin = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard12.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
+        Me.MaterialCard12.Name = "MaterialCard12"
+        Me.MaterialCard12.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard12.Size = New System.Drawing.Size(369, 142)
+        Me.MaterialCard12.TabIndex = 33
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.Color.Black
+        Me.Label30.Location = New System.Drawing.Point(19, 203)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(141, 21)
+        Me.Label30.TabIndex = 32
+        Me.Label30.Text = "Document Preview"
+        '
+        'attachfilebtn
+        '
+        Me.attachfilebtn.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.attachfilebtn.BackColor = System.Drawing.Color.Transparent
+        Me.attachfilebtn.BaseColor = System.Drawing.Color.Silver
+        Me.attachfilebtn.BorderColor = System.Drawing.Color.Transparent
+        Me.attachfilebtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.attachfilebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.attachfilebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.attachfilebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.attachfilebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.attachfilebtn.EnabledCalc = True
+        Me.attachfilebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.attachfilebtn.ForeColor = System.Drawing.Color.Black
+        Me.attachfilebtn.Location = New System.Drawing.Point(23, 144)
+        Me.attachfilebtn.Name = "attachfilebtn"
+        Me.attachfilebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.attachfilebtn.Size = New System.Drawing.Size(371, 42)
+        Me.attachfilebtn.TabIndex = 31
+        Me.attachfilebtn.Text = "Attach a File"
+        '
+        'ornumber_txtbox
+        '
+        Me.ornumber_txtbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ornumber_txtbox.BackColor = System.Drawing.Color.Transparent
+        Me.ornumber_txtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.ornumber_txtbox.EdgeColor = System.Drawing.Color.White
+        Me.ornumber_txtbox.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.ornumber_txtbox.ForeColor = System.Drawing.Color.Black
+        Me.ornumber_txtbox.Location = New System.Drawing.Point(22, 94)
+        Me.ornumber_txtbox.MaxLength = 32767
+        Me.ornumber_txtbox.Multiline = False
+        Me.ornumber_txtbox.Name = "ornumber_txtbox"
+        Me.ornumber_txtbox.ReadOnly = False
+        Me.ornumber_txtbox.Size = New System.Drawing.Size(371, 42)
+        Me.ornumber_txtbox.TabIndex = 30
+        Me.ornumber_txtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.ornumber_txtbox.UseSystemPasswordChar = False
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.Black
+        Me.Label28.Location = New System.Drawing.Point(18, 66)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(277, 21)
+        Me.Label28.TabIndex = 29
+        Me.Label28.Text = "OR Number/Payment Receipt Number"
+        '
+        'archive_residentnamelbl
+        '
+        Me.archive_residentnamelbl.AutoSize = True
+        Me.archive_residentnamelbl.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.archive_residentnamelbl.ForeColor = System.Drawing.Color.Black
+        Me.archive_residentnamelbl.Location = New System.Drawing.Point(18, 35)
+        Me.archive_residentnamelbl.Name = "archive_residentnamelbl"
+        Me.archive_residentnamelbl.Size = New System.Drawing.Size(157, 21)
+        Me.archive_residentnamelbl.TabIndex = 28
+        Me.archive_residentnamelbl.Text = "Louie Jelaine Recto"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.Black
+        Me.Label24.Location = New System.Drawing.Point(18, 12)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(116, 21)
+        Me.Label24.TabIndex = 27
+        Me.Label24.Text = "Resident Name"
         '
         'requestpanel
         '
@@ -1999,224 +2245,282 @@ Partial Class DashboardForm
         Me.residents_searchbar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.residents_searchbar.UseSystemPasswordChar = False
         '
-        'Label24
+        'Search_ContentSplit
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.ForeColor = System.Drawing.Color.Black
-        Me.Label24.Location = New System.Drawing.Point(18, 12)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(116, 21)
-        Me.Label24.TabIndex = 27
-        Me.Label24.Text = "Resident Name"
+        Me.Search_ContentSplit.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Search_ContentSplit.Location = New System.Drawing.Point(0, 0)
+        Me.Search_ContentSplit.Name = "Search_ContentSplit"
         '
-        'archive_residentnamelbl
+        'Search_ContentSplit.Panel1
         '
-        Me.archive_residentnamelbl.AutoSize = True
-        Me.archive_residentnamelbl.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.archive_residentnamelbl.ForeColor = System.Drawing.Color.Black
-        Me.archive_residentnamelbl.Location = New System.Drawing.Point(18, 35)
-        Me.archive_residentnamelbl.Name = "archive_residentnamelbl"
-        Me.archive_residentnamelbl.Size = New System.Drawing.Size(157, 21)
-        Me.archive_residentnamelbl.TabIndex = 28
-        Me.archive_residentnamelbl.Text = "Louie Jelaine Recto"
+        Me.Search_ContentSplit.Panel1.Controls.Add(Me.FoxButton10)
+        Me.Search_ContentSplit.Panel1.Controls.Add(Me.Label26)
+        Me.Search_ContentSplit.Panel1.Controls.Add(Me.FoxButton9)
+        Me.Search_ContentSplit.Panel1.Controls.Add(Me.DungeonComboBox1)
+        Me.Search_ContentSplit.Panel1.Controls.Add(Me.MaterialCard13)
+        Me.Search_ContentSplit.Panel1.Controls.Add(Me.FoxButton5)
+        Me.Search_ContentSplit.Panel1.Controls.Add(Me.DungeonTextBox1)
+        Me.Search_ContentSplit.Panel1MinSize = 400
         '
-        'Label28
+        'Search_ContentSplit.Panel2
         '
-        Me.Label28.AutoSize = True
-        Me.Label28.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.ForeColor = System.Drawing.Color.Black
-        Me.Label28.Location = New System.Drawing.Point(18, 66)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(277, 21)
-        Me.Label28.TabIndex = 29
-        Me.Label28.Text = "OR Number/Payment Receipt Number"
+        Me.Search_ContentSplit.Panel2.Controls.Add(Me.MaterialCard14)
+        Me.Search_ContentSplit.Panel2MinSize = 400
+        Me.Search_ContentSplit.Size = New System.Drawing.Size(805, 461)
+        Me.Search_ContentSplit.SplitterDistance = 400
+        Me.Search_ContentSplit.TabIndex = 0
         '
-        'ornumber_txtbox
+        'DungeonTextBox1
         '
-        Me.ornumber_txtbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.DungeonTextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ornumber_txtbox.BackColor = System.Drawing.Color.Transparent
-        Me.ornumber_txtbox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.ornumber_txtbox.EdgeColor = System.Drawing.Color.White
-        Me.ornumber_txtbox.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.ornumber_txtbox.ForeColor = System.Drawing.Color.Black
-        Me.ornumber_txtbox.Location = New System.Drawing.Point(22, 94)
-        Me.ornumber_txtbox.MaxLength = 32767
-        Me.ornumber_txtbox.Multiline = False
-        Me.ornumber_txtbox.Name = "ornumber_txtbox"
-        Me.ornumber_txtbox.ReadOnly = False
-        Me.ornumber_txtbox.Size = New System.Drawing.Size(371, 42)
-        Me.ornumber_txtbox.TabIndex = 30
-        Me.ornumber_txtbox.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.ornumber_txtbox.UseSystemPasswordChar = False
+        Me.DungeonTextBox1.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox1.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox1.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.DungeonTextBox1.ForeColor = System.Drawing.Color.Black
+        Me.DungeonTextBox1.Location = New System.Drawing.Point(20, 17)
+        Me.DungeonTextBox1.MaxLength = 32767
+        Me.DungeonTextBox1.Multiline = False
+        Me.DungeonTextBox1.Name = "DungeonTextBox1"
+        Me.DungeonTextBox1.ReadOnly = False
+        Me.DungeonTextBox1.Size = New System.Drawing.Size(232, 42)
+        Me.DungeonTextBox1.TabIndex = 4
+        Me.DungeonTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox1.UseSystemPasswordChar = False
         '
-        'attachfilebtn
+        'FoxButton5
         '
-        Me.attachfilebtn.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.attachfilebtn.BackColor = System.Drawing.Color.Transparent
-        Me.attachfilebtn.BaseColor = System.Drawing.Color.Silver
-        Me.attachfilebtn.BorderColor = System.Drawing.Color.Transparent
-        Me.attachfilebtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.attachfilebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.attachfilebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.attachfilebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.attachfilebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.attachfilebtn.EnabledCalc = True
-        Me.attachfilebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.attachfilebtn.ForeColor = System.Drawing.Color.Black
-        Me.attachfilebtn.Location = New System.Drawing.Point(23, 144)
-        Me.attachfilebtn.Name = "attachfilebtn"
-        Me.attachfilebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.attachfilebtn.Size = New System.Drawing.Size(371, 42)
-        Me.attachfilebtn.TabIndex = 31
-        Me.attachfilebtn.Text = "Attach a File"
+        Me.FoxButton5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FoxButton5.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton5.BaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
+        Me.FoxButton5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton5.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton5.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton5.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton5.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FoxButton5.EnabledCalc = True
+        Me.FoxButton5.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton5.ForeColor = System.Drawing.Color.Black
+        Me.FoxButton5.Location = New System.Drawing.Point(264, 17)
+        Me.FoxButton5.Name = "FoxButton5"
+        Me.FoxButton5.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.FoxButton5.Size = New System.Drawing.Size(120, 42)
+        Me.FoxButton5.TabIndex = 5
+        Me.FoxButton5.Text = "Search"
         '
-        'Label30
+        'MaterialCard13
         '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.ForeColor = System.Drawing.Color.Black
-        Me.Label30.Location = New System.Drawing.Point(19, 203)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(141, 21)
-        Me.Label30.TabIndex = 32
-        Me.Label30.Text = "Document Preview"
-        '
-        'MaterialCard12
-        '
-        Me.MaterialCard12.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.MaterialCard13.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MaterialCard12.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MaterialCard12.Depth = 0
-        Me.MaterialCard12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialCard12.Location = New System.Drawing.Point(22, 231)
-        Me.MaterialCard12.Margin = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard12.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
-        Me.MaterialCard12.Name = "MaterialCard12"
-        Me.MaterialCard12.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard12.Size = New System.Drawing.Size(369, 142)
-        Me.MaterialCard12.TabIndex = 33
+        Me.MaterialCard13.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard13.Controls.Add(Me.DataGridView1)
+        Me.MaterialCard13.Depth = 0
+        Me.MaterialCard13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialCard13.Location = New System.Drawing.Point(20, 174)
+        Me.MaterialCard13.Margin = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard13.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
+        Me.MaterialCard13.Name = "MaterialCard13"
+        Me.MaterialCard13.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard13.Size = New System.Drawing.Size(364, 218)
+        Me.MaterialCard13.TabIndex = 8
         '
-        'newarchivebtn
+        'DataGridView1
         '
-        Me.newarchivebtn.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.Location = New System.Drawing.Point(14, 14)
+        Me.DataGridView1.MultiSelect = False
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.ShowCellToolTips = False
+        Me.DataGridView1.ShowEditingIcon = False
+        Me.DataGridView1.ShowRowErrors = False
+        Me.DataGridView1.Size = New System.Drawing.Size(336, 190)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'DungeonComboBox1
+        '
+        Me.DungeonComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.DungeonComboBox1.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
+        Me.DungeonComboBox1.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.DungeonComboBox1.ColorC = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.DungeonComboBox1.ColorD = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.DungeonComboBox1.ColorE = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.DungeonComboBox1.ColorF = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonComboBox1.ColorG = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.DungeonComboBox1.ColorH = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.DungeonComboBox1.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.DungeonComboBox1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DungeonComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.DungeonComboBox1.DropDownHeight = 400
+        Me.DungeonComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DungeonComboBox1.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold)
+        Me.DungeonComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.DungeonComboBox1.FormattingEnabled = True
+        Me.DungeonComboBox1.HoverSelectionColor = System.Drawing.Color.Empty
+        Me.DungeonComboBox1.IntegralHeight = False
+        Me.DungeonComboBox1.ItemHeight = 40
+        Me.DungeonComboBox1.Items.AddRange(New Object() {"test", "test", "test", "test"})
+        Me.DungeonComboBox1.Location = New System.Drawing.Point(20, 76)
+        Me.DungeonComboBox1.Name = "DungeonComboBox1"
+        Me.DungeonComboBox1.Size = New System.Drawing.Size(180, 46)
+        Me.DungeonComboBox1.StartIndex = 0
+        Me.DungeonComboBox1.TabIndex = 9
+        '
+        'FoxButton9
+        '
+        Me.FoxButton9.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton9.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.FoxButton9.BorderColor = System.Drawing.Color.Transparent
+        Me.FoxButton9.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton9.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton9.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton9.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton9.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FoxButton9.EnabledCalc = True
+        Me.FoxButton9.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton9.ForeColor = System.Drawing.Color.White
+        Me.FoxButton9.Location = New System.Drawing.Point(212, 78)
+        Me.FoxButton9.Name = "FoxButton9"
+        Me.FoxButton9.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.FoxButton9.Size = New System.Drawing.Size(120, 42)
+        Me.FoxButton9.TabIndex = 10
+        Me.FoxButton9.Text = "Search"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.ForeColor = System.Drawing.Color.White
+        Me.Label26.Location = New System.Drawing.Point(16, 140)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(252, 32)
+        Me.Label26.TabIndex = 11
+        Me.Label26.Text = "Documents Archived"
+        '
+        'FoxButton10
+        '
+        Me.FoxButton10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.newarchivebtn.BackColor = System.Drawing.Color.Transparent
-        Me.newarchivebtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.newarchivebtn.BorderColor = System.Drawing.Color.Transparent
-        Me.newarchivebtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.newarchivebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.newarchivebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.newarchivebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.newarchivebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.newarchivebtn.EnabledCalc = True
-        Me.newarchivebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.newarchivebtn.ForeColor = System.Drawing.Color.White
-        Me.newarchivebtn.Location = New System.Drawing.Point(14, 402)
-        Me.newarchivebtn.Name = "newarchivebtn"
-        Me.newarchivebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.newarchivebtn.Size = New System.Drawing.Size(329, 40)
-        Me.newarchivebtn.TabIndex = 9
-        Me.newarchivebtn.Text = "New Archive"
+        Me.FoxButton10.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton10.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.FoxButton10.BorderColor = System.Drawing.Color.Transparent
+        Me.FoxButton10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton10.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton10.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton10.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton10.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FoxButton10.EnabledCalc = True
+        Me.FoxButton10.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton10.ForeColor = System.Drawing.Color.White
+        Me.FoxButton10.Location = New System.Drawing.Point(20, 404)
+        Me.FoxButton10.Name = "FoxButton10"
+        Me.FoxButton10.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.FoxButton10.Size = New System.Drawing.Size(364, 42)
+        Me.FoxButton10.TabIndex = 12
+        Me.FoxButton10.Text = "Search"
         '
-        'archive_removebtn
+        'MaterialCard14
         '
-        Me.archive_removebtn.BackColor = System.Drawing.Color.Transparent
-        Me.archive_removebtn.BaseColor = System.Drawing.Color.White
-        Me.archive_removebtn.BorderColor = System.Drawing.Color.Silver
-        Me.archive_removebtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.archive_removebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.archive_removebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.archive_removebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.archive_removebtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.archive_removebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.archive_removebtn.EnabledCalc = True
-        Me.archive_removebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.archive_removebtn.ForeColor = System.Drawing.Color.Black
-        Me.archive_removebtn.Location = New System.Drawing.Point(0, 0)
-        Me.archive_removebtn.MaximumSize = New System.Drawing.Size(383, 40)
-        Me.archive_removebtn.Name = "archive_removebtn"
-        Me.archive_removebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.archive_removebtn.Size = New System.Drawing.Size(176, 40)
-        Me.archive_removebtn.TabIndex = 34
-        Me.archive_removebtn.Text = "Remove"
-        '
-        'archivebtn
-        '
-        Me.archivebtn.BackColor = System.Drawing.Color.Transparent
-        Me.archivebtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
-        Me.archivebtn.BorderColor = System.Drawing.Color.Transparent
-        Me.archivebtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.archivebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.archivebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.archivebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.archivebtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.archivebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.archivebtn.EnabledCalc = True
-        Me.archivebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.archivebtn.ForeColor = System.Drawing.Color.White
-        Me.archivebtn.Location = New System.Drawing.Point(0, 0)
-        Me.archivebtn.MaximumSize = New System.Drawing.Size(383, 40)
-        Me.archivebtn.Name = "archivebtn"
-        Me.archivebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.archivebtn.Size = New System.Drawing.Size(188, 40)
-        Me.archivebtn.TabIndex = 35
-        Me.archivebtn.Text = "Archive"
-        '
-        'contentsplitcontainer
-        '
-        Me.contentsplitcontainer.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.MaterialCard14.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.contentsplitcontainer.Location = New System.Drawing.Point(6, 1)
-        Me.contentsplitcontainer.Name = "contentsplitcontainer"
+        Me.MaterialCard14.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard14.Controls.Add(Me.FoxButton11)
+        Me.MaterialCard14.Controls.Add(Me.MaterialCard15)
+        Me.MaterialCard14.Controls.Add(Me.Label31)
+        Me.MaterialCard14.Controls.Add(Me.Label33)
+        Me.MaterialCard14.Controls.Add(Me.Label34)
+        Me.MaterialCard14.Depth = 0
+        Me.MaterialCard14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialCard14.Location = New System.Drawing.Point(8, 15)
+        Me.MaterialCard14.Margin = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard14.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
+        Me.MaterialCard14.Name = "MaterialCard14"
+        Me.MaterialCard14.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard14.Size = New System.Drawing.Size(381, 430)
+        Me.MaterialCard14.TabIndex = 11
         '
-        'contentsplitcontainer.Panel1
+        'MaterialCard15
         '
-        Me.contentsplitcontainer.Panel1.Controls.Add(Me.archive_searchbar)
-        Me.contentsplitcontainer.Panel1.Controls.Add(Me.archive_searchbtn)
-        Me.contentsplitcontainer.Panel1.Controls.Add(Me.newarchivebtn)
-        Me.contentsplitcontainer.Panel1.Controls.Add(Me.MaterialCard10)
-        Me.contentsplitcontainer.Panel1.Controls.Add(Me.Label22)
-        Me.contentsplitcontainer.Panel1MinSize = 200
-        '
-        'contentsplitcontainer.Panel2
-        '
-        Me.contentsplitcontainer.Panel2.Controls.Add(Me.MaterialCard11)
-        Me.contentsplitcontainer.Panel2MinSize = 100
-        Me.contentsplitcontainer.Size = New System.Drawing.Size(805, 461)
-        Me.contentsplitcontainer.SplitterDistance = 353
-        Me.contentsplitcontainer.TabIndex = 11
-        '
-        'buttonsplitcontainer
-        '
-        Me.buttonsplitcontainer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.MaterialCard15.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonsplitcontainer.Location = New System.Drawing.Point(23, 378)
-        Me.buttonsplitcontainer.Name = "buttonsplitcontainer"
+        Me.MaterialCard15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard15.Depth = 0
+        Me.MaterialCard15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialCard15.Location = New System.Drawing.Point(22, 97)
+        Me.MaterialCard15.Margin = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard15.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
+        Me.MaterialCard15.Name = "MaterialCard15"
+        Me.MaterialCard15.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard15.Size = New System.Drawing.Size(333, 270)
+        Me.MaterialCard15.TabIndex = 33
         '
-        'buttonsplitcontainer.Panel1
+        'Label31
         '
-        Me.buttonsplitcontainer.Panel1.Controls.Add(Me.archive_removebtn)
-        Me.buttonsplitcontainer.Panel1MinSize = 40
+        Me.Label31.AutoSize = True
+        Me.Label31.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.Black
+        Me.Label31.Location = New System.Drawing.Point(18, 69)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(141, 21)
+        Me.Label31.TabIndex = 32
+        Me.Label31.Text = "Document Preview"
         '
-        'buttonsplitcontainer.Panel2
+        'Label33
         '
-        Me.buttonsplitcontainer.Panel2.Controls.Add(Me.archivebtn)
-        Me.buttonsplitcontainer.Panel2MinSize = 40
-        Me.buttonsplitcontainer.Size = New System.Drawing.Size(368, 48)
-        Me.buttonsplitcontainer.SplitterDistance = 176
-        Me.buttonsplitcontainer.TabIndex = 36
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.Black
+        Me.Label33.Location = New System.Drawing.Point(18, 35)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(157, 21)
+        Me.Label33.TabIndex = 28
+        Me.Label33.Text = "Louie Jelaine Recto"
         '
-        'Panel1
+        'Label34
         '
-        Me.Panel1.Location = New System.Drawing.Point(286, 73)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(8, 8)
-        Me.Panel1.TabIndex = 10
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.ForeColor = System.Drawing.Color.Black
+        Me.Label34.Location = New System.Drawing.Point(18, 12)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(116, 21)
+        Me.Label34.TabIndex = 27
+        Me.Label34.Text = "Resident Name"
+        '
+        'FoxButton11
+        '
+        Me.FoxButton11.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FoxButton11.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton11.BaseColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.FoxButton11.BorderColor = System.Drawing.Color.Transparent
+        Me.FoxButton11.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton11.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton11.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton11.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton11.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FoxButton11.EnabledCalc = True
+        Me.FoxButton11.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton11.ForeColor = System.Drawing.Color.White
+        Me.FoxButton11.Location = New System.Drawing.Point(20, 376)
+        Me.FoxButton11.Name = "FoxButton11"
+        Me.FoxButton11.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.FoxButton11.Size = New System.Drawing.Size(336, 42)
+        Me.FoxButton11.TabIndex = 13
+        Me.FoxButton11.Text = "Open"
         '
         'DashboardForm
         '
@@ -2271,11 +2575,21 @@ Partial Class DashboardForm
         Me.ApprovedRequestDgvContainer.ResumeLayout(False)
         CType(Me.approvedreqdgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.contentpanel.ResumeLayout(False)
+        Me.searchpanel.ResumeLayout(False)
         Me.archivepanel.ResumeLayout(False)
-        Me.MaterialCard11.ResumeLayout(False)
-        Me.MaterialCard11.PerformLayout()
+        Me.Archive_ContentSplit.Panel1.ResumeLayout(False)
+        Me.Archive_ContentSplit.Panel1.PerformLayout()
+        Me.Archive_ContentSplit.Panel2.ResumeLayout(False)
+        CType(Me.Archive_ContentSplit, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Archive_ContentSplit.ResumeLayout(False)
         Me.MaterialCard10.ResumeLayout(False)
         CType(Me.approvedreqgrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MaterialCard11.ResumeLayout(False)
+        Me.MaterialCard11.PerformLayout()
+        Me.Archive_ButtonSplit.Panel1.ResumeLayout(False)
+        Me.Archive_ButtonSplit.Panel2.ResumeLayout(False)
+        CType(Me.Archive_ButtonSplit, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Archive_ButtonSplit.ResumeLayout(False)
         Me.requestpanel.ResumeLayout(False)
         Me.requestpanel.PerformLayout()
         Me.adminformpanel.ResumeLayout(False)
@@ -2296,15 +2610,15 @@ Partial Class DashboardForm
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.MaterialCard2.ResumeLayout(False)
         CType(Me.residentsdgv, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.contentsplitcontainer.Panel1.ResumeLayout(False)
-        Me.contentsplitcontainer.Panel1.PerformLayout()
-        Me.contentsplitcontainer.Panel2.ResumeLayout(False)
-        CType(Me.contentsplitcontainer, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.contentsplitcontainer.ResumeLayout(False)
-        Me.buttonsplitcontainer.Panel1.ResumeLayout(False)
-        Me.buttonsplitcontainer.Panel2.ResumeLayout(False)
-        CType(Me.buttonsplitcontainer, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.buttonsplitcontainer.ResumeLayout(False)
+        Me.Search_ContentSplit.Panel1.ResumeLayout(False)
+        Me.Search_ContentSplit.Panel1.PerformLayout()
+        Me.Search_ContentSplit.Panel2.ResumeLayout(False)
+        CType(Me.Search_ContentSplit, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Search_ContentSplit.ResumeLayout(False)
+        Me.MaterialCard13.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MaterialCard14.ResumeLayout(False)
+        Me.MaterialCard14.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2435,7 +2749,22 @@ Partial Class DashboardForm
     Friend WithEvents archivebtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents archive_removebtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents newarchivebtn As ReaLTaiizor.Controls.FoxButton
-    Friend WithEvents contentsplitcontainer As SplitContainer
-    Friend WithEvents buttonsplitcontainer As SplitContainer
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Archive_ContentSplit As SplitContainer
+    Friend WithEvents Archive_ButtonSplit As SplitContainer
+    Friend WithEvents searchpanel As Panel
+    Friend WithEvents Search_ContentSplit As SplitContainer
+    Friend WithEvents FoxButton9 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents DungeonComboBox1 As ReaLTaiizor.Controls.DungeonComboBox
+    Friend WithEvents MaterialCard13 As ReaLTaiizor.Controls.MaterialCard
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents FoxButton5 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents DungeonTextBox1 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents FoxButton10 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents Label26 As Label
+    Friend WithEvents MaterialCard14 As ReaLTaiizor.Controls.MaterialCard
+    Friend WithEvents MaterialCard15 As ReaLTaiizor.Controls.MaterialCard
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Label34 As Label
+    Friend WithEvents FoxButton11 As ReaLTaiizor.Controls.FoxButton
 End Class

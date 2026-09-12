@@ -33,13 +33,14 @@ Public Class login
                 End If
 
                 ' Optional: Store the logged-in user's details to pass to the dashboard
+                Dim userID As Integer = Convert.ToInt32(dtUser.Rows(0)("UserID"))
                 Dim role As String = dtUser.Rows(0)("Role").ToString()
                 Dim fullName As String = dtUser.Rows(0)("FullName").ToString()
 
                 MessageBox.Show($"Welcome, {fullName}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 ' 4. Open the Dashboard and hide the Login form
-                Dim dash As New DashboardForm(role, fullName)
+                Dim dash As New DashboardForm(userID, role, fullName)
                 dash.Show()
                 Me.Hide()
             Else

@@ -5,10 +5,12 @@ Imports System.Text.RegularExpressions
 Public Class DashboardForm
     Private CurrentUserRole As String
     Private CurrentFullName As String
+    Private CurrentUserID As Integer
 
-    Public Sub New(role As String, name As String)
+    Public Sub New(userID As Integer, role As String, name As String)
         InitializeComponent()
 
+        CurrentUserID = userID
         CurrentUserRole = role
         CurrentFullName = name
 
@@ -99,10 +101,10 @@ Public Class DashboardForm
             Dim dt As DataTable
 
             If String.IsNullOrWhiteSpace(searchTerm) Then
-                query = "SELECT ResidentID, FirstName, LastName, MiddleName, BirthDate FROM Resident_Master_tbl"
+                query = "SELECT ResidentID, FirstName, LastName, MiddleName, Address, ContactNumber, BirthDate FROM Resident_Master_tbl"
                 dt = GlobalDatabase.GetTable(query)
             Else
-                query = "SELECT ResidentID, FirstName, LastName, MiddleName, BirthDate FROM Resident_Master_tbl " &
+                query = "SELECT ResidentID, FirstName, LastName, MiddleName, Address, ContactNumber, BirthDate FROM Resident_Master_tbl " &
                     "WHERE FirstName LIKE @Search OR LastName LIKE @Search OR MiddleName LIKE @Search OR Address LIKE @Search"
                 Dim parameters As SqlParameter() = {
                 New SqlParameter("@Search", "%" & searchTerm.Trim() & "%")
@@ -117,6 +119,8 @@ Public Class DashboardForm
             If residentsdgv.Columns.Count > 0 Then
 
                 residentsdgv.Columns("ResidentID").Visible = False
+                residentsdgv.Columns("Address").Visible = False
+                residentsdgv.Columns("ContactNumber").Visible = False
                 residentsdgv.Columns("FirstName").HeaderText = "First Name"
                 residentsdgv.Columns("LastName").HeaderText = "Last Name"
                 residentsdgv.Columns("MiddleName").HeaderText = "Middle Name"
@@ -303,6 +307,30 @@ Public Class DashboardForm
         mmtxtbox.Text = ""
         ddtxtbox.Text = ""
         yyyytxtbox.Text = ""
+    End Sub
+
+    Private Sub newrequestbtn_Click(sender As Object, e As EventArgs) Handles newrequestbtn.Click
+        ' Validate row selection
+        If residentsdgv.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a resident from the list first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Extract data from highlighted row
+        Dim selectedRow As DataGridViewRow = residentsdgv.SelectedRows(0)
+        Dim resID As Integer = Convert.ToInt32(selectedRow.Cells("ResidentID").Value)
+        Dim fName As String = selectedRow.Cells("FirstName").Value.ToString()
+        Dim mName As String = If(selectedRow.Cells("MiddleName").Value Is DBNull.Value, "", selectedRow.Cells("MiddleName").Value.ToString())
+        Dim lName As String = selectedRow.Cells("LastName").Value.ToString()
+        Dim fullName As String = $"{fName} {If(String.IsNullOrWhiteSpace(mName), "", mName & " ")}{lName}"
+        Dim address As String = selectedRow.Cells("Address").Value.ToString()
+        Dim bDate As String = Convert.ToDateTime(selectedRow.Cells("BirthDate").Value).ToString("yyyy-MM-dd")
+        Dim contactNo As String = If(selectedRow.Cells("ContactNumber").Value Is DBNull.Value, "N/A", selectedRow.Cells("ContactNumber").Value.ToString())
+
+        ' Open RequestForm modally and pass parameters
+        Using reqForm As New RequestForm(resID, fullName, address, bDate, contactNo, CurrentFullName, CurrentUserID)
+            reqForm.ShowDialog()
+        End Using
     End Sub
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
     'REQUEST PAGE REQUEST PAGE REQUEST PAGE REQUEST PAGE REQUEST PAGE REQUEST PAGE REQUEST PAGE

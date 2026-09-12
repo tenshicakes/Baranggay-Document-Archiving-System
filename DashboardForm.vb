@@ -34,6 +34,7 @@ Public Class DashboardForm
         searchpanel.Visible = False
         reportspanel.Visible = False
         accountspanel.Visible = False
+        adminformpanel.Visible = False
     End Sub
 
     Private Sub ResetAllButtons()
@@ -69,6 +70,7 @@ Public Class DashboardForm
 
         DisplayRequestData()
         ApplyRequestGridDesign()
+        ApplyDerogatoryGridDesign()
     End Sub
 
 
@@ -523,7 +525,87 @@ Public Class DashboardForm
         End Try
     End Sub
 
+    Private Sub requestrecorddgv_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles requestrecorddgv.CellDoubleClick
+        ' 1. Guardrails
+        If e.RowIndex < 0 Then Return ' Prevent crash if the user double-clicks the header row
+        If CurrentUserRole <> "Administrator" Then Return ' Strict RBAC: Staff clicks are ignored
 
+        ' 2. Extract anchor data from the clicked row
+        Dim selectedRow As DataGridViewRow = requestrecorddgv.Rows(e.RowIndex)
+        Dim residentID As Integer = Convert.ToInt32(selectedRow.Cells("ResidentID").Value)
+        Dim fullName As String = selectedRow.Cells("FullName").Value.ToString()
+
+        ' 3. Unhide the Verification Panel
+        adminformpanel.Visible = True
+
+        Try
+            ' 4. Fetch the Resident's personal details for the labels
+            Dim resQuery As String = "SELECT Address, BirthDate, ContactNumber FROM Resident_Master_tbl WHERE ResidentID = @ResidentID"
+            Dim resParams As SqlParameter() = {New SqlParameter("@ResidentID", residentID)}
+            Dim resDt As DataTable = GlobalDatabase.GetTable(resQuery, resParams)
+
+            If resDt.Rows.Count > 0 Then
+                Dim row As DataRow = resDt.Rows(0)
+                residentnamelbl.Text = fullName
+                addresslbl.Text = row("Address").ToString()
+                birthdatelbl.Text = Convert.ToDateTime(row("BirthDate")).ToString("yyyy-MM-dd")
+                phonenumlbl.Text = If(row("ContactNumber") Is DBNull.Value, "N/A", row("ContactNumber").ToString())
+            End If
+
+            ' 5. Fetch the Derogatory Records
+            Dim derQuery As String = "SELECT DateLogged, Status, IncidentDetails FROM Derogatory_Records_tbl WHERE ResidentID = @ResidentID ORDER BY DateLogged DESC"
+            Dim derParams As SqlParameter() = {New SqlParameter("@ResidentID", residentID)}
+            Dim derDt As DataTable = GlobalDatabase.GetTable(derQuery, derParams)
+
+            derogatorygrid.DataSource = derDt
+
+            ' 6. Apply Nirmala UI Styling and Headers
+            If derogatorygrid.Columns.Count > 0 Then
+                derogatorygrid.Columns("DateLogged").HeaderText = "Date"
+                derogatorygrid.Columns("Status").HeaderText = "Status"
+                derogatorygrid.Columns("IncidentDetails").HeaderText = "Incident Details"
+            End If
+            ApplyDerogatoryGridDesign()
+
+            ' 7. Visual UX Guardrail: The Status Label
+            ' NOTE: Add a Label named "derogatorystatuslbl" to your adminformpanel for this to work!
+            If derDt.Rows.Count = 0 Then
+                derogatorystatuslbl.Text = "STATUS: CLEARED (No Records Found)"
+                derogatorystatuslbl.ForeColor = Color.Green
+            Else
+                derogatorystatuslbl.Text = "WARNING: DEROGATORY RECORDS FOUND"
+                derogatorystatuslbl.ForeColor = Color.Red
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading verification details: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ApplyDerogatoryGridDesign()
+        derogatorygrid.EnableHeadersVisualStyles = False
+        derogatorygrid.Font = New Font("Nirmala UI", 12.0!, FontStyle.Regular)
+        derogatorygrid.RowTemplate.Height = 30
+
+        derogatorygrid.ColumnHeadersDefaultCellStyle.Font = New Font("Nirmala UI", 12.0!, FontStyle.Bold)
+        derogatorygrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(3, 57, 108)
+        derogatorygrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        derogatorygrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        derogatorygrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White
+
+        derogatorygrid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        derogatorygrid.DefaultCellStyle.SelectionForeColor = Color.White
+
+        derogatorygrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        derogatorygrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        derogatorygrid.MultiSelect = False
+        derogatorygrid.ReadOnly = True
+        derogatorygrid.AllowUserToAddRows = False
+    End Sub
+
+    Private Sub closeadminformbtn_Click(sender As Object, e As EventArgs) Handles closeadminformbtn.Click
+        adminformpanel.Visible = False
+    End Sub
 
 
 

@@ -170,6 +170,10 @@ Partial Class DashboardForm
         Me.Label28 = New System.Windows.Forms.Label()
         Me.archive_residentnamelbl = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
+        Me.derogatorystatuslbl = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -941,7 +945,7 @@ Partial Class DashboardForm
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(16, 325)
+        Me.Label10.Location = New System.Drawing.Point(21, 325)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(217, 32)
         Me.Label10.TabIndex = 7
@@ -952,7 +956,7 @@ Partial Class DashboardForm
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(416, 325)
+        Me.Label11.Location = New System.Drawing.Point(412, 325)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(236, 32)
         Me.Label11.TabIndex = 9
@@ -1039,9 +1043,9 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
-        Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
+        Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.accountspanel)
         Me.contentpanel.Controls.Add(Me.reportspanel)
         Me.contentpanel.Controls.Add(Me.searchpanel)
@@ -1075,6 +1079,7 @@ Partial Class DashboardForm
         Me.adminformpanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.adminformpanel.BackColor = System.Drawing.Color.White
+        Me.adminformpanel.Controls.Add(Me.derogatorystatuslbl)
         Me.adminformpanel.Controls.Add(Me.closeadminformbtn)
         Me.adminformpanel.Controls.Add(Me.derogatoryrrecordcard)
         Me.adminformpanel.Controls.Add(Me.Label29)
@@ -1086,9 +1091,9 @@ Partial Class DashboardForm
         Me.adminformpanel.Controls.Add(Me.Label23)
         Me.adminformpanel.Controls.Add(Me.residentnamelbl)
         Me.adminformpanel.Controls.Add(Me.Label21)
-        Me.adminformpanel.Location = New System.Drawing.Point(422, 3)
+        Me.adminformpanel.Location = New System.Drawing.Point(303, 3)
         Me.adminformpanel.Name = "adminformpanel"
-        Me.adminformpanel.Size = New System.Drawing.Size(383, 455)
+        Me.adminformpanel.Size = New System.Drawing.Size(502, 455)
         Me.adminformpanel.TabIndex = 11
         '
         'closeadminformbtn
@@ -1100,11 +1105,11 @@ Partial Class DashboardForm
         Me.closeadminformbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.closeadminformbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.closeadminformbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.closeadminformbtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.closeadminformbtn.DownColor = System.Drawing.Color.Gray
         Me.closeadminformbtn.EnabledCalc = True
         Me.closeadminformbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.closeadminformbtn.ForeColor = System.Drawing.Color.Black
-        Me.closeadminformbtn.Location = New System.Drawing.Point(343, 8)
+        Me.closeadminformbtn.Location = New System.Drawing.Point(462, 11)
         Me.closeadminformbtn.Name = "closeadminformbtn"
         Me.closeadminformbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.closeadminformbtn.Size = New System.Drawing.Size(32, 27)
@@ -1125,7 +1130,7 @@ Partial Class DashboardForm
         Me.derogatoryrrecordcard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.derogatoryrrecordcard.Name = "derogatoryrrecordcard"
         Me.derogatoryrrecordcard.Padding = New System.Windows.Forms.Padding(1)
-        Me.derogatoryrrecordcard.Size = New System.Drawing.Size(365, 195)
+        Me.derogatoryrrecordcard.Size = New System.Drawing.Size(484, 195)
         Me.derogatoryrrecordcard.TabIndex = 27
         '
         'derogatorygrid
@@ -1134,6 +1139,7 @@ Partial Class DashboardForm
         Me.derogatorygrid.AllowUserToDeleteRows = False
         Me.derogatorygrid.AllowUserToResizeColumns = False
         Me.derogatorygrid.AllowUserToResizeRows = False
+        Me.derogatorygrid.BackgroundColor = System.Drawing.Color.White
         Me.derogatorygrid.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.derogatorygrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.derogatorygrid.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1142,7 +1148,7 @@ Partial Class DashboardForm
         Me.derogatorygrid.Name = "derogatorygrid"
         Me.derogatorygrid.RowHeadersVisible = False
         Me.derogatorygrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.derogatorygrid.Size = New System.Drawing.Size(363, 193)
+        Me.derogatorygrid.Size = New System.Drawing.Size(482, 193)
         Me.derogatorygrid.TabIndex = 0
         '
         'Label29
@@ -1509,7 +1515,7 @@ Partial Class DashboardForm
         Me.residents_searchbar.Multiline = False
         Me.residents_searchbar.Name = "residents_searchbar"
         Me.residents_searchbar.ReadOnly = False
-        Me.residents_searchbar.Size = New System.Drawing.Size(257, 42)
+        Me.residents_searchbar.Size = New System.Drawing.Size(261, 42)
         Me.residents_searchbar.TabIndex = 0
         Me.residents_searchbar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
         Me.residents_searchbar.UseSystemPasswordChar = False
@@ -1528,7 +1534,7 @@ Partial Class DashboardForm
         Me.residents_searchbtn.EnabledCalc = True
         Me.residents_searchbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.residents_searchbtn.ForeColor = System.Drawing.Color.Black
-        Me.residents_searchbtn.Location = New System.Drawing.Point(275, 11)
+        Me.residents_searchbtn.Location = New System.Drawing.Point(279, 10)
         Me.residents_searchbtn.Name = "residents_searchbtn"
         Me.residents_searchbtn.OverColor = System.Drawing.Color.Gray
         Me.residents_searchbtn.Size = New System.Drawing.Size(120, 42)
@@ -1553,7 +1559,7 @@ Partial Class DashboardForm
         Me.newrequestbtn.Location = New System.Drawing.Point(12, 409)
         Me.newrequestbtn.Name = "newrequestbtn"
         Me.newrequestbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.newrequestbtn.Size = New System.Drawing.Size(382, 42)
+        Me.newrequestbtn.Size = New System.Drawing.Size(387, 42)
         Me.newrequestbtn.TabIndex = 4
         Me.newrequestbtn.Text = "New Request"
         '
@@ -1571,7 +1577,7 @@ Partial Class DashboardForm
         Me.MaterialCard2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard2.Name = "MaterialCard2"
         Me.MaterialCard2.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard2.Size = New System.Drawing.Size(382, 298)
+        Me.MaterialCard2.Size = New System.Drawing.Size(387, 298)
         Me.MaterialCard2.TabIndex = 3
         '
         'residentsdgv
@@ -1594,7 +1600,7 @@ Partial Class DashboardForm
         Me.residentsdgv.ShowCellToolTips = False
         Me.residentsdgv.ShowEditingIcon = False
         Me.residentsdgv.ShowRowErrors = False
-        Me.residentsdgv.Size = New System.Drawing.Size(354, 270)
+        Me.residentsdgv.Size = New System.Drawing.Size(359, 270)
         Me.residentsdgv.TabIndex = 0
         '
         'registerformpanel
@@ -1614,6 +1620,9 @@ Partial Class DashboardForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.formcard.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.formcard.Controls.Add(Me.Label35)
+        Me.formcard.Controls.Add(Me.Label33)
+        Me.formcard.Controls.Add(Me.Label32)
         Me.formcard.Controls.Add(Me.registerbtn)
         Me.formcard.Controls.Add(Me.TableLayoutPanel1)
         Me.formcard.Controls.Add(Me.Label19)
@@ -1628,13 +1637,14 @@ Partial Class DashboardForm
         Me.formcard.Controls.Add(Me.firstnametxtbox)
         Me.formcard.Controls.Add(Me.Label14)
         Me.formcard.Depth = 0
+        Me.formcard.Font = New System.Drawing.Font("Nirmala UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.formcard.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.formcard.Location = New System.Drawing.Point(9, 37)
         Me.formcard.Margin = New System.Windows.Forms.Padding(14)
         Me.formcard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.formcard.Name = "formcard"
         Me.formcard.Padding = New System.Windows.Forms.Padding(14)
-        Me.formcard.Size = New System.Drawing.Size(381, 413)
+        Me.formcard.Size = New System.Drawing.Size(381, 490)
         Me.formcard.TabIndex = 7
         '
         'registerbtn
@@ -1653,11 +1663,11 @@ Partial Class DashboardForm
         Me.registerbtn.EnabledCalc = True
         Me.registerbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.registerbtn.ForeColor = System.Drawing.Color.White
-        Me.registerbtn.Location = New System.Drawing.Point(15, 393)
+        Me.registerbtn.Location = New System.Drawing.Point(15, 421)
         Me.registerbtn.MaximumSize = New System.Drawing.Size(560, 42)
         Me.registerbtn.Name = "registerbtn"
         Me.registerbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
-        Me.registerbtn.Size = New System.Drawing.Size(349, 15)
+        Me.registerbtn.Size = New System.Drawing.Size(349, 42)
         Me.registerbtn.TabIndex = 6
         Me.registerbtn.Text = "Register"
         '
@@ -1672,7 +1682,7 @@ Partial Class DashboardForm
         Me.TableLayoutPanel1.Controls.Add(Me.yyyytxtbox, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ddtxtbox, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.mmtxtbox, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(11, 349)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(11, 380)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.TableLayoutPanel1.RowCount = 1
@@ -2575,6 +2585,45 @@ Partial Class DashboardForm
         Me.Label24.TabIndex = 27
         Me.Label24.Text = "Resident Name"
         '
+        'derogatorystatuslbl
+        '
+        Me.derogatorystatuslbl.AutoSize = True
+        Me.derogatorystatuslbl.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.derogatorystatuslbl.Location = New System.Drawing.Point(174, 220)
+        Me.derogatorystatuslbl.Name = "derogatorystatuslbl"
+        Me.derogatorystatuslbl.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.derogatorystatuslbl.Size = New System.Drawing.Size(69, 21)
+        Me.derogatorystatuslbl.TabIndex = 29
+        Me.derogatorystatuslbl.Text = "Label32"
+        Me.derogatorystatuslbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(51, 362)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(76, 15)
+        Me.Label32.TabIndex = 19
+        Me.Label32.Text = "MM (Month)"
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(190, 362)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(54, 15)
+        Me.Label33.TabIndex = 20
+        Me.Label33.Text = "DD (Day)"
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(294, 362)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(68, 15)
+        Me.Label35.TabIndex = 21
+        Me.Label35.Text = "YYYY (Year)"
+        '
         'DashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2827,4 +2876,8 @@ Partial Class DashboardForm
     Friend WithEvents reportspanel As Panel
     Friend WithEvents accountspanel As Panel
     Friend WithEvents Residents_ContentSplit As SplitContainer
+    Friend WithEvents derogatorystatuslbl As Label
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Label32 As Label
 End Class

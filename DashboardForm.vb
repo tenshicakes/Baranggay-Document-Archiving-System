@@ -19,6 +19,7 @@ Public Class DashboardForm
 
     Private Sub DashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         homebtn_Click(sender, e)
+        SetupRequestPage()
     End Sub
     Private Sub DashboardForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         Application.Exit()
@@ -65,6 +66,9 @@ Public Class DashboardForm
     Public Sub RefreshEveryGrid()
         DisplayResidentsData()
         ResidentsGridDesign()
+
+        DisplayRequestData()
+        ApplyRequestGridDesign()
     End Sub
 
 
@@ -136,6 +140,7 @@ Public Class DashboardForm
         ' Grid Fonts and Base Properties
         residentsdgv.EnableHeadersVisualStyles = False
         residentsdgv.Font = New Font("Nirmala UI", 12.0!, FontStyle.Regular)
+        residentsdgv.RowTemplate.Height = 30
 
         ' Header Customization 
         residentsdgv.ColumnHeadersDefaultCellStyle.Font = New Font("Nirmala UI", 12.0!, FontStyle.Bold)
@@ -340,9 +345,187 @@ Public Class DashboardForm
         ResetAllButtons()
         RefreshEveryGrid()
         requestpanel.Visible = True
+        adminformpanel.Visible = False
         requestbtn.BaseColor = Color.FromArgb(100, 151, 177)
         requestbtn.ForeColor = Color.White
     End Sub
+
+    Private Sub SetupRequestPage()
+        request_filtercombo.Items.Clear()
+        request_filtercombo.Items.AddRange(New Object() {"Pending", "Approved", "Denied", "All"})
+        request_filtercombo.SelectedItem = "Pending" ' Default view for a clean desk
+
+        DisplayRequestData()
+    End Sub
+
+    Private Sub DisplayRequestData()
+        Try
+            ' 1. Determine active filters
+            Dim searchTerm As String = request_searchbar.Text.Trim()
+            Dim statusFilter As String = If(request_filtercombo.SelectedItem IsNot Nothing, request_filtercombo.SelectedItem.ToString(), "Pending")
+
+            ' 2. Construct the INNER JOIN query to retrieve the Resident's Full Name alongside Document data
+            Dim query As String = "SELECT d.DocumentID, d.ResidentID, " &
+                              "(r.FirstName + ' ' + ISNULL(r.MiddleName + ' ', '') + r.LastName) AS FullName, " &
+                              "d.DocumentType, d.Category, d.Status, d.RequestDate " &
+                              "FROM Documents_tbl d " &
+                              "INNER JOIN Resident_Master_tbl r ON d.ResidentID = r.ResidentID " &
+                              "WHERE 1=1"
+
+            Dim parameters As New List(Of SqlParameter)()
+
+            ' Apply Search Filter
+            If Not String.IsNullOrEmpty(searchTerm) Then
+                query &= " AND (r.FirstName LIKE @Search OR r.LastName LIKE @Search)"
+                parameters.Add(New SqlParameter("@Search", "%" & searchTerm & "%"))
+            End If
+
+            ' Apply Status Filter
+            If statusFilter <> "All" Then
+                query &= " AND d.Status = @Status"
+                parameters.Add(New SqlParameter("@Status", statusFilter))
+            End If
+
+            ' Order by oldest pending requests first
+            query &= " ORDER BY d.RequestDate ASC"
+
+            ' 3. Execute and Bind
+            Dim dt As DataTable = GlobalDatabase.GetTable(query, parameters.ToArray())
+            requestrecorddgv.DataSource = dt
+
+            ' 4. Apply Columns and Nirmala UI Styling
+            If requestrecorddgv.Columns.Count > 0 Then
+                requestrecorddgv.Columns("DocumentID").Visible = False
+                requestrecorddgv.Columns("ResidentID").Visible = False
+
+                requestrecorddgv.Columns("FullName").HeaderText = "Resident Name"
+                requestrecorddgv.Columns("DocumentType").HeaderText = "Document Type"
+                requestrecorddgv.Columns("Category").HeaderText = "Category"
+                requestrecorddgv.Columns("Status").HeaderText = "Status"
+                requestrecorddgv.Columns("RequestDate").HeaderText = "Date Requested"
+            End If
+
+            ApplyRequestGridDesign()
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading request records: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ApplyRequestGridDesign()
+        requestrecorddgv.EnableHeadersVisualStyles = False
+        requestrecorddgv.Font = New Font("Nirmala UI", 12.0!, FontStyle.Regular)
+        requestrecorddgv.RowTemplate.Height = 30
+
+
+        requestrecorddgv.ColumnHeadersDefaultCellStyle.Font = New Font("Nirmala UI", 12.0!, FontStyle.Bold)
+        requestrecorddgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(3, 57, 108)
+        requestrecorddgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        requestrecorddgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        requestrecorddgv.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White
+
+        requestrecorddgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        requestrecorddgv.DefaultCellStyle.SelectionForeColor = Color.White
+
+        requestrecorddgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        requestrecorddgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        requestrecorddgv.MultiSelect = False
+        requestrecorddgv.ReadOnly = True
+        requestrecorddgv.AllowUserToAddRows = False
+    End Sub
+
+    Private Sub request_searchbtn_Click(sender As Object, e As EventArgs) Handles request_searchbtn.Click
+        If request_searchbtn.Text = "Clear" Then
+            request_searchbar.Text = ""
+            request_searchbtn.Text = "Search"
+            request_searchbtn.BaseColor = Color.White
+            request_searchbtn.ForeColor = Color.Black
+            DisplayRequestData()
+            Return
+        End If
+
+        If String.IsNullOrWhiteSpace(request_searchbar.Text) Then
+            MessageBox.Show("Please enter a name to search.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        request_searchbtn.Text = "Clear"
+        request_searchbtn.BaseColor = Color.Gray
+        request_searchbtn.ForeColor = Color.White
+        DisplayRequestData()
+    End Sub
+
+    Private Sub request_filterbtn_Click(sender As Object, e As EventArgs) Handles request_filterbtn.Click
+        If request_filterbtn.Text = "Clear" Then
+            request_filtercombo.SelectedItem = "Pending" ' Revert to clean desk default
+            request_filterbtn.Text = "Filter"
+            request_filterbtn.BaseColor = Color.White
+            request_filterbtn.ForeColor = Color.Black
+            DisplayRequestData()
+            Return
+        End If
+
+        request_filterbtn.Text = "Clear"
+        request_filterbtn.BaseColor = Color.Gray
+        request_filterbtn.ForeColor = Color.White
+        DisplayRequestData()
+    End Sub
+
+    Private Sub approvebtn_Click(sender As Object, e As EventArgs) Handles approvebtn.Click
+        ExecuteRequestAction("Approved", "approve")
+    End Sub
+
+    Private Sub denybtn_Click(sender As Object, e As EventArgs) Handles denybtn.Click
+        ExecuteRequestAction("Denied", "deny")
+    End Sub
+
+    ' Unified helper to prevent redundant code
+    Private Sub ExecuteRequestAction(newStatus As String, actionName As String)
+        If requestrecorddgv.SelectedRows.Count = 0 Then
+            MessageBox.Show($"Please select a request to {actionName}.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = requestrecorddgv.SelectedRows(0)
+        Dim currentStatus As String = selectedRow.Cells("Status").Value.ToString()
+
+        ' Guardrail: Prevent double-processing
+        If currentStatus <> "Pending" Then
+            MessageBox.Show($"This request is already marked as {currentStatus} and cannot be {actionName}d again.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim docID As Integer = Convert.ToInt32(selectedRow.Cells("DocumentID").Value)
+        Dim residentName As String = selectedRow.Cells("FullName").Value.ToString()
+        Dim docType As String = selectedRow.Cells("DocumentType").Value.ToString()
+
+        Dim confirm As DialogResult = MessageBox.Show($"Are you sure you want to {actionName} the {docType} for {residentName}?", $"Confirm {newStatus}", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirm = DialogResult.No Then Return
+
+        Try
+            Dim query As String = "UPDATE Documents_tbl SET Status = @Status WHERE DocumentID = @DocumentID"
+            Dim parameters As SqlParameter() = {
+            New SqlParameter("@Status", newStatus),
+            New SqlParameter("@DocumentID", docID)
+        }
+
+            Dim rowsAffected As Integer = GlobalDatabase.ExecuteQuery(query, parameters)
+
+            If rowsAffected > 0 Then
+                MessageBox.Show($"Request successfully {newStatus}!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                DisplayRequestData() ' Instantly removes the row from the 'Pending' view
+            Else
+                MessageBox.Show($"Failed to {actionName} request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show($"Database error updating status: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+
+
 
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
     'ARCHIVE PAGE ARCHIVE PAGE ARCHIVE PAGE ARCHIVE PAGE ARCHIVE PAGE ARCHIVE PAGE ARCHIVE PAGE

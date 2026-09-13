@@ -1,12 +1,17 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Drawing
 Imports System.Text.RegularExpressions
+Imports System.IO
+Imports System.Threading.Tasks
+
 
 Public Class DashboardForm
     Private CurrentUserRole As String
     Private CurrentFullName As String
     Private CurrentUserID As Integer
     Private SelectedArchiveDocID As Integer
+    Private SelectedScannedFilePath As String = ""
+    Private SelectedArchiveCategory As String = ""
 
     Public Sub New(userID As Integer, role As String, name As String)
         InitializeComponent()
@@ -18,9 +23,15 @@ Public Class DashboardForm
         rolelabel.Text = role
     End Sub
 
-    Private Sub DashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Async Sub DashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         homebtn_Click(sender, e)
         SetupRequestPage()
+
+        Try
+            Await pdfpreview_webview.EnsureCoreWebView2Async(Nothing)
+        Catch ex As Exception
+            MessageBox.Show("Failed to initialize the PDF Viewer. Please ensure Microsoft Edge WebView2 Runtime is installed on this PC.", "Viewer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
     Private Sub DashboardForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         Application.Exit()
@@ -713,13 +724,125 @@ Public Class DashboardForm
         End If
 
         Dim selectedRow As DataGridViewRow = approvedreqgrid.SelectedRows(0)
+        SelectedArchiveCategory = selectedRow.Cells("Category").Value.ToString()
 
-        ' Lock in the DocumentID for the final archiving step
         SelectedArchiveDocID = Convert.ToInt32(selectedRow.Cells("DocumentID").Value)
 
-        ' Extract and populate the Resident Name label
         archive_residentnamelbl.Text = selectedRow.Cells("FullName").Value.ToString()
 
+    End Sub
+
+    Private Sub attachfilebtn_Click(sender As Object, e As EventArgs) Handles attachfilebtn.Click
+        Using openFileDialog As New OpenFileDialog()
+            openFileDialog.Title = "Select Scanned Document"
+            ' Strictly filter for PDFs and standard image types
+            openFileDialog.Filter = "PDF Files (*.pdf)|*.pdf|Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
+
+            ' Optional: Force it to open directly to the scanner's default output folder
+            ' openFileDialog.InitialDirectory = "C:\Users\Secretary\Documents\Scans\"
+
+            If openFileDialog.ShowDialog() = DialogResult.OK Then
+                ' 1. Store the exact file path for the final Archive logic
+                SelectedScannedFilePath = openFileDialog.FileName
+
+                ' 2. Guardrail: Ensure WebView2 has finished booting up
+                If pdfpreview_webview.CoreWebView2 IsNot Nothing Then
+                    ' Load the file into the previewer
+                    pdfpreview_webview.CoreWebView2.Navigate(SelectedScannedFilePath)
+                Else
+                    MessageBox.Show("The PDF Viewer is still booting up. Please wait a few seconds and try again.", "Loading", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End If
+        End Using
+    End Sub
+
+    Private Sub archive_removebtn_Click(sender As Object, e As EventArgs) Handles archive_removebtn.Click
+        If pdfpreview_webview.CoreWebView2 IsNot Nothing Then
+            ' Navigate to a blank page to release the Windows file lock!
+            pdfpreview_webview.CoreWebView2.Navigate("about:blank")
+        End If
+
+        SelectedScannedFilePath = ""
+
+    End Sub
+
+    Private Async Sub archive_archivebtn_Click(sender As Object, e As EventArgs) Handles archive_archivebtn.Click
+        ' 1. Guardrails & Validation
+        If SelectedArchiveDocID = 0 Then
+            MessageBox.Show("No valid document selected. Please select a row from the queue.", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        Dim orNumber As String = ornumber_txtbox.Text.Trim()
+        If String.IsNullOrEmpty(orNumber) Then
+            MessageBox.Show("Please enter the Official Receipt (OR) Number to verify payment.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        If String.IsNullOrEmpty(SelectedScannedFilePath) OrElse Not File.Exists(SelectedScannedFilePath) Then
+            MessageBox.Show("Please attach a valid scanned document before archiving.", "Attachment Missing", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' 2. Release WebView2 File Lock (CRITICAL)
+        If pdfpreview_webview.CoreWebView2 IsNot Nothing Then
+            pdfpreview_webview.CoreWebView2.Navigate("about:blank")
+            ' Give Windows 500 milliseconds to sever the connection to the PDF
+            Await Task.Delay(500)
+        End If
+
+        Try
+            ' 3. Generate Reference Number & Prepare File Paths
+            Dim referenceNumber As String = "REF-" & DateTime.Now.ToString("yyyyMMddHHmmss")
+            Dim fileExtension As String = Path.GetExtension(SelectedScannedFilePath)
+            Dim newFileName As String = referenceNumber & fileExtension
+
+            Dim vaultDir As String
+            If SelectedArchiveCategory = "Justice & Incident Records" Then
+                vaultDir = "C:\BarangayArchivingVault\DerogatoryRecords\"
+            Else
+                vaultDir = "C:\BarangayArchivingVault\GeneralRecords\"
+            End If
+            Dim finalFilePath As String = Path.Combine(vaultDir, newFileName)
+
+            ' Fail-safe: Auto-build the folder if someone deleted it
+            If Not Directory.Exists(vaultDir) Then
+                Directory.CreateDirectory(vaultDir)
+            End If
+
+            ' 4. Copy the file into the secure vault and rename it
+            File.Copy(SelectedScannedFilePath, finalFilePath, overwrite:=False)
+
+            ' 5. Execute Database UPDATE
+            Dim query As String = "UPDATE Documents_tbl SET Status = 'Archived', ORNumber = @ORNum, ReferenceNumber = @RefNum, FilePath = @FilePath, ProcessedBy = @ProcessedBy WHERE DocumentID = @DocumentID"
+
+            Dim parameters As SqlParameter() = {
+            New SqlParameter("@ORNum", orNumber),
+            New SqlParameter("@RefNum", referenceNumber),
+            New SqlParameter("@FilePath", finalFilePath),
+            New SqlParameter("@ProcessedBy", CurrentFullName),
+            New SqlParameter("@DocumentID", SelectedArchiveDocID)
+        }
+
+            Dim rowsAffected As Integer = GlobalDatabase.ExecuteQuery(query, parameters)
+
+            If rowsAffected > 0 Then
+                MessageBox.Show($"Document successfully archived!" & vbCrLf & $"Reference Number: {referenceNumber}", "Archiving Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                ' 6. UI Reset: Clear the form and refresh the To-Do list
+                SelectedArchiveDocID = 0
+                SelectedScannedFilePath = ""
+                ornumber_txtbox.Text = ""
+                archive_residentnamelbl.Text = ""
+
+                DisplayApprovedRequestData() ' The archived row will instantly disappear from this queue
+            Else
+                MessageBox.Show("Database update failed. The file was copied, but the record was not updated.", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("A critical error occurred during archiving: " & ex.Message, "Archiving Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
     'SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE

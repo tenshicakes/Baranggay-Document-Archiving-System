@@ -94,6 +94,7 @@ Partial Class DashboardForm
         Me.archive_removebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.archive_archivebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.MaterialCard12 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.pdfpreview_webview = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.attachfilebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.ornumber_txtbox = New ReaLTaiizor.Controls.DungeonTextBox()
@@ -215,6 +216,8 @@ Partial Class DashboardForm
         Me.Archive_ButtonSplit.Panel1.SuspendLayout()
         Me.Archive_ButtonSplit.Panel2.SuspendLayout()
         Me.Archive_ButtonSplit.SuspendLayout()
+        Me.MaterialCard12.SuspendLayout()
+        CType(Me.pdfpreview_webview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.residentspanel.SuspendLayout()
         CType(Me.Residents_ContentSplit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Residents_ContentSplit.Panel1.SuspendLayout()
@@ -1298,15 +1301,28 @@ Partial Class DashboardForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MaterialCard12.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard12.Controls.Add(Me.pdfpreview_webview)
         Me.MaterialCard12.Depth = 0
         Me.MaterialCard12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MaterialCard12.Location = New System.Drawing.Point(22, 231)
         Me.MaterialCard12.Margin = New System.Windows.Forms.Padding(14)
         Me.MaterialCard12.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard12.Name = "MaterialCard12"
-        Me.MaterialCard12.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard12.Padding = New System.Windows.Forms.Padding(6)
         Me.MaterialCard12.Size = New System.Drawing.Size(369, 142)
         Me.MaterialCard12.TabIndex = 33
+        '
+        'pdfpreview_webview
+        '
+        Me.pdfpreview_webview.AllowExternalDrop = True
+        Me.pdfpreview_webview.CreationProperties = Nothing
+        Me.pdfpreview_webview.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.pdfpreview_webview.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pdfpreview_webview.Location = New System.Drawing.Point(6, 6)
+        Me.pdfpreview_webview.Name = "pdfpreview_webview"
+        Me.pdfpreview_webview.Size = New System.Drawing.Size(357, 130)
+        Me.pdfpreview_webview.TabIndex = 0
+        Me.pdfpreview_webview.ZoomFactor = 1.0R
         '
         'Label30
         '
@@ -2692,6 +2708,8 @@ Partial Class DashboardForm
         Me.Archive_ButtonSplit.Panel2.ResumeLayout(False)
         CType(Me.Archive_ButtonSplit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Archive_ButtonSplit.ResumeLayout(False)
+        Me.MaterialCard12.ResumeLayout(False)
+        CType(Me.pdfpreview_webview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.residentspanel.ResumeLayout(False)
         Me.Residents_ContentSplit.Panel1.ResumeLayout(False)
         Me.Residents_ContentSplit.Panel1.PerformLayout()
@@ -2881,4 +2899,5 @@ Partial Class DashboardForm
     Friend WithEvents Label35 As Label
     Friend WithEvents Label33 As Label
     Friend WithEvents Label32 As Label
+    Friend WithEvents pdfpreview_webview As Microsoft.Web.WebView2.WinForms.WebView2
 End Class

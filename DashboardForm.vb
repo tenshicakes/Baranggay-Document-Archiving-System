@@ -6,6 +6,7 @@ Public Class DashboardForm
     Private CurrentUserRole As String
     Private CurrentFullName As String
     Private CurrentUserID As Integer
+    Private SelectedArchiveDocID As Integer
 
     Public Sub New(userID As Integer, role As String, name As String)
         InitializeComponent()
@@ -71,6 +72,9 @@ Public Class DashboardForm
         DisplayRequestData()
         ApplyRequestGridDesign()
         ApplyDerogatoryGridDesign()
+
+        DisplayApprovedRequestData()
+        ApplyApprovedRequestDesign()
     End Sub
 
 
@@ -621,6 +625,102 @@ Public Class DashboardForm
         archivebtn.ForeColor = Color.White
     End Sub
 
+    Public Sub DisplayApprovedRequestData(Optional searchTerm As String = "")
+        Try
+            ' Strict filter: Only show 'Approved' requests, ignoring 'Archived' history
+            Dim query As String = "SELECT d.DocumentID, d.ResidentID, " &
+                              "(r.FirstName + ' ' + ISNULL(r.MiddleName + ' ', '') + r.LastName) AS FullName, " &
+                              "d.DocumentType, d.Category, d.RequestDate " &
+                              "FROM Documents_tbl d " &
+                              "INNER JOIN Resident_Master_tbl r ON d.ResidentID = r.ResidentID " &
+                              "WHERE d.Status = 'Approved'"
+
+            Dim parameters As New List(Of SqlParameter)()
+
+            If Not String.IsNullOrWhiteSpace(searchTerm) Then
+                query &= " AND (r.FirstName LIKE @Search OR r.LastName LIKE @Search)"
+                parameters.Add(New SqlParameter("@Search", "%" & searchTerm.Trim() & "%"))
+            End If
+
+            query &= " ORDER BY d.RequestDate ASC"
+
+            Dim dt As DataTable = GlobalDatabase.GetTable(query, parameters.ToArray())
+            approvedreqgrid.DataSource = dt
+
+            ' Format Columns
+            If approvedreqgrid.Columns.Count > 0 Then
+                approvedreqgrid.Columns("DocumentID").Visible = False
+                approvedreqgrid.Columns("ResidentID").Visible = False
+                approvedreqgrid.Columns("FullName").HeaderText = "Resident Name"
+                approvedreqgrid.Columns("DocumentType").HeaderText = "Document Type"
+                approvedreqgrid.Columns("Category").HeaderText = "Category"
+                approvedreqgrid.Columns("RequestDate").HeaderText = "Date Approved"
+            End If
+
+            ApplyApprovedRequestDesign()
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading approved requests: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ApplyApprovedRequestDesign()
+        approvedreqgrid.EnableHeadersVisualStyles = False
+        approvedreqgrid.Font = New Font("Nirmala UI", 12.0!, FontStyle.Regular)
+        approvedreqgrid.RowTemplate.Height = 30
+        approvedreqgrid.ColumnHeadersDefaultCellStyle.Font = New Font("Nirmala UI", 12.0!, FontStyle.Bold)
+        approvedreqgrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(3, 57, 108)
+        approvedreqgrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        approvedreqgrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        approvedreqgrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White
+        approvedreqgrid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        approvedreqgrid.DefaultCellStyle.SelectionForeColor = Color.White
+        approvedreqgrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        approvedreqgrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        approvedreqgrid.MultiSelect = False
+        approvedreqgrid.ReadOnly = True
+        approvedreqgrid.AllowUserToAddRows = False
+    End Sub
+
+    Private Sub archive_searchbtn_Click(sender As Object, e As EventArgs) Handles archive_searchbtn.Click
+
+        If archive_searchbtn.Text = "Clear" Then
+            archive_searchbar.Text = ""
+            DisplayApprovedRequestData()
+            archive_searchbtn.Text = "Search"
+            archive_searchbtn.BaseColor = Color.White
+            archive_searchbtn.ForeColor = Color.Black
+            Return
+        End If
+
+        Dim searchText As String = archive_searchbar.Text.Trim()
+        If String.IsNullOrEmpty(searchText) Then
+            MessageBox.Show("Please enter a resident's name to search.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        DisplayApprovedRequestData(searchText)
+
+        archive_searchbtn.Text = "Clear"
+        archive_searchbtn.BaseColor = Color.Gray
+        archive_searchbtn.ForeColor = Color.White
+    End Sub
+
+    Private Sub newarchivebtn_Click(sender As Object, e As EventArgs) Handles newarchivebtn.Click
+        If approvedreqgrid.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select an approved request from the list.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = approvedreqgrid.SelectedRows(0)
+
+        ' Lock in the DocumentID for the final archiving step
+        SelectedArchiveDocID = Convert.ToInt32(selectedRow.Cells("DocumentID").Value)
+
+        ' Extract and populate the Resident Name label
+        archive_residentnamelbl.Text = selectedRow.Cells("FullName").Value.ToString()
+
+    End Sub
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
     'SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE SEARCH PAGE
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-

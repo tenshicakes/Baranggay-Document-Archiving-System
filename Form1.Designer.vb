@@ -32,6 +32,7 @@ Partial Class login
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.MaterialCard1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,12 +157,24 @@ Partial Class login
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(39, 48)
+        Me.PictureBox1.Location = New System.Drawing.Point(42, 63)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(366, 365)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Myanmar Text", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(11, 30)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(441, 48)
+        Me.Label4.TabIndex = 2
+        Me.Label4.Text = "DOCUMENT ARCHIVING SYSTEM"
         '
         'login
         '
@@ -169,9 +182,12 @@ Partial Class login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(842, 463)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.MaterialCard1)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(858, 502)
+        Me.MinimumSize = New System.Drawing.Size(858, 502)
         Me.Name = "login"
         Me.ShowIcon = False
         Me.Text = "   "
@@ -181,6 +197,7 @@ Partial Class login
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -193,4 +210,5 @@ Partial Class login
     Friend WithEvents Label3 As Label
     Friend WithEvents usertxtbox As ReaLTaiizor.Controls.DungeonTextBox
     Friend WithEvents loginbtn As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents Label4 As Label
 End Class

@@ -1046,13 +1046,13 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
+        Me.contentpanel.Controls.Add(Me.searchpanel)
         Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.accountspanel)
         Me.contentpanel.Controls.Add(Me.reportspanel)
-        Me.contentpanel.Controls.Add(Me.searchpanel)
         Me.contentpanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.contentpanel.Location = New System.Drawing.Point(0, 0)
         Me.contentpanel.Name = "contentpanel"
@@ -1394,9 +1394,9 @@ Partial Class DashboardForm
         Me.archive_residentnamelbl.ForeColor = System.Drawing.Color.Black
         Me.archive_residentnamelbl.Location = New System.Drawing.Point(18, 35)
         Me.archive_residentnamelbl.Name = "archive_residentnamelbl"
-        Me.archive_residentnamelbl.Size = New System.Drawing.Size(157, 21)
+        Me.archive_residentnamelbl.Size = New System.Drawing.Size(158, 21)
         Me.archive_residentnamelbl.TabIndex = 28
-        Me.archive_residentnamelbl.Text = "Louie Jelaine Recto"
+        Me.archive_residentnamelbl.Text = "NO USER SELECTED"
         '
         'Label24
         '

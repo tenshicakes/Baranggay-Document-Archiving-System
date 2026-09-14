@@ -634,6 +634,7 @@ Public Class DashboardForm
         archivepanel.Visible = True
         archivebtn.BaseColor = Color.FromArgb(100, 151, 177)
         archivebtn.ForeColor = Color.White
+        archive_residentnamelbl.Text = "NO USER SELECTED"
     End Sub
 
     Public Sub DisplayApprovedRequestData(Optional searchTerm As String = "")
@@ -833,7 +834,7 @@ Public Class DashboardForm
                 SelectedArchiveDocID = 0
                 SelectedScannedFilePath = ""
                 ornumber_txtbox.Text = ""
-                archive_residentnamelbl.Text = ""
+                archive_residentnamelbl.Text = "NO USER SELECTED"
 
                 DisplayApprovedRequestData() ' The archived row will instantly disappear from this queue
             Else

@@ -1056,10 +1056,10 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
+        Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Controls.Add(Me.searchpanel)
-        Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Controls.Add(Me.accountspanel)
         Me.contentpanel.Controls.Add(Me.reportspanel)
@@ -2538,6 +2538,7 @@ Partial Class DashboardForm
         Me.approvedreqgrid.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.approvedreqgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.approvedreqgrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.approvedreqgrid.GridColor = System.Drawing.Color.White
         Me.approvedreqgrid.Location = New System.Drawing.Point(14, 14)
         Me.approvedreqgrid.MultiSelect = False
         Me.approvedreqgrid.Name = "approvedreqgrid"

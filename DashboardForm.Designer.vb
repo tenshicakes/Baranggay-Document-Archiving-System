@@ -184,6 +184,8 @@ Partial Class DashboardForm
         Me.homepanel = New System.Windows.Forms.Panel()
         Me.accountspanel = New System.Windows.Forms.Panel()
         Me.reportspanel = New System.Windows.Forms.Panel()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.search_refnumber = New System.Windows.Forms.Label()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -1056,10 +1058,10 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
+        Me.contentpanel.Controls.Add(Me.searchpanel)
         Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
-        Me.contentpanel.Controls.Add(Me.searchpanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Controls.Add(Me.accountspanel)
         Me.contentpanel.Controls.Add(Me.reportspanel)
@@ -2216,8 +2218,10 @@ Partial Class DashboardForm
         Me.archiveddgv.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.archiveddgv.BackgroundColor = System.Drawing.Color.White
         Me.archiveddgv.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.archiveddgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.archiveddgv.GridColor = System.Drawing.Color.White
         Me.archiveddgv.Location = New System.Drawing.Point(14, 72)
         Me.archiveddgv.MultiSelect = False
         Me.archiveddgv.Name = "archiveddgv"
@@ -2276,6 +2280,8 @@ Partial Class DashboardForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MaterialCard14.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard14.Controls.Add(Me.search_refnumber)
+        Me.MaterialCard14.Controls.Add(Me.Label40)
         Me.MaterialCard14.Controls.Add(Me.search_processedby)
         Me.MaterialCard14.Controls.Add(Me.Label37)
         Me.MaterialCard14.Controls.Add(Me.search_ornumber)
@@ -2371,12 +2377,12 @@ Partial Class DashboardForm
         Me.MaterialCard15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MaterialCard15.Depth = 0
         Me.MaterialCard15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialCard15.Location = New System.Drawing.Point(22, 187)
+        Me.MaterialCard15.Location = New System.Drawing.Point(22, 225)
         Me.MaterialCard15.Margin = New System.Windows.Forms.Padding(14)
         Me.MaterialCard15.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard15.Name = "MaterialCard15"
         Me.MaterialCard15.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard15.Size = New System.Drawing.Size(333, 180)
+        Me.MaterialCard15.Size = New System.Drawing.Size(333, 142)
         Me.MaterialCard15.TabIndex = 33
         '
         'Label31
@@ -2384,7 +2390,7 @@ Partial Class DashboardForm
         Me.Label31.AutoSize = True
         Me.Label31.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label31.ForeColor = System.Drawing.Color.Black
-        Me.Label31.Location = New System.Drawing.Point(18, 163)
+        Me.Label31.Location = New System.Drawing.Point(20, 200)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(141, 21)
         Me.Label31.TabIndex = 32
@@ -2797,6 +2803,29 @@ Partial Class DashboardForm
         Me.reportspanel.Size = New System.Drawing.Size(200, 100)
         Me.reportspanel.TabIndex = 13
         '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label40.ForeColor = System.Drawing.Color.Black
+        Me.Label40.Location = New System.Drawing.Point(19, 158)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(101, 21)
+        Me.Label40.TabIndex = 38
+        Me.Label40.Text = "Processed By"
+        '
+        'search_refnumber
+        '
+        Me.search_refnumber.AutoSize = True
+        Me.search_refnumber.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.search_refnumber.ForeColor = System.Drawing.Color.Black
+        Me.search_refnumber.Location = New System.Drawing.Point(19, 182)
+        Me.search_refnumber.Margin = New System.Windows.Forms.Padding(3, 0, 3, 5)
+        Me.search_refnumber.Name = "search_refnumber"
+        Me.search_refnumber.Size = New System.Drawing.Size(37, 21)
+        Me.search_refnumber.TabIndex = 39
+        Me.search_refnumber.Text = "xxx"
+        '
         'DashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3067,4 +3096,6 @@ Partial Class DashboardForm
     Friend WithEvents Label38 As Label
     Friend WithEvents request_updatebtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents approvebtn As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents Label40 As Label
+    Friend WithEvents search_refnumber As Label
 End Class

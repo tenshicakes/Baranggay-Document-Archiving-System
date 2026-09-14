@@ -96,7 +96,6 @@ Partial Class DashboardForm
         Me.residentnamelbl = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.approvedenytlp = New System.Windows.Forms.TableLayoutPanel()
-        Me.approvebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.denybtn = New ReaLTaiizor.Controls.FoxButton()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.MaterialCard3 = New ReaLTaiizor.Controls.MaterialCard()
@@ -183,6 +182,8 @@ Partial Class DashboardForm
         Me.homepanel = New System.Windows.Forms.Panel()
         Me.accountspanel = New System.Windows.Forms.Panel()
         Me.reportspanel = New System.Windows.Forms.Panel()
+        Me.approvebtn = New ReaLTaiizor.Controls.FoxButton()
+        Me.request_updatebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -1091,6 +1092,7 @@ Partial Class DashboardForm
         Me.adminformpanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.adminformpanel.BackColor = System.Drawing.Color.White
+        Me.adminformpanel.Controls.Add(Me.request_updatebtn)
         Me.adminformpanel.Controls.Add(Me.closeadminformbtn)
         Me.adminformpanel.Controls.Add(Me.derogatoryrrecordcard)
         Me.adminformpanel.Controls.Add(Me.Label29)
@@ -1280,27 +1282,6 @@ Partial Class DashboardForm
         Me.approvedenytlp.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.approvedenytlp.Size = New System.Drawing.Size(771, 46)
         Me.approvedenytlp.TabIndex = 10
-        '
-        'approvebtn
-        '
-        Me.approvebtn.BackColor = System.Drawing.Color.Transparent
-        Me.approvebtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.approvebtn.BorderColor = System.Drawing.Color.Transparent
-        Me.approvebtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.approvebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.approvebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.approvebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.approvebtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.approvebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.approvebtn.EnabledCalc = True
-        Me.approvebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.approvebtn.ForeColor = System.Drawing.Color.White
-        Me.approvebtn.Location = New System.Drawing.Point(3, 3)
-        Me.approvebtn.Name = "approvebtn"
-        Me.approvebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.approvebtn.Size = New System.Drawing.Size(379, 40)
-        Me.approvebtn.TabIndex = 8
-        Me.approvebtn.Text = "Approve"
         '
         'denybtn
         '
@@ -2774,6 +2755,47 @@ Partial Class DashboardForm
         Me.reportspanel.Size = New System.Drawing.Size(200, 100)
         Me.reportspanel.TabIndex = 13
         '
+        'approvebtn
+        '
+        Me.approvebtn.BackColor = System.Drawing.Color.Transparent
+        Me.approvebtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.approvebtn.BorderColor = System.Drawing.Color.Transparent
+        Me.approvebtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.approvebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.approvebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.approvebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.approvebtn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.approvebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.approvebtn.EnabledCalc = True
+        Me.approvebtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.approvebtn.ForeColor = System.Drawing.Color.White
+        Me.approvebtn.Location = New System.Drawing.Point(3, 3)
+        Me.approvebtn.Name = "approvebtn"
+        Me.approvebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.approvebtn.Size = New System.Drawing.Size(379, 40)
+        Me.approvebtn.TabIndex = 8
+        Me.approvebtn.Text = "Approve"
+        '
+        'request_updatebtn
+        '
+        Me.request_updatebtn.BackColor = System.Drawing.Color.Transparent
+        Me.request_updatebtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.request_updatebtn.BorderColor = System.Drawing.Color.Transparent
+        Me.request_updatebtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.request_updatebtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.request_updatebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.request_updatebtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.request_updatebtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.request_updatebtn.EnabledCalc = True
+        Me.request_updatebtn.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.request_updatebtn.ForeColor = System.Drawing.Color.White
+        Me.request_updatebtn.Location = New System.Drawing.Point(165, 217)
+        Me.request_updatebtn.Name = "request_updatebtn"
+        Me.request_updatebtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.request_updatebtn.Size = New System.Drawing.Size(122, 29)
+        Me.request_updatebtn.TabIndex = 29
+        Me.request_updatebtn.Text = "Update"
+        '
         'DashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2977,7 +2999,6 @@ Partial Class DashboardForm
     Friend WithEvents Label20 As Label
     Friend WithEvents requestrecorddgv As DataGridView
     Friend WithEvents denybtn As ReaLTaiizor.Controls.FoxButton
-    Friend WithEvents approvebtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents approvedenytlp As TableLayoutPanel
     Friend WithEvents adminformpanel As Panel
     Friend WithEvents archivepanel As Panel
@@ -3043,4 +3064,6 @@ Partial Class DashboardForm
     Friend WithEvents search_ToDate As DateTimePicker
     Friend WithEvents Label39 As Label
     Friend WithEvents Label38 As Label
+    Friend WithEvents request_updatebtn As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents approvebtn As ReaLTaiizor.Controls.FoxButton
 End Class

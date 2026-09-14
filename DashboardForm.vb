@@ -80,6 +80,7 @@ Public Class DashboardForm
     Public Sub RefreshEveryGrid()
         DisplayResidentsData()
         ResidentsGridDesign()
+        derogatorygrid.Refresh()
 
         DisplayRequestData()
         ApplyRequestGridDesign()

@@ -249,6 +249,12 @@
     <Compile Include="RequestForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UpdateStatus.Designer.vb">
+      <DependentUpon>UpdateStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DashboardForm.resx">
@@ -265,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RequestForm.resx">
       <DependentUpon>RequestForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateStatus.resx">
+      <DependentUpon>UpdateStatus.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

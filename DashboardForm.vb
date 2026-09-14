@@ -573,14 +573,16 @@ Public Class DashboardForm
             End If
 
             ' 5. Fetch the Derogatory Records
-            Dim derQuery As String = "SELECT RecordID, DateLogged, Status FROM Derogatory_Records_tbl WHERE ResidentID = @ResidentID ORDER BY DateLogged DESC"
+            Dim derQuery As String = "SELECT RecordID, DateLogged, FilePath, Status FROM Derogatory_Records_tbl WHERE ResidentID = @ResidentID ORDER BY DateLogged DESC"
             Dim derParams As SqlParameter() = {New SqlParameter("@ResidentID", residentID)}
             Dim derDt As DataTable = GlobalDatabase.GetTable(derQuery, derParams)
 
             derogatorygrid.DataSource = derDt
 
             ' 6. Apply Nirmala UI Styling and Headers
+
             If derogatorygrid.Columns.Count > 0 Then
+                derogatorygrid.Columns("FilePath").Visible = False
                 derogatorygrid.Columns("DateLogged").HeaderText = "Date"
                 derogatorygrid.Columns("Status").HeaderText = "Status"
                 derogatorygrid.Columns("RecordID").HeaderText = "Record ID"
@@ -614,6 +616,28 @@ Public Class DashboardForm
         derogatorygrid.MultiSelect = False
         derogatorygrid.ReadOnly = True
         derogatorygrid.AllowUserToAddRows = False
+    End Sub
+
+    Private Sub request_updatebtn_Click(sender As Object, e As EventArgs) Handles request_updatebtn.Click
+        ' Check if a record is actually selected
+        If derogatorygrid.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a derogatory record from the list first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = derogatorygrid.SelectedRows(0)
+        Dim recordID As Integer = Convert.ToInt32(selectedRow.Cells("RecordID").Value)
+        Dim currentStatus As String = selectedRow.Cells("Status").Value.ToString()
+        Dim filePath As String = selectedRow.Cells("FilePath").Value.ToString()
+
+        Using updateForm As New UpdateStatus(recordID, currentStatus, filePath)
+            If updateForm.ShowDialog() = DialogResult.OK Then
+                ' If successful, refresh the grid by re-triggering the double-click event on the main Request DGV
+                ' (Assuming 'selectedMainRowIndex' is the currently highlighted resident request)
+                Dim eArgs As New DataGridViewCellEventArgs(0, requestrecorddgv.CurrentRow.Index)
+                requestrecorddgv_CellDoubleClick(Nothing, eArgs)
+            End If
+        End Using
     End Sub
 
     Private Sub closeadminformbtn_Click(sender As Object, e As EventArgs) Handles closeadminformbtn.Click

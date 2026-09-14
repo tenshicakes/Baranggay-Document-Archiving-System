@@ -23,11 +23,12 @@ Partial Class UpdateStatus
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.MaterialCard1 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.recordpreview = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.updatebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.cancelbtn = New ReaLTaiizor.Controls.FoxButton()
-        Me.recordpreview = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.statuscombo = New ReaLTaiizor.Controls.DungeonComboBox()
+        Me.lblMissingWarning = New System.Windows.Forms.Label()
         Me.MaterialCard1.SuspendLayout()
         CType(Me.recordpreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -45,6 +46,18 @@ Partial Class UpdateStatus
         Me.MaterialCard1.Padding = New System.Windows.Forms.Padding(14)
         Me.MaterialCard1.Size = New System.Drawing.Size(465, 481)
         Me.MaterialCard1.TabIndex = 0
+        '
+        'recordpreview
+        '
+        Me.recordpreview.AllowExternalDrop = True
+        Me.recordpreview.CreationProperties = Nothing
+        Me.recordpreview.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.recordpreview.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.recordpreview.Location = New System.Drawing.Point(14, 14)
+        Me.recordpreview.Name = "recordpreview"
+        Me.recordpreview.Size = New System.Drawing.Size(437, 453)
+        Me.recordpreview.TabIndex = 0
+        Me.recordpreview.ZoomFactor = 1.0R
         '
         'updatebtn
         '
@@ -85,18 +98,6 @@ Partial Class UpdateStatus
         Me.cancelbtn.Size = New System.Drawing.Size(227, 40)
         Me.cancelbtn.TabIndex = 10
         Me.cancelbtn.Text = "Cancel"
-        '
-        'recordpreview
-        '
-        Me.recordpreview.AllowExternalDrop = True
-        Me.recordpreview.CreationProperties = Nothing
-        Me.recordpreview.DefaultBackgroundColor = System.Drawing.Color.White
-        Me.recordpreview.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.recordpreview.Location = New System.Drawing.Point(14, 14)
-        Me.recordpreview.Name = "recordpreview"
-        Me.recordpreview.Size = New System.Drawing.Size(437, 453)
-        Me.recordpreview.TabIndex = 0
-        Me.recordpreview.ZoomFactor = 1.0R
         '
         'Label1
         '
@@ -139,12 +140,24 @@ Partial Class UpdateStatus
         Me.statuscombo.StartIndex = 0
         Me.statuscombo.TabIndex = 12
         '
+        'lblMissingWarning
+        '
+        Me.lblMissingWarning.AutoSize = True
+        Me.lblMissingWarning.Font = New System.Drawing.Font("Nirmala UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMissingWarning.ForeColor = System.Drawing.Color.White
+        Me.lblMissingWarning.Location = New System.Drawing.Point(195, 15)
+        Me.lblMissingWarning.Name = "lblMissingWarning"
+        Me.lblMissingWarning.Size = New System.Drawing.Size(72, 25)
+        Me.lblMissingWarning.TabIndex = 13
+        Me.lblMissingWarning.Text = "            "
+        '
         'UpdateStatus
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(511, 677)
+        Me.Controls.Add(Me.lblMissingWarning)
         Me.Controls.Add(Me.statuscombo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cancelbtn)
@@ -167,4 +180,5 @@ Partial Class UpdateStatus
     Friend WithEvents cancelbtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents Label1 As Label
     Friend WithEvents statuscombo As ReaLTaiizor.Controls.DungeonComboBox
+    Friend WithEvents lblMissingWarning As Label
 End Class

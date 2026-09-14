@@ -26,6 +26,7 @@ Public Class DashboardForm
     Private Async Sub DashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         homebtn_Click(sender, e)
         SetupRequestPage()
+        SetupArchiveExplorer()
 
         Try
             Await pdfpreview_webview.EnsureCoreWebView2Async(Nothing)
@@ -86,6 +87,9 @@ Public Class DashboardForm
 
         DisplayApprovedRequestData()
         ApplyApprovedRequestDesign()
+
+        LoadArchivedData()
+        ApplyArchivedDesign()
     End Sub
 
 
@@ -496,7 +500,7 @@ Public Class DashboardForm
         ExecuteRequestAction("Denied", "deny")
     End Sub
 
-    ' Unified helper to prevent redundant code
+
     Private Sub ExecuteRequestAction(newStatus As String, actionName As String)
         If requestrecorddgv.SelectedRows.Count = 0 Then
             MessageBox.Show($"Please select a request to {actionName}.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -506,7 +510,7 @@ Public Class DashboardForm
         Dim selectedRow As DataGridViewRow = requestrecorddgv.SelectedRows(0)
         Dim currentStatus As String = selectedRow.Cells("Status").Value.ToString()
 
-        ' Guardrail: Prevent double-processing
+        ' Prevent double-processing
         If currentStatus <> "Pending" Then
             MessageBox.Show($"This request is already marked as {currentStatus} and cannot be {actionName}d again.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
@@ -568,7 +572,7 @@ Public Class DashboardForm
             End If
 
             ' 5. Fetch the Derogatory Records
-            Dim derQuery As String = "SELECT DateLogged, Status, IncidentDetails FROM Derogatory_Records_tbl WHERE ResidentID = @ResidentID ORDER BY DateLogged DESC"
+            Dim derQuery As String = "SELECT RecordID, DateLogged, Status FROM Derogatory_Records_tbl WHERE ResidentID = @ResidentID ORDER BY DateLogged DESC"
             Dim derParams As SqlParameter() = {New SqlParameter("@ResidentID", residentID)}
             Dim derDt As DataTable = GlobalDatabase.GetTable(derQuery, derParams)
 
@@ -578,19 +582,12 @@ Public Class DashboardForm
             If derogatorygrid.Columns.Count > 0 Then
                 derogatorygrid.Columns("DateLogged").HeaderText = "Date"
                 derogatorygrid.Columns("Status").HeaderText = "Status"
-                derogatorygrid.Columns("IncidentDetails").HeaderText = "Incident Details"
+                derogatorygrid.Columns("RecordID").HeaderText = "Record ID"
+
             End If
             ApplyDerogatoryGridDesign()
 
-            ' 7. Visual UX Guardrail: The Status Label
-            ' NOTE: Add a Label named "derogatorystatuslbl" to your adminformpanel for this to work!
-            If derDt.Rows.Count = 0 Then
-                derogatorystatuslbl.Text = "STATUS: CLEARED (No Records Found)"
-                derogatorystatuslbl.ForeColor = Color.Green
-            Else
-                derogatorystatuslbl.Text = "WARNING: DEROGATORY RECORDS FOUND"
-                derogatorystatuslbl.ForeColor = Color.Red
-            End If
+
 
         Catch ex As Exception
             MessageBox.Show("Error loading verification details: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -804,6 +801,7 @@ Public Class DashboardForm
             Else
                 vaultDir = "C:\BarangayArchivingVault\GeneralRecords\"
             End If
+
             Dim finalFilePath As String = Path.Combine(vaultDir, newFileName)
 
             ' Fail-safe: Auto-build the folder if someone deleted it
@@ -814,16 +812,35 @@ Public Class DashboardForm
             ' 4. Copy the file into the secure vault and rename it
             File.Copy(SelectedScannedFilePath, finalFilePath, overwrite:=False)
 
-            ' 5. Execute Database UPDATE
+            ' ==========================================
+            ' NEW LOGIC: DEROGATORY RECORD INSERTION
+            ' ==========================================
+            If SelectedArchiveCategory = "Justice & Incident Records" Then
+                ' Grab the ResidentID tied to this specific Document request
+                Dim getResQuery As String = "SELECT ResidentID FROM Documents_tbl WHERE DocumentID = @DocID"
+                Dim resParams As SqlParameter() = {New SqlParameter("@DocID", SelectedArchiveDocID)}
+                Dim activeResID As Integer = Convert.ToInt32(GlobalDatabase.ExecuteScalar(getResQuery, resParams))
+
+                ' Insert into the Derogatory table using the new FilePath column
+                Dim derQuery As String = "INSERT INTO Derogatory_Records_tbl (ResidentID, FilePath, DateLogged, Status) VALUES (@ResID, @FilePath, GETDATE(), 'Active')"
+                Dim derParams As SqlParameter() = {
+                    New SqlParameter("@ResID", activeResID),
+                    New SqlParameter("@FilePath", finalFilePath)
+                }
+                GlobalDatabase.ExecuteQuery(derQuery, derParams)
+            End If
+            ' ==========================================
+
+            ' 5. Execute Database UPDATE for the Main Document
             Dim query As String = "UPDATE Documents_tbl SET Status = 'Archived', ORNumber = @ORNum, ReferenceNumber = @RefNum, FilePath = @FilePath, ProcessedBy = @ProcessedBy WHERE DocumentID = @DocumentID"
 
             Dim parameters As SqlParameter() = {
-            New SqlParameter("@ORNum", orNumber),
-            New SqlParameter("@RefNum", referenceNumber),
-            New SqlParameter("@FilePath", finalFilePath),
-            New SqlParameter("@ProcessedBy", CurrentFullName),
-            New SqlParameter("@DocumentID", SelectedArchiveDocID)
-        }
+                New SqlParameter("@ORNum", orNumber),
+                New SqlParameter("@RefNum", referenceNumber),
+                New SqlParameter("@FilePath", finalFilePath),
+                New SqlParameter("@ProcessedBy", CurrentUserID),
+                New SqlParameter("@DocumentID", SelectedArchiveDocID)
+            }
 
             Dim rowsAffected As Integer = GlobalDatabase.ExecuteQuery(query, parameters)
 
@@ -832,11 +849,12 @@ Public Class DashboardForm
 
                 ' 6. UI Reset: Clear the form and refresh the To-Do list
                 SelectedArchiveDocID = 0
+                SelectedArchiveCategory = ""
                 SelectedScannedFilePath = ""
                 ornumber_txtbox.Text = ""
                 archive_residentnamelbl.Text = "NO USER SELECTED"
 
-                DisplayApprovedRequestData() ' The archived row will instantly disappear from this queue
+                DisplayApprovedRequestData()
             Else
                 MessageBox.Show("Database update failed. The file was copied, but the record was not updated.", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -852,10 +870,157 @@ Public Class DashboardForm
         ResetAllPanels()
         ResetAllButtons()
         RefreshEveryGrid()
+        SetupArchiveExplorer()
         searchpanel.Visible = True
         searchbtn.BaseColor = Color.FromArgb(100, 151, 177)
         searchbtn.ForeColor = Color.White
     End Sub
+
+    Private Sub SetupArchiveExplorer()
+        ' Document Type Combobox
+        search_filtercombo.Items.Clear()
+        search_filtercombo.Items.AddRange(New Object() {"Barangay Clearance", "Certificate of Residency", "Certificate of Indigency", "Business Permit Record", "Barangay ID Record"})
+        search_filtercombo.SelectedIndex = -1
+
+        ' DatePickers start unchecked (disabled until the user specifically wants to filter by date)
+        search_FromDate.Checked = False
+        search_ToDate.Checked = False
+
+        LoadArchivedData()
+    End Sub
+
+    Private Sub LoadArchivedData()
+        Try
+            ' 1. The Base Query (Strictly 'Archived' status + LEFT JOIN for Staff Name)
+            Dim query As String = "SELECT d.DocumentID, d.ResidentID, r.FirstName, r.LastName, r.MiddleName, " &
+                              "(r.FirstName + ' ' + ISNULL(r.MiddleName + ' ', '') + r.LastName) AS FullName, " &
+                              "d.Category, d.DocumentType, d.ORNumber, d.ReferenceNumber, d.RequestDate, " &
+                              "d.ProcessedBy, u.FullName AS ProcessedByName, d.FilePath " &
+                              "FROM Documents_tbl d " &
+                              "INNER JOIN Resident_Master_tbl r ON d.ResidentID = r.ResidentID " &
+                              "LEFT JOIN Users_tbl u ON d.ProcessedBy = u.UserID " &
+                              "WHERE d.Status = 'Archived'"
+
+            Dim parameters As New List(Of SqlParameter)()
+
+            ' 2. Apply Text Search Filter (Matches Resident Name OR Reference Number)
+            Dim searchTerm As String = search_searchbar.Text.Trim()
+            If Not String.IsNullOrEmpty(searchTerm) AndAlso search_searchbtn.Text = "Clear" Then
+                query &= " AND (r.FirstName LIKE @Search OR r.LastName LIKE @Search OR d.ReferenceNumber LIKE @Search)"
+                parameters.Add(New SqlParameter("@Search", "%" & searchTerm & "%"))
+            End If
+
+            ' 3. Apply Document Type Filter
+            If search_filtercombo.SelectedIndex <> -1 AndAlso search_filterbtn.Text = "Clear" Then
+                query &= " AND d.DocumentType = @DocType"
+                parameters.Add(New SqlParameter("@DocType", search_filtercombo.SelectedItem.ToString()))
+            End If
+
+            ' 4. Apply Date Range Filters (Only if the internal checkbox is checked)
+            If search_FromDate.Checked Then
+                query &= " AND d.RequestDate >= @FromDate"
+                ' Set time to 00:00:00 of the selected day
+                parameters.Add(New SqlParameter("@FromDate", search_FromDate.Value.Date))
+            End If
+
+            If search_ToDate.Checked Then
+                query &= " AND d.RequestDate <= @ToDate"
+                ' Set time to 23:59:59 to include the entire end day
+                parameters.Add(New SqlParameter("@ToDate", search_ToDate.Value.Date.AddDays(1).AddTicks(-1)))
+            End If
+
+            query &= " ORDER BY d.RequestDate DESC"
+            Dim dt As DataTable = GlobalDatabase.GetTable(query, parameters.ToArray())
+            archiveddgv.DataSource = dt
+
+            If archiveddgv.Columns.Count > 0 Then
+                ' Hidden columns 
+                archiveddgv.Columns("DocumentID").Visible = False
+                archiveddgv.Columns("ResidentID").Visible = False
+                archiveddgv.Columns("Category").Visible = False
+                archiveddgv.Columns("ORNumber").Visible = False
+                archiveddgv.Columns("ProcessedBy").Visible = False
+                archiveddgv.Columns("FullName").Visible = False
+                archiveddgv.Columns("FilePath").Visible = False
+                archiveddgv.Columns("ProcessedByName").Visible = False
+
+                ' Displayed columns
+                archiveddgv.Columns("ReferenceNumber").HeaderText = "Ref Number"
+                archiveddgv.Columns("FirstName").HeaderText = "First Name"
+                archiveddgv.Columns("LastName").HeaderText = "Last Name"
+                archiveddgv.Columns("MiddleName").HeaderText = "M.I."
+                archiveddgv.Columns("DocumentType").HeaderText = "Document Type"
+                archiveddgv.Columns("RequestDate").HeaderText = "Date Archived"
+            End If
+
+            ApplyArchivedDesign()
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading archive records: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ApplyArchivedDesign()
+        archiveddgv.EnableHeadersVisualStyles = False
+        archiveddgv.Font = New Font("Nirmala UI", 11.0!, FontStyle.Regular)
+        archiveddgv.RowTemplate.Height = 30
+        archiveddgv.ColumnHeadersDefaultCellStyle.Font = New Font("Nirmala UI", 11.0!, FontStyle.Bold)
+        archiveddgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(3, 57, 108)
+        archiveddgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        archiveddgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        archiveddgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        archiveddgv.DefaultCellStyle.SelectionForeColor = Color.White
+        archiveddgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        archiveddgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        archiveddgv.MultiSelect = False
+        archiveddgv.ReadOnly = True
+        archiveddgv.AllowUserToAddRows = False
+    End Sub
+
+    Private Sub search_searchbtn_Click(sender As Object, e As EventArgs) Handles search_searchbtn.Click
+        If search_searchbtn.Text = "Clear" Then
+            ' Reset
+            search_searchbar.Text = ""
+            search_searchbtn.Text = "Search"
+            search_searchbtn.BaseColor = Color.FromArgb(100, 151, 177)
+            search_searchbtn.ForeColor = Color.White
+        Else
+            ' Validate and apply
+            If String.IsNullOrWhiteSpace(search_searchbar.Text) Then
+                MessageBox.Show("Please enter a name or reference number to search.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+            search_searchbtn.Text = "Clear"
+            search_searchbtn.BaseColor = Color.Gray
+            search_searchbtn.ForeColor = Color.White
+        End If
+        LoadArchivedData()
+    End Sub
+
+    Private Sub search_filterbtn_Click(sender As Object, e As EventArgs) Handles search_filterbtn.Click
+        If search_filterbtn.Text = "Clear" Then
+            ' Reset
+            search_filtercombo.SelectedIndex = -1
+            search_filterbtn.Text = "Filter"
+            search_filterbtn.BaseColor = Color.FromArgb(100, 151, 177)
+            search_filterbtn.ForeColor = Color.White
+        Else
+            ' Validate and apply
+            If search_filtercombo.SelectedIndex = -1 Then
+                MessageBox.Show("Please select a document type to filter.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+            search_filterbtn.Text = "Clear"
+            search_filterbtn.BaseColor = Color.Gray
+            search_filterbtn.ForeColor = Color.White
+        End If
+        LoadArchivedData()
+    End Sub
+
+    Private Sub DateFilters_ValueChanged(sender As Object, e As EventArgs) Handles search_FromDate.ValueChanged, search_ToDate.ValueChanged
+        LoadArchivedData()
+    End Sub
+
 
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
     'REPORTS PAGE REPORTS PAGE REPORTS PAGE REPORTS PAGE REPORTS PAGE REPORTS PAGE REPORTS PAGE
@@ -882,6 +1047,4 @@ Public Class DashboardForm
         accountsbtn.BaseColor = Color.FromArgb(100, 151, 177)
         accountsbtn.ForeColor = Color.White
     End Sub
-
-
 End Class

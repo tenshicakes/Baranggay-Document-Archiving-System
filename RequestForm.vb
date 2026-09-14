@@ -23,6 +23,7 @@ Public Class RequestForm
         documentcat_combo.Items.Add("General Certifications")
         documentcat_combo.Items.Add("Business & Livelihood")
         documentcat_combo.Items.Add("Identity Documents")
+        documentcat_combo.Items.Add("Justice & Incident Records")
         documentcat_combo.SelectedIndex = -1
         documenttype_combo.Items.Clear()
     End Sub

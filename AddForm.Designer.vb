@@ -95,7 +95,7 @@ Partial Class AddForm
         Me.passwordtxt.Size = New System.Drawing.Size(482, 38)
         Me.passwordtxt.TabIndex = 7
         Me.passwordtxt.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.passwordtxt.UseSystemPasswordChar = False
+        Me.passwordtxt.UseSystemPasswordChar = True
         '
         'confirmpasstxt
         '
@@ -115,7 +115,7 @@ Partial Class AddForm
         Me.confirmpasstxt.Size = New System.Drawing.Size(482, 38)
         Me.confirmpasstxt.TabIndex = 8
         Me.confirmpasstxt.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
-        Me.confirmpasstxt.UseSystemPasswordChar = False
+        Me.confirmpasstxt.UseSystemPasswordChar = True
         '
         'rolecombo
         '

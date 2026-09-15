@@ -294,7 +294,9 @@ Partial Class RequestForm
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.fullnamelbl)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(700, 645)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(700, 645)
         Me.Name = "RequestForm"
         Me.ShowIcon = False
         Me.ResumeLayout(False)

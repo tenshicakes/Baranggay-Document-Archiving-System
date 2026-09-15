@@ -4,6 +4,11 @@ Imports System.Text.RegularExpressions
 Imports System.IO
 Imports System.Threading.Tasks
 Imports System.Diagnostics
+Imports iText.Kernel.Pdf
+Imports iText.Layout
+Imports iText.Layout.Element
+Imports iText.Layout.Properties
+
 
 
 Public Class DashboardForm
@@ -29,6 +34,7 @@ Public Class DashboardForm
         homebtn_Click(sender, e)
         SetupRequestPage()
         SetupArchiveExplorer()
+        SetupReportsPage()
 
         Try
             Await pdfpreview_webview.EnsureCoreWebView2Async(Nothing)
@@ -93,6 +99,9 @@ Public Class DashboardForm
 
         LoadArchivedData()
         ApplyArchivedDesign()
+
+        ApplyReportsGridDesign()
+        DisplayReportsData()
     End Sub
 
 
@@ -1135,13 +1144,315 @@ Public Class DashboardForm
     Private Sub reportsbtn_Click(sender As Object, e As EventArgs) Handles reportsbtn.Click
         ResetAllPanels()
         ResetAllButtons()
+        ApplyReportsGridDesign()
+        DisplayReportsData()
         RefreshEveryGrid()
+
         reportspanel.Visible = True
         reportsbtn.BaseColor = Color.FromArgb(100, 151, 177)
         reportsbtn.ForeColor = Color.White
     End Sub
 
+    Private Sub SetupReportsPage()
+        ' Initialize Categories
+        ' Initialize Categories with "All"
+        reports_doccatcombo.Items.Clear()
+        reports_doccatcombo.Items.AddRange(New Object() {"All", "General Certifications", "Business & Livelihood", "Identity Documents", "Justice & Incident Records", "Internal Administration"})
+        reports_doccatcombo.SelectedIndex = 0
 
+        reports_FromDTP.Checked = False
+        reports_ToDTP.Checked = False
+
+        DisplayReportsData()
+
+
+    End Sub
+
+    Private Sub reports_doccatcombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles reports_doccatcombo.SelectedIndexChanged
+        reports_doctypecombo.Items.Clear()
+        reports_doctypecombo.Items.Add("All") ' Always provide an "All" option
+
+        If reports_doccatcombo.SelectedItem IsNot Nothing Then
+            Dim selectedCat As String = reports_doccatcombo.SelectedItem.ToString()
+
+            Select Case selectedCat
+                Case "General Certifications"
+                    reports_doctypecombo.Items.AddRange(New Object() {"Barangay Clearance", "Certificate of Residency", "Certificate of Indigency"})
+                Case "Business & Livelihood"
+                    reports_doctypecombo.Items.AddRange(New Object() {"Business Permit Record"})
+                Case "Identity Documents"
+                    reports_doctypecombo.Items.AddRange(New Object() {"Barangay ID Record"})
+                Case "Justice & Incident Records"
+                    reports_doctypecombo.Items.AddRange(New Object() {"Blotter Record", "Derogatory Record", "Others"})
+                Case "Internal Administration"
+                    reports_doctypecombo.Items.AddRange(New Object() {"Minutes of Meeting", "Official Letter"})
+            End Select
+        End If
+
+        reports_doctypecombo.SelectedIndex = 0 ' Auto-select "All" for the new category
+        DisplayReportsData()
+    End Sub
+    Private Sub DisplayReportsData()
+        Try
+            Dim query As String = "SELECT d.ReferenceNumber, " &
+                              "(r.FirstName + ' ' + ISNULL(r.MiddleName + ' ', '') + r.LastName) AS FullName, " &
+                              "d.Category, d.DocumentType, d.RequestDate, u.FullName AS ProcessedBy " &
+                              "FROM Documents_tbl d " &
+                              "INNER JOIN Resident_Master_tbl r ON d.ResidentID = r.ResidentID " &
+                              "LEFT JOIN Users_tbl u ON d.ProcessedBy = u.UserID " &
+                              "WHERE d.Status = 'Archived'"
+
+            Dim parameters As New List(Of SqlParameter)()
+
+            Dim searchTerm As String = reports_searchbar.Text.Trim()
+            If Not String.IsNullOrEmpty(searchTerm) AndAlso reports_searchbtn.Text = "Clear" Then
+                query &= " AND (r.FirstName LIKE @Search OR r.LastName LIKE @Search OR d.ReferenceNumber LIKE @Search)"
+                parameters.Add(New SqlParameter("@Search", "%" & searchTerm & "%"))
+            End If
+
+            ' Flaw Fixed: Only apply SQL filter if it is NOT "All"
+            If reports_doccatcombo.SelectedIndex <> -1 AndAlso reports_doccatcombo.SelectedItem.ToString() <> "All" Then
+                query &= " AND d.Category = @Category"
+                parameters.Add(New SqlParameter("@Category", reports_doccatcombo.SelectedItem.ToString()))
+            End If
+
+            If reports_doctypecombo.SelectedIndex <> -1 AndAlso reports_doctypecombo.SelectedItem.ToString() <> "All" Then
+                query &= " AND d.DocumentType = @DocType"
+                parameters.Add(New SqlParameter("@DocType", reports_doctypecombo.SelectedItem.ToString()))
+            End If
+
+            If reports_FromDTP.Checked Then
+                query &= " AND d.RequestDate >= @FromDate"
+                parameters.Add(New SqlParameter("@FromDate", reports_FromDTP.Value.Date))
+            End If
+
+            If reports_ToDTP.Checked Then
+                query &= " AND d.RequestDate <= @ToDate"
+                parameters.Add(New SqlParameter("@ToDate", reports_ToDTP.Value.Date.AddDays(1).AddTicks(-1)))
+            End If
+
+            query &= " ORDER BY d.RequestDate DESC"
+
+            Dim dt As DataTable = GlobalDatabase.GetTable(query, parameters.ToArray())
+            reports_dgv.DataSource = dt
+            ' ... (Keep your column styling logic here)
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading report data: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ApplyReportsGridDesign()
+        reports_dgv.EnableHeadersVisualStyles = False
+        reports_dgv.Font = New Font("Nirmala UI", 11.0!, FontStyle.Regular)
+        reports_dgv.RowTemplate.Height = 30
+        reports_dgv.ColumnHeadersDefaultCellStyle.Font = New Font("Nirmala UI", 11.0!, FontStyle.Bold)
+        reports_dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(3, 57, 108)
+        reports_dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        reports_dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        reports_dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        reports_dgv.DefaultCellStyle.SelectionForeColor = Color.White
+        reports_dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        reports_dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        reports_dgv.MultiSelect = False
+        reports_dgv.ReadOnly = True
+        reports_dgv.AllowUserToAddRows = False
+    End Sub
+
+    Private Sub reports_searchbtn_Click(sender As Object, e As EventArgs) Handles reports_searchbtn.Click
+        If reports_searchbtn.Text = "Clear" Then
+            reports_searchbar.Text = ""
+            reports_searchbtn.Text = "Search"
+            reports_searchbtn.BaseColor = Color.FromArgb(100, 151, 177)
+            reports_searchbtn.ForeColor = Color.White
+        Else
+            If String.IsNullOrWhiteSpace(reports_searchbar.Text) Then
+                MessageBox.Show("Please enter a name or reference number.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+            reports_searchbtn.Text = "Clear"
+            reports_searchbtn.BaseColor = Color.Gray
+            reports_searchbtn.ForeColor = Color.White
+        End If
+        DisplayReportsData()
+    End Sub
+
+    Private Sub reports_filterbtn_Click(sender As Object, e As EventArgs) Handles reports_filterbtn.Click
+        If reports_filterbtn.Text = "Clear" Then
+            reports_doccatcombo.SelectedIndex = -1
+            reports_doctypecombo.SelectedIndex = -1
+            reports_filterbtn.Text = "Filter"
+            reports_filterbtn.BaseColor = Color.FromArgb(100, 151, 177)
+            reports_filterbtn.ForeColor = Color.White
+        Else
+            If reports_doccatcombo.SelectedIndex = -1 AndAlso reports_doctypecombo.SelectedIndex = -1 Then
+                MessageBox.Show("Please select at least one filter criteria.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+            reports_filterbtn.Text = "Clear"
+            reports_filterbtn.BaseColor = Color.Gray
+            reports_filterbtn.ForeColor = Color.White
+        End If
+        DisplayReportsData()
+    End Sub
+
+    Private Sub ReportsDateFilters_ValueChanged(sender As Object, e As EventArgs) Handles reports_FromDTP.ValueChanged, reports_ToDTP.ValueChanged
+        DisplayReportsData()
+    End Sub
+
+    Private Sub reports_generatebtn_Click(sender As Object, e As EventArgs) Handles reports_generatebtn.Click
+        If reports_dgv.Rows.Count = 0 Then
+            MessageBox.Show("There is no data to generate a report. Please adjust your filters.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim confirm As DialogResult = MessageBox.Show($"Generate PDF report for {reports_dgv.Rows.Count} records?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirm = DialogResult.No Then Return
+
+        Try
+            ' 1. Create Vault Directory
+            Dim reportsVaultDir As String = "C:\BarangayArchivingVault\Reports\"
+            If Not Directory.Exists(reportsVaultDir) Then
+                Directory.CreateDirectory(reportsVaultDir)
+            End If
+
+            ' 2. Generate Unique Timestamped Filename 
+            Dim fileName As String = "SummaryReport_" & DateTime.Now.ToString("yyyyMMdd_HHmmss") & ".pdf"
+            Dim finalPath As String = Path.Combine(reportsVaultDir, fileName)
+
+            ' ==========================================
+            ' iText7 PDF DRAWING ENGINE
+            ' ==========================================
+            Dim writer As New PdfWriter(finalPath)
+            Dim pdf As New PdfDocument(writer)
+            Dim document As New Document(pdf)
+            Dim boldFont As iText.Kernel.Font.PdfFont = iText.Kernel.Font.PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA_BOLD)
+
+            ' --- HEADER SECTION ---
+            ' Use a Text object first to safely apply formatting without VB.NET compiler confusion
+            Dim titleText As New Text("BARANGAY STO. NIÑO")
+            titleText.SetFont(boldFont) ' <--- USE SETFONT INSTEAD OF SETBOLD
+
+            Dim headerTitle As New Paragraph(titleText)
+            headerTitle.SetTextAlignment(TextAlignment.CENTER)
+            headerTitle.SetFontSize(16)
+            document.Add(headerTitle)
+
+            Dim subTitle As New Paragraph("Document Archiving System - Executive Summary Report")
+            subTitle.SetTextAlignment(TextAlignment.CENTER)
+            subTitle.SetFontSize(12)
+            document.Add(subTitle)
+
+            Dim dateStr As New Paragraph("Generated On: " & DateTime.Now.ToString("MMMM dd, yyyy - hh:mm tt"))
+            dateStr.SetTextAlignment(TextAlignment.CENTER)
+            dateStr.SetFontSize(10)
+            dateStr.SetMarginBottom(20)
+            document.Add(dateStr)
+
+            ' --- DATA TABLE SECTION ---
+            ' A table with 5 proportional columns
+            Dim table As New Table(New Single() {2, 3, 3, 2, 2})
+            table.SetWidth(UnitValue.CreatePercentValue(100)) ' Stretch to full page width
+
+            ' Table Headers (Completely separated to avoid End of Statement errors)
+            Dim headers() As String = {"Ref Number", "Resident Name", "Document Type", "Date Archived", "Processed By"}
+            For Each head In headers
+                Dim headText As New Text(head)
+                headText.SetFont(boldFont) ' <--- USE SETFONT INSTEAD OF SETBOLD
+                headText.SetFontColor(iText.Kernel.Colors.ColorConstants.WHITE)
+
+                Dim headPara As New Paragraph(headText)
+
+                Dim cell As New Cell()
+                cell.Add(headPara)
+                cell.SetBackgroundColor(New iText.Kernel.Colors.DeviceRgb(3, 57, 108))
+                cell.SetTextAlignment(TextAlignment.CENTER)
+
+                table.AddHeaderCell(cell)
+            Next
+
+            ' Loop through the DGV and pull the live filtered data
+            For Each row As DataGridViewRow In reports_dgv.Rows
+                If Not row.IsNewRow Then
+                    Dim refCell As New Cell()
+                    Dim refPara As New Paragraph(row.Cells("ReferenceNumber").Value.ToString())
+                    refPara.SetFontSize(9)
+                    refCell.Add(refPara)
+                    table.AddCell(refCell)
+
+                    Dim nameCell As New Cell()
+                    Dim namePara As New Paragraph(row.Cells("FullName").Value.ToString())
+                    namePara.SetFontSize(9)
+                    nameCell.Add(namePara)
+                    table.AddCell(nameCell)
+
+                    Dim typeCell As New Cell()
+                    Dim typePara As New Paragraph(row.Cells("DocumentType").Value.ToString())
+                    typePara.SetFontSize(9)
+                    typeCell.Add(typePara)
+                    table.AddCell(typeCell)
+
+                    Dim dateCell As New Cell()
+                    Dim reqDate As DateTime = Convert.ToDateTime(row.Cells("RequestDate").Value)
+                    Dim datePara As New Paragraph(reqDate.ToString("MM/dd/yyyy"))
+                    datePara.SetFontSize(9)
+                    dateCell.Add(datePara)
+                    table.AddCell(dateCell)
+
+                    Dim userCell As New Cell()
+                    Dim userPara As New Paragraph(row.Cells("ProcessedBy").Value.ToString())
+                    userPara.SetFontSize(9)
+                    userCell.Add(userPara)
+                    table.AddCell(userCell)
+                End If
+            Next
+
+            document.Add(table)
+
+
+
+            ' --- SIGNATURE SECTION ---
+            Dim sigTable As New Table(New Single() {1, 1})
+            sigTable.SetWidth(UnitValue.CreatePercentValue(100))
+            sigTable.SetMarginTop(50)
+            sigTable.SetKeepTogether(True)
+
+            ' Left Signature (Separated into clean VB.NET lines)
+            Dim sig1Para As New Paragraph("__________________________" & vbCrLf & "Barangay Secretary")
+            sig1Para.SetTextAlignment(TextAlignment.CENTER)
+
+            Dim cell1 As New Cell()
+            cell1.Add(sig1Para)
+            cell1.SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+            sigTable.AddCell(cell1)
+
+            ' Right Signature
+            Dim sig2Para As New Paragraph("__________________________" & vbCrLf & "Hon. Barangay Chairman")
+            sig2Para.SetTextAlignment(TextAlignment.CENTER)
+
+            Dim cell2 As New Cell()
+            cell2.Add(sig2Para)
+            cell2.SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+            sigTable.AddCell(cell2)
+
+            document.Add(sigTable)
+
+            ' 3. Close and Save PDF
+            document.Close()
+
+            MessageBox.Show("Report successfully generated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' ==========================================
+            ' WEBVIEW2 PREVIEW INTEGRATION
+            ' ==========================================
+            ' Whenever you are ready to set up your WebView2, you can pass the finalPath to it here:
+            ' Await report_webview.EnsureCoreWebView2Async(Nothing)
+            ' report_webview.CoreWebView2.Navigate(finalPath)
+
+        Catch ex As Exception
+            MessageBox.Show("Critical Error generating PDF: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
     ''_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
     ' ACCOUNTS PAGE ACCOUNTS PAGE ACCOUNTS PAGE ACCOUNTS PAGE ACCOUNTS PAGE ACCOUNTS PAGE ACCOUNTS PAGE
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- 

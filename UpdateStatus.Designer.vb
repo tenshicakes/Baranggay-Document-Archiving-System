@@ -164,7 +164,9 @@ Partial Class UpdateStatus
         Me.Controls.Add(Me.updatebtn)
         Me.Controls.Add(Me.MaterialCard1)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(527, 716)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(527, 716)
         Me.Name = "UpdateStatus"
         Me.ShowIcon = False
         Me.MaterialCard1.ResumeLayout(False)

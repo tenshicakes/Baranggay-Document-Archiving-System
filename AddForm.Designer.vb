@@ -281,6 +281,7 @@ Partial Class AddForm
         Me.MinimumSize = New System.Drawing.Size(595, 609)
         Me.Name = "AddForm"
         Me.ShowIcon = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

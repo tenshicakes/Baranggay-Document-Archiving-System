@@ -188,6 +188,18 @@ Partial Class DashboardForm
         Me.homepanel = New System.Windows.Forms.Panel()
         Me.accountspanel = New System.Windows.Forms.Panel()
         Me.reportspanel = New System.Windows.Forms.Panel()
+        Me.DungeonTextBox1 = New ReaLTaiizor.Controls.DungeonTextBox()
+        Me.FoxButton1 = New ReaLTaiizor.Controls.FoxButton()
+        Me.DungeonComboBox1 = New ReaLTaiizor.Controls.DungeonComboBox()
+        Me.FoxButton2 = New ReaLTaiizor.Controls.FoxButton()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DungeonComboBox2 = New ReaLTaiizor.Controls.DungeonComboBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.MaterialCard16 = New ReaLTaiizor.Controls.MaterialCard()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.FoxButton3 = New ReaLTaiizor.Controls.FoxButton()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -260,6 +272,9 @@ Partial Class DashboardForm
         Me.formcard.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.homepanel.SuspendLayout()
+        Me.reportspanel.SuspendLayout()
+        Me.MaterialCard16.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -1062,13 +1077,13 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
-        Me.contentpanel.Controls.Add(Me.searchpanel)
+        Me.contentpanel.Controls.Add(Me.reportspanel)
         Me.contentpanel.Controls.Add(Me.archivepanel)
+        Me.contentpanel.Controls.Add(Me.searchpanel)
         Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Controls.Add(Me.accountspanel)
-        Me.contentpanel.Controls.Add(Me.reportspanel)
         Me.contentpanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.contentpanel.Location = New System.Drawing.Point(0, 0)
         Me.contentpanel.Name = "contentpanel"
@@ -2849,10 +2864,269 @@ Partial Class DashboardForm
         '
         'reportspanel
         '
-        Me.reportspanel.Location = New System.Drawing.Point(0, 0)
+        Me.reportspanel.Controls.Add(Me.FoxButton3)
+        Me.reportspanel.Controls.Add(Me.MaterialCard16)
+        Me.reportspanel.Controls.Add(Me.Label42)
+        Me.reportspanel.Controls.Add(Me.Label41)
+        Me.reportspanel.Controls.Add(Me.DateTimePicker2)
+        Me.reportspanel.Controls.Add(Me.DungeonComboBox2)
+        Me.reportspanel.Controls.Add(Me.DateTimePicker1)
+        Me.reportspanel.Controls.Add(Me.FoxButton2)
+        Me.reportspanel.Controls.Add(Me.DungeonComboBox1)
+        Me.reportspanel.Controls.Add(Me.FoxButton1)
+        Me.reportspanel.Controls.Add(Me.DungeonTextBox1)
+        Me.reportspanel.Location = New System.Drawing.Point(195, 59)
         Me.reportspanel.Name = "reportspanel"
-        Me.reportspanel.Size = New System.Drawing.Size(200, 100)
+        Me.reportspanel.Size = New System.Drawing.Size(805, 461)
         Me.reportspanel.TabIndex = 13
+        '
+        'DungeonTextBox1
+        '
+        Me.DungeonTextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonTextBox1.BackColor = System.Drawing.Color.Transparent
+        Me.DungeonTextBox1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonTextBox1.EdgeColor = System.Drawing.Color.White
+        Me.DungeonTextBox1.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.DungeonTextBox1.ForeColor = System.Drawing.Color.Black
+        Me.DungeonTextBox1.Location = New System.Drawing.Point(20, 14)
+        Me.DungeonTextBox1.MaxLength = 32767
+        Me.DungeonTextBox1.Multiline = False
+        Me.DungeonTextBox1.Name = "DungeonTextBox1"
+        Me.DungeonTextBox1.ReadOnly = False
+        Me.DungeonTextBox1.Size = New System.Drawing.Size(643, 42)
+        Me.DungeonTextBox1.TabIndex = 4
+        Me.DungeonTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left
+        Me.DungeonTextBox1.UseSystemPasswordChar = False
+        '
+        'FoxButton1
+        '
+        Me.FoxButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FoxButton1.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(193, Byte), Integer))
+        Me.FoxButton1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton1.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton1.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton1.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.FoxButton1.EnabledCalc = True
+        Me.FoxButton1.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton1.ForeColor = System.Drawing.Color.Black
+        Me.FoxButton1.Location = New System.Drawing.Point(673, 14)
+        Me.FoxButton1.Name = "FoxButton1"
+        Me.FoxButton1.OverColor = System.Drawing.Color.Gray
+        Me.FoxButton1.Size = New System.Drawing.Size(120, 42)
+        Me.FoxButton1.TabIndex = 5
+        Me.FoxButton1.Text = "Search"
+        '
+        'DungeonComboBox1
+        '
+        Me.DungeonComboBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.DungeonComboBox1.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
+        Me.DungeonComboBox1.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.DungeonComboBox1.ColorC = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.DungeonComboBox1.ColorD = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.DungeonComboBox1.ColorE = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.DungeonComboBox1.ColorF = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonComboBox1.ColorG = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.DungeonComboBox1.ColorH = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.DungeonComboBox1.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.DungeonComboBox1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DungeonComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.DungeonComboBox1.DropDownHeight = 400
+        Me.DungeonComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DungeonComboBox1.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold)
+        Me.DungeonComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.DungeonComboBox1.FormattingEnabled = True
+        Me.DungeonComboBox1.HoverSelectionColor = System.Drawing.Color.Empty
+        Me.DungeonComboBox1.IntegralHeight = False
+        Me.DungeonComboBox1.ItemHeight = 40
+        Me.DungeonComboBox1.Items.AddRange(New Object() {"test", "test", "test", "test"})
+        Me.DungeonComboBox1.Location = New System.Drawing.Point(20, 71)
+        Me.DungeonComboBox1.MaximumSize = New System.Drawing.Size(300, 0)
+        Me.DungeonComboBox1.Name = "DungeonComboBox1"
+        Me.DungeonComboBox1.Size = New System.Drawing.Size(248, 46)
+        Me.DungeonComboBox1.StartIndex = 0
+        Me.DungeonComboBox1.TabIndex = 10
+        '
+        'FoxButton2
+        '
+        Me.FoxButton2.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.FoxButton2.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton2.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.FoxButton2.BorderColor = System.Drawing.Color.Transparent
+        Me.FoxButton2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton2.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton2.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton2.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton2.DownColor = System.Drawing.Color.Gray
+        Me.FoxButton2.EnabledCalc = True
+        Me.FoxButton2.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton2.ForeColor = System.Drawing.Color.White
+        Me.FoxButton2.Location = New System.Drawing.Point(538, 74)
+        Me.FoxButton2.Name = "FoxButton2"
+        Me.FoxButton2.OverColor = System.Drawing.Color.Gray
+        Me.FoxButton2.Size = New System.Drawing.Size(120, 42)
+        Me.FoxButton2.TabIndex = 11
+        Me.FoxButton2.Text = "Search"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.CalendarForeColor = System.Drawing.Color.Black
+        Me.DateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.Black
+        Me.DateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.DateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.Black
+        Me.DateTimePicker1.Checked = False
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(22, 158)
+        Me.DateTimePicker1.MaximumSize = New System.Drawing.Size(400, 400)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.ShowCheckBox = True
+        Me.DateTimePicker1.Size = New System.Drawing.Size(169, 29)
+        Me.DateTimePicker1.TabIndex = 15
+        Me.DateTimePicker1.Value = New Date(2026, 9, 15, 3, 50, 46, 0)
+        '
+        'DungeonComboBox2
+        '
+        Me.DungeonComboBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DungeonComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.DungeonComboBox2.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
+        Me.DungeonComboBox2.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.DungeonComboBox2.ColorC = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.DungeonComboBox2.ColorD = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.DungeonComboBox2.ColorE = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.DungeonComboBox2.ColorF = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.DungeonComboBox2.ColorG = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.DungeonComboBox2.ColorH = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.DungeonComboBox2.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.DungeonComboBox2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DungeonComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.DungeonComboBox2.DropDownHeight = 400
+        Me.DungeonComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DungeonComboBox2.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold)
+        Me.DungeonComboBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.DungeonComboBox2.FormattingEnabled = True
+        Me.DungeonComboBox2.HoverSelectionColor = System.Drawing.Color.Empty
+        Me.DungeonComboBox2.IntegralHeight = False
+        Me.DungeonComboBox2.ItemHeight = 40
+        Me.DungeonComboBox2.Items.AddRange(New Object() {"test", "test", "test", "test"})
+        Me.DungeonComboBox2.Location = New System.Drawing.Point(280, 71)
+        Me.DungeonComboBox2.MaximumSize = New System.Drawing.Size(300, 0)
+        Me.DungeonComboBox2.Name = "DungeonComboBox2"
+        Me.DungeonComboBox2.Size = New System.Drawing.Size(248, 46)
+        Me.DungeonComboBox2.StartIndex = 0
+        Me.DungeonComboBox2.TabIndex = 16
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.CalendarForeColor = System.Drawing.Color.Black
+        Me.DateTimePicker2.CalendarTitleBackColor = System.Drawing.Color.Black
+        Me.DateTimePicker2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.DateTimePicker2.CalendarTrailingForeColor = System.Drawing.Color.Black
+        Me.DateTimePicker2.Checked = False
+        Me.DateTimePicker2.Font = New System.Drawing.Font("Nirmala UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(197, 158)
+        Me.DateTimePicker2.MaximumSize = New System.Drawing.Size(400, 400)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.ShowCheckBox = True
+        Me.DateTimePicker2.Size = New System.Drawing.Size(169, 29)
+        Me.DateTimePicker2.TabIndex = 17
+        Me.DateTimePicker2.Value = New Date(2026, 9, 15, 3, 50, 46, 0)
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Font = New System.Drawing.Font("Nirmala UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.ForeColor = System.Drawing.Color.White
+        Me.Label41.Location = New System.Drawing.Point(17, 131)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(59, 25)
+        Me.Label41.TabIndex = 28
+        Me.Label41.Text = "From"
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Font = New System.Drawing.Font("Nirmala UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.ForeColor = System.Drawing.Color.White
+        Me.Label42.Location = New System.Drawing.Point(192, 131)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(33, 25)
+        Me.Label42.TabIndex = 29
+        Me.Label42.Text = "To"
+        '
+        'MaterialCard16
+        '
+        Me.MaterialCard16.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MaterialCard16.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard16.Controls.Add(Me.DataGridView1)
+        Me.MaterialCard16.Depth = 0
+        Me.MaterialCard16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialCard16.Location = New System.Drawing.Point(22, 199)
+        Me.MaterialCard16.Margin = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard16.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
+        Me.MaterialCard16.Name = "MaterialCard16"
+        Me.MaterialCard16.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard16.Size = New System.Drawing.Size(768, 194)
+        Me.MaterialCard16.TabIndex = 30
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.GridColor = System.Drawing.Color.White
+        Me.DataGridView1.Location = New System.Drawing.Point(14, 14)
+        Me.DataGridView1.MultiSelect = False
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.ShowCellToolTips = False
+        Me.DataGridView1.ShowEditingIcon = False
+        Me.DataGridView1.ShowRowErrors = False
+        Me.DataGridView1.Size = New System.Drawing.Size(740, 166)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'FoxButton3
+        '
+        Me.FoxButton3.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.FoxButton3.BackColor = System.Drawing.Color.Transparent
+        Me.FoxButton3.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.FoxButton3.BorderColor = System.Drawing.Color.Transparent
+        Me.FoxButton3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.FoxButton3.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.FoxButton3.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.FoxButton3.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.FoxButton3.DownColor = System.Drawing.Color.Gray
+        Me.FoxButton3.EnabledCalc = True
+        Me.FoxButton3.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoxButton3.ForeColor = System.Drawing.Color.White
+        Me.FoxButton3.Location = New System.Drawing.Point(20, 404)
+        Me.FoxButton3.Name = "FoxButton3"
+        Me.FoxButton3.OverColor = System.Drawing.Color.Gray
+        Me.FoxButton3.Size = New System.Drawing.Size(770, 42)
+        Me.FoxButton3.TabIndex = 31
+        Me.FoxButton3.Text = "Generate Report"
         '
         'DashboardForm
         '
@@ -2961,6 +3235,10 @@ Partial Class DashboardForm
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.homepanel.ResumeLayout(False)
         Me.homepanel.PerformLayout()
+        Me.reportspanel.ResumeLayout(False)
+        Me.reportspanel.PerformLayout()
+        Me.MaterialCard16.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3130,4 +3408,16 @@ Partial Class DashboardForm
     Friend WithEvents search_refnumber As Label
     Friend WithEvents search_pdfpreview As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents search_warninglabel As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents DungeonComboBox2 As ReaLTaiizor.Controls.DungeonComboBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents FoxButton2 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents DungeonComboBox1 As ReaLTaiizor.Controls.DungeonComboBox
+    Friend WithEvents FoxButton1 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents DungeonTextBox1 As ReaLTaiizor.Controls.DungeonTextBox
+    Friend WithEvents FoxButton3 As ReaLTaiizor.Controls.FoxButton
+    Friend WithEvents MaterialCard16 As ReaLTaiizor.Controls.MaterialCard
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label42 As Label
 End Class

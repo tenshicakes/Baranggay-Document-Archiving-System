@@ -659,7 +659,16 @@ Public Class DashboardForm
         archivebtn.BaseColor = Color.FromArgb(100, 151, 177)
         archivebtn.ForeColor = Color.White
         archive_residentnamelbl.Text = "NO USER SELECTED"
+        archive_residentnamelbl.Enabled = False
+        ornumber_txtbox.Enabled = False
+        attachfilebtn.Enabled = False
+
+
     End Sub
+
+
+
+
 
     Public Sub DisplayApprovedRequestData(Optional searchTerm As String = "")
         Try
@@ -752,7 +761,9 @@ Public Class DashboardForm
         SelectedArchiveCategory = selectedRow.Cells("Category").Value.ToString()
 
         SelectedArchiveDocID = Convert.ToInt32(selectedRow.Cells("DocumentID").Value)
-
+        archive_residentnamelbl.Enabled = True
+        ornumber_txtbox.Enabled = True
+        attachfilebtn.Enabled = True
         archive_residentnamelbl.Text = selectedRow.Cells("FullName").Value.ToString()
 
     End Sub
@@ -840,7 +851,7 @@ Public Class DashboardForm
             File.Copy(SelectedScannedFilePath, finalFilePath, overwrite:=False)
 
             ' ==========================================
-            ' NEW LOGIC: DEROGATORY RECORD INSERTION
+            '  DEROGATORY RECORD INSERTION
             ' ==========================================
             If SelectedArchiveCategory = "Justice & Incident Records" Then
                 ' Grab the ResidentID tied to this specific Document request
@@ -880,6 +891,9 @@ Public Class DashboardForm
                 SelectedScannedFilePath = ""
                 ornumber_txtbox.Text = ""
                 archive_residentnamelbl.Text = "NO USER SELECTED"
+                archive_residentnamelbl.Enabled = False
+                ornumber_txtbox.Enabled = False
+                attachfilebtn.Enabled = False
 
                 DisplayApprovedRequestData()
             Else

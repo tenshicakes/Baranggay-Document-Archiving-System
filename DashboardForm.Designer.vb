@@ -186,6 +186,7 @@ Partial Class DashboardForm
         Me.reportspanel = New System.Windows.Forms.Panel()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.search_refnumber = New System.Windows.Forms.Label()
+        Me.search_pdfpreview = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -241,6 +242,7 @@ Partial Class DashboardForm
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.archiveddgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard14.SuspendLayout()
+        Me.MaterialCard15.SuspendLayout()
         Me.archivepanel.SuspendLayout()
         CType(Me.Archive_ContentSplit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Archive_ContentSplit.Panel1.SuspendLayout()
@@ -256,6 +258,7 @@ Partial Class DashboardForm
         Me.MaterialCard12.SuspendLayout()
         CType(Me.pdfpreview_webview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.homepanel.SuspendLayout()
+        CType(Me.search_pdfpreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -2375,13 +2378,14 @@ Partial Class DashboardForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MaterialCard15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard15.Controls.Add(Me.search_pdfpreview)
         Me.MaterialCard15.Depth = 0
         Me.MaterialCard15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MaterialCard15.Location = New System.Drawing.Point(22, 225)
         Me.MaterialCard15.Margin = New System.Windows.Forms.Padding(14)
         Me.MaterialCard15.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER
         Me.MaterialCard15.Name = "MaterialCard15"
-        Me.MaterialCard15.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard15.Padding = New System.Windows.Forms.Padding(7)
         Me.MaterialCard15.Size = New System.Drawing.Size(333, 142)
         Me.MaterialCard15.TabIndex = 33
         '
@@ -2810,9 +2814,9 @@ Partial Class DashboardForm
         Me.Label40.ForeColor = System.Drawing.Color.Black
         Me.Label40.Location = New System.Drawing.Point(19, 158)
         Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(101, 21)
+        Me.Label40.Size = New System.Drawing.Size(141, 21)
         Me.Label40.TabIndex = 38
-        Me.Label40.Text = "Processed By"
+        Me.Label40.Text = "Reference Number"
         '
         'search_refnumber
         '
@@ -2825,6 +2829,18 @@ Partial Class DashboardForm
         Me.search_refnumber.Size = New System.Drawing.Size(37, 21)
         Me.search_refnumber.TabIndex = 39
         Me.search_refnumber.Text = "xxx"
+        '
+        'search_pdfpreview
+        '
+        Me.search_pdfpreview.AllowExternalDrop = True
+        Me.search_pdfpreview.CreationProperties = Nothing
+        Me.search_pdfpreview.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.search_pdfpreview.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.search_pdfpreview.Location = New System.Drawing.Point(7, 7)
+        Me.search_pdfpreview.Name = "search_pdfpreview"
+        Me.search_pdfpreview.Size = New System.Drawing.Size(319, 128)
+        Me.search_pdfpreview.TabIndex = 0
+        Me.search_pdfpreview.ZoomFactor = 1.0R
         '
         'DashboardForm
         '
@@ -2913,6 +2929,7 @@ Partial Class DashboardForm
         CType(Me.archiveddgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MaterialCard14.ResumeLayout(False)
         Me.MaterialCard14.PerformLayout()
+        Me.MaterialCard15.ResumeLayout(False)
         Me.archivepanel.ResumeLayout(False)
         Me.Archive_ContentSplit.Panel1.ResumeLayout(False)
         Me.Archive_ContentSplit.Panel1.PerformLayout()
@@ -2931,6 +2948,7 @@ Partial Class DashboardForm
         CType(Me.pdfpreview_webview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.homepanel.ResumeLayout(False)
         Me.homepanel.PerformLayout()
+        CType(Me.search_pdfpreview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3098,4 +3116,5 @@ Partial Class DashboardForm
     Friend WithEvents approvebtn As ReaLTaiizor.Controls.FoxButton
     Friend WithEvents Label40 As Label
     Friend WithEvents search_refnumber As Label
+    Friend WithEvents search_pdfpreview As Microsoft.Web.WebView2.WinForms.WebView2
 End Class

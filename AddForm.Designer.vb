@@ -174,7 +174,7 @@ Partial Class AddForm
         Me.addbtn.Location = New System.Drawing.Point(301, 491)
         Me.addbtn.Name = "addbtn"
         Me.addbtn.OverColor = System.Drawing.Color.Gray
-        Me.addbtn.Size = New System.Drawing.Size(229, 42)
+        Me.addbtn.Size = New System.Drawing.Size(229, 51)
         Me.addbtn.TabIndex = 30
         Me.addbtn.Text = "Add Account"
         '
@@ -254,7 +254,7 @@ Partial Class AddForm
         Me.cancelbtn.Location = New System.Drawing.Point(48, 491)
         Me.cancelbtn.Name = "cancelbtn"
         Me.cancelbtn.OverColor = System.Drawing.Color.Gray
-        Me.cancelbtn.Size = New System.Drawing.Size(229, 42)
+        Me.cancelbtn.Size = New System.Drawing.Size(229, 51)
         Me.cancelbtn.TabIndex = 36
         Me.cancelbtn.Text = "Cancel"
         '

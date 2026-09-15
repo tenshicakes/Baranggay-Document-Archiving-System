@@ -3,6 +3,7 @@ Imports System.Drawing
 Imports System.Text.RegularExpressions
 Imports System.IO
 Imports System.Threading.Tasks
+Imports System.Diagnostics
 
 
 Public Class DashboardForm
@@ -12,6 +13,7 @@ Public Class DashboardForm
     Private SelectedArchiveDocID As Integer
     Private SelectedScannedFilePath As String = ""
     Private SelectedArchiveCategory As String = ""
+    Private CurrentViewedFilePath As String = ""
 
     Public Sub New(userID As Integer, role As String, name As String)
         InitializeComponent()
@@ -1044,6 +1046,72 @@ Public Class DashboardForm
 
     Private Sub DateFilters_ValueChanged(sender As Object, e As EventArgs) Handles search_FromDate.ValueChanged, search_ToDate.ValueChanged
         LoadArchivedData()
+    End Sub
+
+    Private Async Sub viewdocbtn_Click(sender As Object, e As EventArgs) Handles viewdocbtn.Click
+        ' Guardrail: Ensure a row is selected
+        If archiveddgv.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select an archived record from the list.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = archiveddgv.SelectedRows(0)
+
+        ' Extract the required text data (Handling Nulls flawlessly)
+        Dim fullName As String = selectedRow.Cells("FullName").Value.ToString()
+        Dim refNumber As String = selectedRow.Cells("ReferenceNumber").Value.ToString()
+
+        ' NA if ORnumber column is empty or null
+        Dim orNumber As String = If(IsDBNull(selectedRow.Cells("ORNumber").Value) OrElse String.IsNullOrWhiteSpace(selectedRow.Cells("ORNumber").Value.ToString()), "N/A", selectedRow.Cells("ORNumber").Value.ToString())
+
+        ' Just in case an account was permanently deleted (though soft-delete prevents this)
+        Dim processedBy As String = If(IsDBNull(selectedRow.Cells("ProcessedByName").Value) OrElse String.IsNullOrWhiteSpace(selectedRow.Cells("ProcessedByName").Value.ToString()), "Unknown Staff", selectedRow.Cells("ProcessedByName").Value.ToString())
+
+        ' Lock in the file path globally
+        CurrentViewedFilePath = selectedRow.Cells("FilePath").Value.ToString()
+
+        search_residentnamelbl.Text = fullName
+        search_refnumber.Text = refNumber
+        search_ornumber.Text = orNumber
+        search_processedby.Text = processedBy
+
+        ' If file is missing or deleted
+        If System.IO.File.Exists(CurrentViewedFilePath) Then
+            search_warninglabel.Visible = False
+            search_pdfpreview.Visible = True
+
+            Try
+
+                Await search_pdfpreview.EnsureCoreWebView2Async(Nothing)
+                search_pdfpreview.CoreWebView2.Navigate(CurrentViewedFilePath)
+            Catch ex As Exception
+                MessageBox.Show("Error loading the PDF viewer: " & ex.Message, "Viewer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            search_pdfpreview.Visible = False
+            search_warninglabel.Text = "Document is missing."
+            search_warninglabel.ForeColor = Color.Red
+            search_warninglabel.Visible = True
+        End If
+    End Sub
+
+    Private Sub opendocbtn_Click(sender As Object, e As EventArgs) Handles opendocbtn.Click
+
+        If String.IsNullOrEmpty(CurrentViewedFilePath) Then
+            MessageBox.Show("Please select and view a document first.", "No Document Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        If Not System.IO.File.Exists(CurrentViewedFilePath) Then
+            MessageBox.Show("Cannot locate the file in Windows because the physical PDF is missing.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        Try
+            Process.Start("explorer.exe", $"/select, ""{CurrentViewedFilePath}""")
+        Catch ex As Exception
+            MessageBox.Show("Failed to open File Explorer: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
 

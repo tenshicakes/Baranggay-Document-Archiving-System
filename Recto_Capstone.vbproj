@@ -214,6 +214,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddForm.Designer.vb">
+      <DependentUpon>AddForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DashboardForm.Designer.vb">
       <DependentUpon>DashboardForm.vb</DependentUpon>
     </Compile>
@@ -257,6 +263,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddForm.resx">
+      <DependentUpon>AddForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.vb</DependentUpon>
     </EmbeddedResource>

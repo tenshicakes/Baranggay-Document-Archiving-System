@@ -998,6 +998,7 @@ Partial Class DashboardForm
         '
         'Label11
         '
+        Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Nirmala UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
@@ -1089,12 +1090,12 @@ Partial Class DashboardForm
         'contentpanel
         '
         Me.contentpanel.Controls.Add(Me.accountspanel)
+        Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Controls.Add(Me.reportspanel)
         Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.searchpanel)
         Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
-        Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.contentpanel.Location = New System.Drawing.Point(0, 0)
         Me.contentpanel.Name = "contentpanel"
@@ -1124,14 +1125,14 @@ Partial Class DashboardForm
         Me.accounts_deacbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.accounts_deacbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.accounts_deacbtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.accounts_deacbtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.accounts_deacbtn.DownColor = System.Drawing.Color.Gray
         Me.accounts_deacbtn.EnabledCalc = True
         Me.accounts_deacbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.accounts_deacbtn.ForeColor = System.Drawing.Color.White
         Me.accounts_deacbtn.Location = New System.Drawing.Point(8, 266)
         Me.accounts_deacbtn.MaximumSize = New System.Drawing.Size(184, 123)
         Me.accounts_deacbtn.Name = "accounts_deacbtn"
-        Me.accounts_deacbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.accounts_deacbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
         Me.accounts_deacbtn.Size = New System.Drawing.Size(184, 123)
         Me.accounts_deacbtn.TabIndex = 35
         Me.accounts_deacbtn.Text = "De-activate"
@@ -1146,14 +1147,14 @@ Partial Class DashboardForm
         Me.accounts_editbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.accounts_editbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.accounts_editbtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.accounts_editbtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.accounts_editbtn.DownColor = System.Drawing.Color.Gray
         Me.accounts_editbtn.EnabledCalc = True
         Me.accounts_editbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.accounts_editbtn.ForeColor = System.Drawing.Color.White
         Me.accounts_editbtn.Location = New System.Drawing.Point(8, 137)
         Me.accounts_editbtn.MaximumSize = New System.Drawing.Size(184, 123)
         Me.accounts_editbtn.Name = "accounts_editbtn"
-        Me.accounts_editbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.accounts_editbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
         Me.accounts_editbtn.Size = New System.Drawing.Size(184, 123)
         Me.accounts_editbtn.TabIndex = 34
         Me.accounts_editbtn.Text = "Edit Account "
@@ -1168,14 +1169,14 @@ Partial Class DashboardForm
         Me.accounts_addbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.accounts_addbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.accounts_addbtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.accounts_addbtn.DownColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.accounts_addbtn.DownColor = System.Drawing.Color.Gray
         Me.accounts_addbtn.EnabledCalc = True
         Me.accounts_addbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.accounts_addbtn.ForeColor = System.Drawing.Color.White
         Me.accounts_addbtn.Location = New System.Drawing.Point(8, 8)
         Me.accounts_addbtn.MaximumSize = New System.Drawing.Size(184, 123)
         Me.accounts_addbtn.Name = "accounts_addbtn"
-        Me.accounts_addbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.accounts_addbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
         Me.accounts_addbtn.Size = New System.Drawing.Size(184, 123)
         Me.accounts_addbtn.TabIndex = 33
         Me.accounts_addbtn.Text = "Add Account"

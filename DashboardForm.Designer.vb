@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class DashboardForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class DashboardForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashboardForm))
         Me.navbarpanel = New System.Windows.Forms.Panel()
@@ -82,12 +82,14 @@ Partial Class DashboardForm
         Me.approvedreqdgv = New System.Windows.Forms.DataGridView()
         Me.contentpanel = New System.Windows.Forms.Panel()
         Me.accountspanel = New System.Windows.Forms.Panel()
+        Me.accounts_reacbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.accounts_deacbtn = New ReaLTaiizor.Controls.FoxButton()
-        Me.accounts_editbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.accounts_addbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.Label43 = New System.Windows.Forms.Label()
+        Me.accounts_editbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.MaterialCard17 = New ReaLTaiizor.Controls.MaterialCard()
         Me.accounts_dgv = New System.Windows.Forms.DataGridView()
+        Me.homepanel = New System.Windows.Forms.Panel()
         Me.reportspanel = New System.Windows.Forms.Panel()
         Me.reports_generatebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.MaterialCard16 = New ReaLTaiizor.Controls.MaterialCard()
@@ -205,8 +207,6 @@ Partial Class DashboardForm
         Me.firstnametxtbox = New ReaLTaiizor.Controls.DungeonTextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.homepanel = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.navbarpanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -239,6 +239,7 @@ Partial Class DashboardForm
         Me.accountspanel.SuspendLayout()
         Me.MaterialCard17.SuspendLayout()
         CType(Me.accounts_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.homepanel.SuspendLayout()
         Me.reportspanel.SuspendLayout()
         Me.MaterialCard16.SuspendLayout()
         CType(Me.reports_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -284,8 +285,6 @@ Partial Class DashboardForm
         Me.registerformpanel.SuspendLayout()
         Me.formcard.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.homepanel.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'navbarpanel
@@ -1089,8 +1088,8 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
-        Me.contentpanel.Controls.Add(Me.accountspanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
+        Me.contentpanel.Controls.Add(Me.accountspanel)
         Me.contentpanel.Controls.Add(Me.reportspanel)
         Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.searchpanel)
@@ -1107,16 +1106,42 @@ Partial Class DashboardForm
         Me.accountspanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.accountspanel.Controls.Add(Me.TableLayoutPanel3)
+        Me.accountspanel.Controls.Add(Me.accounts_reacbtn)
+        Me.accountspanel.Controls.Add(Me.accounts_deacbtn)
+        Me.accountspanel.Controls.Add(Me.accounts_addbtn)
         Me.accountspanel.Controls.Add(Me.Label43)
+        Me.accountspanel.Controls.Add(Me.accounts_editbtn)
         Me.accountspanel.Controls.Add(Me.MaterialCard17)
         Me.accountspanel.Location = New System.Drawing.Point(195, 59)
         Me.accountspanel.Name = "accountspanel"
         Me.accountspanel.Size = New System.Drawing.Size(805, 461)
         Me.accountspanel.TabIndex = 13
         '
+        'accounts_reacbtn
+        '
+        Me.accounts_reacbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.accounts_reacbtn.BackColor = System.Drawing.Color.Transparent
+        Me.accounts_reacbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.accounts_reacbtn.BorderColor = System.Drawing.Color.Transparent
+        Me.accounts_reacbtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.accounts_reacbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.accounts_reacbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.accounts_reacbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.accounts_reacbtn.DownColor = System.Drawing.Color.Gray
+        Me.accounts_reacbtn.EnabledCalc = True
+        Me.accounts_reacbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.accounts_reacbtn.ForeColor = System.Drawing.Color.White
+        Me.accounts_reacbtn.Location = New System.Drawing.Point(606, 323)
+        Me.accounts_reacbtn.MaximumSize = New System.Drawing.Size(184, 123)
+        Me.accounts_reacbtn.Name = "accounts_reacbtn"
+        Me.accounts_reacbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.accounts_reacbtn.Size = New System.Drawing.Size(184, 82)
+        Me.accounts_reacbtn.TabIndex = 36
+        Me.accounts_reacbtn.Text = "Re-activate"
+        '
         'accounts_deacbtn
         '
+        Me.accounts_deacbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.accounts_deacbtn.BackColor = System.Drawing.Color.Transparent
         Me.accounts_deacbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
         Me.accounts_deacbtn.BorderColor = System.Drawing.Color.Transparent
@@ -1124,43 +1149,21 @@ Partial Class DashboardForm
         Me.accounts_deacbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.accounts_deacbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.accounts_deacbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.accounts_deacbtn.Dock = System.Windows.Forms.DockStyle.Fill
         Me.accounts_deacbtn.DownColor = System.Drawing.Color.Gray
         Me.accounts_deacbtn.EnabledCalc = True
         Me.accounts_deacbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.accounts_deacbtn.ForeColor = System.Drawing.Color.White
-        Me.accounts_deacbtn.Location = New System.Drawing.Point(8, 266)
+        Me.accounts_deacbtn.Location = New System.Drawing.Point(606, 232)
         Me.accounts_deacbtn.MaximumSize = New System.Drawing.Size(184, 123)
         Me.accounts_deacbtn.Name = "accounts_deacbtn"
         Me.accounts_deacbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.accounts_deacbtn.Size = New System.Drawing.Size(184, 123)
+        Me.accounts_deacbtn.Size = New System.Drawing.Size(184, 82)
         Me.accounts_deacbtn.TabIndex = 35
         Me.accounts_deacbtn.Text = "De-activate"
         '
-        'accounts_editbtn
-        '
-        Me.accounts_editbtn.BackColor = System.Drawing.Color.Transparent
-        Me.accounts_editbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.accounts_editbtn.BorderColor = System.Drawing.Color.Transparent
-        Me.accounts_editbtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.accounts_editbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.accounts_editbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.accounts_editbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.accounts_editbtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.accounts_editbtn.DownColor = System.Drawing.Color.Gray
-        Me.accounts_editbtn.EnabledCalc = True
-        Me.accounts_editbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.accounts_editbtn.ForeColor = System.Drawing.Color.White
-        Me.accounts_editbtn.Location = New System.Drawing.Point(8, 137)
-        Me.accounts_editbtn.MaximumSize = New System.Drawing.Size(184, 123)
-        Me.accounts_editbtn.Name = "accounts_editbtn"
-        Me.accounts_editbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.accounts_editbtn.Size = New System.Drawing.Size(184, 123)
-        Me.accounts_editbtn.TabIndex = 34
-        Me.accounts_editbtn.Text = "Edit Account "
-        '
         'accounts_addbtn
         '
+        Me.accounts_addbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.accounts_addbtn.BackColor = System.Drawing.Color.Transparent
         Me.accounts_addbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
         Me.accounts_addbtn.BorderColor = System.Drawing.Color.Transparent
@@ -1168,16 +1171,15 @@ Partial Class DashboardForm
         Me.accounts_addbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.accounts_addbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.accounts_addbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
-        Me.accounts_addbtn.Dock = System.Windows.Forms.DockStyle.Fill
         Me.accounts_addbtn.DownColor = System.Drawing.Color.Gray
         Me.accounts_addbtn.EnabledCalc = True
         Me.accounts_addbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.accounts_addbtn.ForeColor = System.Drawing.Color.White
-        Me.accounts_addbtn.Location = New System.Drawing.Point(8, 8)
+        Me.accounts_addbtn.Location = New System.Drawing.Point(606, 51)
         Me.accounts_addbtn.MaximumSize = New System.Drawing.Size(184, 123)
         Me.accounts_addbtn.Name = "accounts_addbtn"
         Me.accounts_addbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.accounts_addbtn.Size = New System.Drawing.Size(184, 123)
+        Me.accounts_addbtn.Size = New System.Drawing.Size(184, 82)
         Me.accounts_addbtn.TabIndex = 33
         Me.accounts_addbtn.Text = "Add Account"
         '
@@ -1191,6 +1193,28 @@ Partial Class DashboardForm
         Me.Label43.Size = New System.Drawing.Size(278, 32)
         Me.Label43.TabIndex = 32
         Me.Label43.Text = "Accounts Management"
+        '
+        'accounts_editbtn
+        '
+        Me.accounts_editbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.accounts_editbtn.BackColor = System.Drawing.Color.Transparent
+        Me.accounts_editbtn.BaseColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.accounts_editbtn.BorderColor = System.Drawing.Color.Transparent
+        Me.accounts_editbtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.accounts_editbtn.DisabledBaseColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.accounts_editbtn.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.accounts_editbtn.DisabledTextColor = System.Drawing.Color.FromArgb(CType(CType(166, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.accounts_editbtn.DownColor = System.Drawing.Color.Gray
+        Me.accounts_editbtn.EnabledCalc = True
+        Me.accounts_editbtn.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.accounts_editbtn.ForeColor = System.Drawing.Color.White
+        Me.accounts_editbtn.Location = New System.Drawing.Point(606, 142)
+        Me.accounts_editbtn.MaximumSize = New System.Drawing.Size(184, 123)
+        Me.accounts_editbtn.Name = "accounts_editbtn"
+        Me.accounts_editbtn.OverColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.accounts_editbtn.Size = New System.Drawing.Size(184, 82)
+        Me.accounts_editbtn.TabIndex = 34
+        Me.accounts_editbtn.Text = "Edit Account "
         '
         'MaterialCard17
         '
@@ -1231,6 +1255,25 @@ Partial Class DashboardForm
         Me.accounts_dgv.ShowRowErrors = False
         Me.accounts_dgv.Size = New System.Drawing.Size(544, 367)
         Me.accounts_dgv.TabIndex = 0
+        '
+        'homepanel
+        '
+        Me.homepanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.homepanel.Controls.Add(Me.Label11)
+        Me.homepanel.Controls.Add(Me.Label10)
+        Me.homepanel.Controls.Add(Me.RequestsDGVcontainer)
+        Me.homepanel.Controls.Add(Me.widgetpanel)
+        Me.homepanel.Controls.Add(Me.AllArchivedCard)
+        Me.homepanel.Controls.Add(Me.Label3)
+        Me.homepanel.Controls.Add(Me.AllResidentsCard)
+        Me.homepanel.Controls.Add(Me.Label2)
+        Me.homepanel.Controls.Add(Me.Label1)
+        Me.homepanel.Location = New System.Drawing.Point(195, 59)
+        Me.homepanel.Name = "homepanel"
+        Me.homepanel.Size = New System.Drawing.Size(805, 461)
+        Me.homepanel.TabIndex = 0
         '
         'reportspanel
         '
@@ -3239,44 +3282,6 @@ Partial Class DashboardForm
         Me.Label13.TabIndex = 6
         Me.Label13.Text = "Register a resident"
         '
-        'homepanel
-        '
-        Me.homepanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.homepanel.Controls.Add(Me.Label11)
-        Me.homepanel.Controls.Add(Me.Label10)
-        Me.homepanel.Controls.Add(Me.RequestsDGVcontainer)
-        Me.homepanel.Controls.Add(Me.widgetpanel)
-        Me.homepanel.Controls.Add(Me.AllArchivedCard)
-        Me.homepanel.Controls.Add(Me.Label3)
-        Me.homepanel.Controls.Add(Me.AllResidentsCard)
-        Me.homepanel.Controls.Add(Me.Label2)
-        Me.homepanel.Controls.Add(Me.Label1)
-        Me.homepanel.Location = New System.Drawing.Point(195, 59)
-        Me.homepanel.Name = "homepanel"
-        Me.homepanel.Size = New System.Drawing.Size(805, 461)
-        Me.homepanel.TabIndex = 0
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel3.ColumnCount = 1
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.accounts_addbtn, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.accounts_deacbtn, 0, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.accounts_editbtn, 0, 1)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(597, 49)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.Padding = New System.Windows.Forms.Padding(5)
-        Me.TableLayoutPanel3.RowCount = 3
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(200, 398)
-        Me.TableLayoutPanel3.TabIndex = 36
-        '
         'DashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3334,6 +3339,8 @@ Partial Class DashboardForm
         Me.accountspanel.PerformLayout()
         Me.MaterialCard17.ResumeLayout(False)
         CType(Me.accounts_dgv, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.homepanel.ResumeLayout(False)
+        Me.homepanel.PerformLayout()
         Me.reportspanel.ResumeLayout(False)
         Me.reportspanel.PerformLayout()
         Me.MaterialCard16.ResumeLayout(False)
@@ -3390,9 +3397,6 @@ Partial Class DashboardForm
         Me.formcard.ResumeLayout(False)
         Me.formcard.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.homepanel.ResumeLayout(False)
-        Me.homepanel.PerformLayout()
-        Me.TableLayoutPanel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -3580,5 +3584,5 @@ Partial Class DashboardForm
     Friend WithEvents Label43 As Label
     Friend WithEvents MaterialCard17 As ReaLTaiizor.Controls.MaterialCard
     Friend WithEvents accounts_dgv As DataGridView
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents accounts_reacbtn As ReaLTaiizor.Controls.FoxButton
 End Class

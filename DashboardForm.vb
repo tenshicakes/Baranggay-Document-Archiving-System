@@ -26,7 +26,6 @@ Public Class DashboardForm
         CurrentUserID = userID
         CurrentUserRole = role
         CurrentFullName = name
-
         rolelabel.Text = role
     End Sub
 
@@ -86,6 +85,10 @@ Public Class DashboardForm
 
     '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- REFRESH EVERY GRID _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
     Public Sub RefreshEveryGrid()
+        DisplayHomeDashboardDGVs()
+        ApplyHomeGridDesign(pendingreqdgv)
+        ApplyHomeGridDesign(approvedreqdgv)
+
         DisplayResidentsData()
         ResidentsGridDesign()
         derogatorygrid.Refresh()
@@ -115,10 +118,94 @@ Public Class DashboardForm
     Private Sub homebtn_Click(sender As Object, e As EventArgs) Handles homebtn.Click
         ResetAllPanels()
         ResetAllButtons()
+        DisplayHomeDashboardDGVs()
+        ApplyHomeGridDesign(pendingreqdgv)
+        ApplyHomeGridDesign(approvedreqdgv)
         RefreshEveryGrid()
         homepanel.Visible = True
         homebtn.BaseColor = Color.FromArgb(100, 151, 177)
         homebtn.ForeColor = Color.White
+    End Sub
+
+    Public Sub DisplayHomeDashboardDGVs()
+        Try
+            ' -----------------------------------------------------
+            ' 1. LOAD PENDING REQUESTS (dgv: pendingreqdgv)
+            ' -----------------------------------------------------
+            ' Pulls all documents strictly marked as 'Pending'
+            Dim pendingQuery As String = "SELECT d.DocumentID, " &
+                                     "(r.FirstName + ' ' + ISNULL(r.MiddleName + ' ', '') + r.LastName) AS FullName, " &
+                                     "d.DocumentType, d.RequestDate " &
+                                     "FROM Documents_tbl d " &
+                                     "INNER JOIN Resident_Master_tbl r ON d.ResidentID = r.ResidentID " &
+                                     "WHERE d.Status = 'Pending' " &
+                                     "ORDER BY d.RequestDate ASC" ' Oldest requests at the top so they get priority
+
+            Dim dtPending As DataTable = GlobalDatabase.GetTable(pendingQuery)
+            pendingreqdgv.DataSource = dtPending
+
+            ' Format Pending Grid Headers & Visibility
+            If pendingreqdgv.Columns.Count > 0 Then
+                pendingreqdgv.Columns("DocumentID").Visible = False ' Hidden anchor
+                pendingreqdgv.Columns("FullName").HeaderText = "Resident Name"
+                pendingreqdgv.Columns("DocumentType").HeaderText = "Document Type"
+                pendingreqdgv.Columns("RequestDate").HeaderText = "Date Requested"
+            End If
+
+            ' -----------------------------------------------------
+            ' 2. LOAD APPROVED REQUESTS (dgv: approvedreqdgv)
+            ' -----------------------------------------------------
+            ' Pulls all documents strictly marked as 'Approved' waiting for physical archiving
+            Dim approvedQuery As String = "SELECT d.DocumentID, " &
+                                      "(r.FirstName + ' ' + ISNULL(r.MiddleName + ' ', '') + r.LastName) AS FullName, " &
+                                      "d.DocumentType, d.RequestDate " &
+                                      "FROM Documents_tbl d " &
+                                      "INNER JOIN Resident_Master_tbl r ON d.ResidentID = r.ResidentID " &
+                                      "WHERE d.Status = 'Approved' " &
+                                      "ORDER BY d.RequestDate DESC" ' Most recently approved at the top
+
+            Dim dtApproved As DataTable = GlobalDatabase.GetTable(approvedQuery)
+            approvedreqdgv.DataSource = dtApproved
+
+            ' Format Approved Grid Headers & Visibility
+            If approvedreqdgv.Columns.Count > 0 Then
+                approvedreqdgv.Columns("DocumentID").Visible = False ' Hidden anchor
+                approvedreqdgv.Columns("FullName").HeaderText = "Resident Name"
+                approvedreqdgv.Columns("DocumentType").HeaderText = "Document Type"
+                approvedreqdgv.Columns("RequestDate").HeaderText = "Date Approved"
+            End If
+
+            ' Apply unified styling to both grids
+            ApplyHomeGridDesign(pendingreqdgv)
+            ApplyHomeGridDesign(approvedreqdgv)
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading dashboard queues: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    ' ==========================================
+    ' UNIFIED GRID STYLING
+    ' ==========================================
+    Private Sub ApplyHomeGridDesign(grid As DataGridView)
+        grid.EnableHeadersVisualStyles = False
+        grid.Font = New Font("Nirmala UI", 10.0!, FontStyle.Regular)
+        grid.RowTemplate.Height = 30
+        grid.ColumnHeadersDefaultCellStyle.Font = New Font("Nirmala UI", 10.0!, FontStyle.Bold)
+        grid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(3, 57, 108)
+        grid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+
+        ' Keeping the modern selection style unified across your app
+        grid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(100, 151, 177)
+        grid.DefaultCellStyle.SelectionForeColor = Color.White
+
+        grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        grid.MultiSelect = False
+        grid.ReadOnly = True
+        grid.AllowUserToAddRows = False
+        grid.RowHeadersVisible = False ' Hides the empty left-most column for a cleaner look
     End Sub
 
 
@@ -1519,4 +1606,125 @@ Public Class DashboardForm
             DisplayAccountsData()
         End If
     End Sub
+
+    Private Sub accounts_editbtn_Click(sender As Object, e As EventArgs) Handles accounts_editbtn.Click
+        ' Guardrail: Ensure a row is actually selected
+        If accounts_dgv.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a user account to edit.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = accounts_dgv.SelectedRows(0)
+
+        ' Extract the hidden anchor (UserID) and current display data
+        Dim userID As Integer = Convert.ToInt32(selectedRow.Cells("UserID").Value)
+        Dim currentFullName As String = selectedRow.Cells("FullName").Value.ToString()
+        Dim currentUsername As String = selectedRow.Cells("Username").Value.ToString()
+        Dim currentRole As String = selectedRow.Cells("Role").Value.ToString()
+
+        ' Pass data to the popup
+        Using editPopup As New EditForm(userID, currentFullName, currentUsername, currentRole)
+            If editPopup.ShowDialog() = DialogResult.OK Then
+                DisplayAccountsData() ' Refresh the grid instantly if the update succeeded
+            End If
+        End Using
+    End Sub
+
+    Private Sub accounts_deacbtn_Click(sender As Object, e As EventArgs) Handles accounts_deacbtn.Click
+        ' Guardrail: Ensure a row is selected
+        If accounts_dgv.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a user account to deactivate.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = accounts_dgv.SelectedRows(0)
+        Dim targetUserID As Integer = Convert.ToInt32(selectedRow.Cells("UserID").Value)
+        Dim targetUsername As String = selectedRow.Cells("Username").Value.ToString()
+        Dim targetRole As String = selectedRow.Cells("Role").Value.ToString()
+        Dim currentStatus As String = selectedRow.Cells("Status").Value.ToString()
+
+        ' 1. Failsafe: Prevent deactivating an already deactivated account
+        If currentStatus = "Deactivated" Then
+            MessageBox.Show("This account is already deactivated.", "Action Unnecessary", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        ' 2. Failsafe: Prevent self-deactivation (Assuming 'CurrentUserID' is your global login variable)
+        If targetUserID = CurrentUserID Then
+            MessageBox.Show("You cannot deactivate your own active session.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            Return
+        End If
+
+        ' 3. Failsafe: Protect Administrator accounts from being deactivated
+        If targetRole.Equals("Administrator", StringComparison.OrdinalIgnoreCase) Then
+            MessageBox.Show("Administrator accounts cannot be deactivated from the system.", "Security Block", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            Return
+        End If
+
+        ' Confirmation Prompt
+        Dim result As DialogResult = MessageBox.Show($"Are you sure you want to deactivate the account for '{targetUsername}'? They will no longer be able to log in.", "Confirm Deactivation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            Try
+                ' Execute Soft Delete (Set IsActive = 0)
+                Dim query As String = "UPDATE Users_tbl SET IsActive = 0 WHERE UserID = @UserID"
+                Dim parameters As SqlParameter() = {New SqlParameter("@UserID", targetUserID)}
+
+                Dim rowsAffected As Integer = GlobalDatabase.ExecuteQuery(query, parameters)
+
+                If rowsAffected > 0 Then
+                    MessageBox.Show("User account successfully deactivated.", "Account Locked", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    DisplayAccountsData() ' Instantly refresh the grid
+                Else
+                    MessageBox.Show("Failed to deactivate account. The record may have been altered.", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show("Database error: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    Private Sub accounts_reacbtn_Click(sender As Object, e As EventArgs) Handles accounts_reacbtn.Click
+        ' Guardrail: Ensure a row is selected
+        If accounts_dgv.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a user account to reactivate.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim selectedRow As DataGridViewRow = accounts_dgv.SelectedRows(0)
+        Dim targetUserID As Integer = Convert.ToInt32(selectedRow.Cells("UserID").Value)
+        Dim targetUsername As String = selectedRow.Cells("Username").Value.ToString()
+        Dim currentStatus As String = selectedRow.Cells("Status").Value.ToString()
+
+        ' 1. Failsafe: Prevent reactivating an already active account
+        If currentStatus = "Active" Then
+            MessageBox.Show("This account is already active.", "Action Unnecessary", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        ' Confirmation Prompt
+        Dim result As DialogResult = MessageBox.Show($"Are you sure you want to reactivate the account for '{targetUsername}'? They will regain login access.", "Confirm Reactivation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            Try
+                ' Execute Reactivation (Set IsActive = 1)
+                Dim query As String = "UPDATE Users_tbl SET IsActive = 1 WHERE UserID = @UserID"
+                Dim parameters As SqlParameter() = {New SqlParameter("@UserID", targetUserID)}
+
+                Dim rowsAffected As Integer = GlobalDatabase.ExecuteQuery(query, parameters)
+
+                If rowsAffected > 0 Then
+                    MessageBox.Show("User account successfully reactivated.", "Access Restored", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    DisplayAccountsData() ' Instantly refresh the grid
+                Else
+                    MessageBox.Show("Failed to reactivate account. The record may have been altered.", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show("Database error: " & ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
 End Class

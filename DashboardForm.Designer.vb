@@ -1103,6 +1103,9 @@ Partial Class DashboardForm
         '
         'accountspanel
         '
+        Me.accountspanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.accountspanel.Controls.Add(Me.TableLayoutPanel3)
         Me.accountspanel.Controls.Add(Me.Label43)
         Me.accountspanel.Controls.Add(Me.MaterialCard17)

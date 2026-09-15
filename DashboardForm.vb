@@ -102,6 +102,9 @@ Public Class DashboardForm
 
         ApplyReportsGridDesign()
         DisplayReportsData()
+
+        ApplyAccountsGridDesign()
+        ApplyAccountsGridDesign()
     End Sub
 
 
@@ -1460,9 +1463,60 @@ Public Class DashboardForm
     Private Sub accountsbtn_Click(sender As Object, e As EventArgs) Handles accountsbtn.Click
         ResetAllPanels()
         ResetAllButtons()
+        DisplayAccountsData()
+        ApplyAccountsGridDesign()
         RefreshEveryGrid()
         accountspanel.Visible = True
         accountsbtn.BaseColor = Color.FromArgb(100, 151, 177)
         accountsbtn.ForeColor = Color.White
+    End Sub
+    Private Sub DisplayAccountsData()
+        Try
+            ' Security Guardrail: Explicitly SELECT only display columns; NEVER pull PasswordHash into the grid!
+            Dim query As String = "SELECT UserID, FullName, Username, Role, " &
+                                  "CASE WHEN IsActive = 1 THEN 'Active' ELSE 'Deactivated' END AS Status " &
+                                  "FROM Users_tbl ORDER BY FullName ASC"
+
+            Dim dt As DataTable = GlobalDatabase.GetTable(query)
+            accounts_dgv.DataSource = dt
+
+            ' Configure Visible Column Formatting
+            If accounts_dgv.Columns.Count > 0 Then
+                accounts_dgv.Columns("UserID").HeaderText = "User ID"
+                accounts_dgv.Columns("FullName").HeaderText = "Full Name"
+                accounts_dgv.Columns("Username").HeaderText = "Username"
+                accounts_dgv.Columns("Role").HeaderText = "Role / Access"
+                accounts_dgv.Columns("Status").HeaderText = "Account Status"
+            End If
+
+            ApplyAccountsGridDesign()
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading accounts list: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ApplyAccountsGridDesign()
+        accounts_dgv.EnableHeadersVisualStyles = False
+        accounts_dgv.Font = New Font("Nirmala UI", 11.0!, FontStyle.Regular)
+        accounts_dgv.RowTemplate.Height = 30
+        accounts_dgv.ColumnHeadersDefaultCellStyle.Font = New Font("Nirmala UI", 11.0!, FontStyle.Bold)
+        accounts_dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(3, 57, 108)
+        accounts_dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        accounts_dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        accounts_dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(3, 57, 108)
+        accounts_dgv.DefaultCellStyle.SelectionForeColor = Color.White
+        accounts_dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        accounts_dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        accounts_dgv.MultiSelect = False
+        accounts_dgv.ReadOnly = True
+        accounts_dgv.AllowUserToAddRows = False
+    End Sub
+    Private Sub accounts_addbtn_Click(sender As Object, e As EventArgs) Handles accounts_addbtn.Click
+        Dim AddForm As New AddForm()
+        If AddForm.ShowDialog() = DialogResult.OK Then
+
+            DisplayAccountsData()
+        End If
     End Sub
 End Class

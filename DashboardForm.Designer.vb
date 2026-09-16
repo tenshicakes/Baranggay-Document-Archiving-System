@@ -81,6 +81,7 @@ Partial Class DashboardForm
         Me.ApprovedRequestDgvContainer = New ReaLTaiizor.Controls.MaterialCard()
         Me.approvedreqdgv = New System.Windows.Forms.DataGridView()
         Me.contentpanel = New System.Windows.Forms.Panel()
+        Me.homepanel = New System.Windows.Forms.Panel()
         Me.accountspanel = New System.Windows.Forms.Panel()
         Me.accounts_reacbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.accounts_deacbtn = New ReaLTaiizor.Controls.FoxButton()
@@ -89,7 +90,6 @@ Partial Class DashboardForm
         Me.accounts_editbtn = New ReaLTaiizor.Controls.FoxButton()
         Me.MaterialCard17 = New ReaLTaiizor.Controls.MaterialCard()
         Me.accounts_dgv = New System.Windows.Forms.DataGridView()
-        Me.homepanel = New System.Windows.Forms.Panel()
         Me.reportspanel = New System.Windows.Forms.Panel()
         Me.reports_generatebtn = New ReaLTaiizor.Controls.FoxButton()
         Me.MaterialCard16 = New ReaLTaiizor.Controls.MaterialCard()
@@ -236,10 +236,10 @@ Partial Class DashboardForm
         Me.ApprovedRequestDgvContainer.SuspendLayout()
         CType(Me.approvedreqdgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.contentpanel.SuspendLayout()
+        Me.homepanel.SuspendLayout()
         Me.accountspanel.SuspendLayout()
         Me.MaterialCard17.SuspendLayout()
         CType(Me.accounts_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.homepanel.SuspendLayout()
         Me.reportspanel.SuspendLayout()
         Me.MaterialCard16.SuspendLayout()
         CType(Me.reports_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1088,18 +1088,37 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
+        Me.contentpanel.Controls.Add(Me.requestpanel)
+        Me.contentpanel.Controls.Add(Me.searchpanel)
+        Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Controls.Add(Me.accountspanel)
         Me.contentpanel.Controls.Add(Me.reportspanel)
-        Me.contentpanel.Controls.Add(Me.archivepanel)
-        Me.contentpanel.Controls.Add(Me.searchpanel)
-        Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.contentpanel.Location = New System.Drawing.Point(0, 0)
         Me.contentpanel.Name = "contentpanel"
         Me.contentpanel.Size = New System.Drawing.Size(1000, 516)
         Me.contentpanel.TabIndex = 5
+        '
+        'homepanel
+        '
+        Me.homepanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.homepanel.Controls.Add(Me.Label11)
+        Me.homepanel.Controls.Add(Me.Label10)
+        Me.homepanel.Controls.Add(Me.RequestsDGVcontainer)
+        Me.homepanel.Controls.Add(Me.widgetpanel)
+        Me.homepanel.Controls.Add(Me.AllArchivedCard)
+        Me.homepanel.Controls.Add(Me.Label3)
+        Me.homepanel.Controls.Add(Me.AllResidentsCard)
+        Me.homepanel.Controls.Add(Me.Label2)
+        Me.homepanel.Controls.Add(Me.Label1)
+        Me.homepanel.Location = New System.Drawing.Point(195, 59)
+        Me.homepanel.Name = "homepanel"
+        Me.homepanel.Size = New System.Drawing.Size(805, 461)
+        Me.homepanel.TabIndex = 0
         '
         'accountspanel
         '
@@ -1255,25 +1274,6 @@ Partial Class DashboardForm
         Me.accounts_dgv.ShowRowErrors = False
         Me.accounts_dgv.Size = New System.Drawing.Size(544, 367)
         Me.accounts_dgv.TabIndex = 0
-        '
-        'homepanel
-        '
-        Me.homepanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.homepanel.Controls.Add(Me.Label11)
-        Me.homepanel.Controls.Add(Me.Label10)
-        Me.homepanel.Controls.Add(Me.RequestsDGVcontainer)
-        Me.homepanel.Controls.Add(Me.widgetpanel)
-        Me.homepanel.Controls.Add(Me.AllArchivedCard)
-        Me.homepanel.Controls.Add(Me.Label3)
-        Me.homepanel.Controls.Add(Me.AllResidentsCard)
-        Me.homepanel.Controls.Add(Me.Label2)
-        Me.homepanel.Controls.Add(Me.Label1)
-        Me.homepanel.Location = New System.Drawing.Point(195, 59)
-        Me.homepanel.Name = "homepanel"
-        Me.homepanel.Size = New System.Drawing.Size(805, 461)
-        Me.homepanel.TabIndex = 0
         '
         'reportspanel
         '
@@ -1982,13 +1982,13 @@ Partial Class DashboardForm
         Me.search_filtercombo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.search_filtercombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.search_filtercombo.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.search_filtercombo.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.search_filtercombo.ColorA = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.search_filtercombo.ColorB = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
         Me.search_filtercombo.ColorC = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.search_filtercombo.ColorD = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.search_filtercombo.ColorE = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.search_filtercombo.ColorF = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.search_filtercombo.ColorG = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.search_filtercombo.ColorF = System.Drawing.Color.Black
+        Me.search_filtercombo.ColorG = System.Drawing.Color.Black
         Me.search_filtercombo.ColorH = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.search_filtercombo.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.search_filtercombo.Cursor = System.Windows.Forms.Cursors.Hand
@@ -2694,13 +2694,13 @@ Partial Class DashboardForm
         '
         Me.request_filtercombo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.request_filtercombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.request_filtercombo.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.request_filtercombo.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.request_filtercombo.ColorA = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.request_filtercombo.ColorB = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
         Me.request_filtercombo.ColorC = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.request_filtercombo.ColorD = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.request_filtercombo.ColorE = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.request_filtercombo.ColorF = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.request_filtercombo.ColorG = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.request_filtercombo.ColorF = System.Drawing.Color.Black
+        Me.request_filtercombo.ColorG = System.Drawing.Color.Black
         Me.request_filtercombo.ColorH = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.request_filtercombo.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.request_filtercombo.Cursor = System.Windows.Forms.Cursors.Hand
@@ -3335,12 +3335,12 @@ Partial Class DashboardForm
         Me.ApprovedRequestDgvContainer.ResumeLayout(False)
         CType(Me.approvedreqdgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.contentpanel.ResumeLayout(False)
+        Me.homepanel.ResumeLayout(False)
+        Me.homepanel.PerformLayout()
         Me.accountspanel.ResumeLayout(False)
         Me.accountspanel.PerformLayout()
         Me.MaterialCard17.ResumeLayout(False)
         CType(Me.accounts_dgv, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.homepanel.ResumeLayout(False)
-        Me.homepanel.PerformLayout()
         Me.reportspanel.ResumeLayout(False)
         Me.reportspanel.PerformLayout()
         Me.MaterialCard16.ResumeLayout(False)

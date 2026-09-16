@@ -44,7 +44,7 @@ Public Class RequestForm
             Case "Identity Documents"
                 documenttype_combo.Items.AddRange(New Object() {"Barangay ID Record"})
             Case "Justice & Incident Records"
-                documenttype_combo.Items.AddRange(New Object() {"Blotter Report", "Others"})
+                documenttype_combo.Items.AddRange(New Object() {"Blotter Record", "Derogatory Record", "Others"})
         End Select
 
         documenttype_combo.SelectedIndex = -1

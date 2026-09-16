@@ -1019,7 +1019,7 @@ Public Class DashboardForm
     Private Sub SetupArchiveExplorer()
         ' Document Type Combobox
         search_filtercombo.Items.Clear()
-        search_filtercombo.Items.AddRange(New Object() {"Barangay Clearance", "Certificate of Residency", "Certificate of Indigency", "Business Permit Record", "Barangay ID Record"})
+        search_filtercombo.Items.AddRange(New Object() {"Barangay Clearance", "Certificate of Residency", "Certificate of Indigency", "Business Permit Record", "Barangay ID Record", "Blotter Record", "Derogatory Record", "Others"})
         search_filtercombo.SelectedIndex = -1
 
         ' DatePickers start unchecked (disabled until the user specifically wants to filter by date)

@@ -1088,12 +1088,12 @@ Partial Class DashboardForm
         '
         'contentpanel
         '
+        Me.contentpanel.Controls.Add(Me.reportspanel)
         Me.contentpanel.Controls.Add(Me.requestpanel)
         Me.contentpanel.Controls.Add(Me.searchpanel)
         Me.contentpanel.Controls.Add(Me.archivepanel)
         Me.contentpanel.Controls.Add(Me.homepanel)
         Me.contentpanel.Controls.Add(Me.accountspanel)
-        Me.contentpanel.Controls.Add(Me.reportspanel)
         Me.contentpanel.Controls.Add(Me.residentspanel)
         Me.contentpanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.contentpanel.Location = New System.Drawing.Point(0, 0)
@@ -1401,13 +1401,13 @@ Partial Class DashboardForm
         'reports_doctypecombo
         '
         Me.reports_doctypecombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.reports_doctypecombo.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.reports_doctypecombo.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.reports_doctypecombo.ColorA = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.reports_doctypecombo.ColorB = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
         Me.reports_doctypecombo.ColorC = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.reports_doctypecombo.ColorD = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.reports_doctypecombo.ColorE = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.reports_doctypecombo.ColorF = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.reports_doctypecombo.ColorG = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.reports_doctypecombo.ColorF = System.Drawing.Color.Black
+        Me.reports_doctypecombo.ColorG = System.Drawing.Color.Black
         Me.reports_doctypecombo.ColorH = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.reports_doctypecombo.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.reports_doctypecombo.Cursor = System.Windows.Forms.Cursors.Hand
@@ -1469,13 +1469,13 @@ Partial Class DashboardForm
         'reports_doccatcombo
         '
         Me.reports_doccatcombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.reports_doccatcombo.ColorA = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.reports_doccatcombo.ColorB = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.reports_doccatcombo.ColorA = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
+        Me.reports_doccatcombo.ColorB = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(108, Byte), Integer))
         Me.reports_doccatcombo.ColorC = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.reports_doccatcombo.ColorD = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.reports_doccatcombo.ColorE = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.reports_doccatcombo.ColorF = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.reports_doccatcombo.ColorG = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.reports_doccatcombo.ColorF = System.Drawing.Color.Black
+        Me.reports_doccatcombo.ColorG = System.Drawing.Color.Black
         Me.reports_doccatcombo.ColorH = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.reports_doccatcombo.ColorI = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.reports_doccatcombo.Cursor = System.Windows.Forms.Cursors.Hand

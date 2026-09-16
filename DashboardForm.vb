@@ -38,7 +38,8 @@ Public Class DashboardForm
         Try
             Await pdfpreview_webview.EnsureCoreWebView2Async(Nothing)
         Catch ex As Exception
-            MessageBox.Show("Failed to initialize the PDF Viewer. Please ensure Microsoft Edge WebView2 Runtime is installed on this PC.", "Viewer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' Display the exact exception message for debugging
+            MessageBox.Show("WebView2 Init Error: " & ex.Message, "Viewer Diagnostic Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
     Private Sub DashboardForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
